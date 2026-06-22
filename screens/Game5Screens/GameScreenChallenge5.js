@@ -7,6 +7,7 @@ import {
   ScrollView,
   Modal,
   ImageBackground,
+  Dimensions,
 } from "react-native";
 import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
@@ -14,6 +15,9 @@ import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import DropDownPicker from "react-native-dropdown-picker";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
 
 const GameScreenChallenge5 = ({ navigation }) => {
   const { colors, dark } = useTheme();
@@ -181,10 +185,7 @@ const GameScreenChallenge5 = ({ navigation }) => {
         animationType="fade"
         transparent={true}
         visible={finishModal}
-        onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!finishModal);
-        }}
+        onRequestClose={() => setFinishModal(false)}
       >
         <View
           style={{
@@ -200,6 +201,7 @@ const GameScreenChallenge5 = ({ navigation }) => {
               {
                 borderColor: colors.text,
                 borderWidth: 3,
+                width: MODAL_WIDTH,
               },
             ]}
           >
@@ -209,16 +211,14 @@ const GameScreenChallenge5 = ({ navigation }) => {
               end={{ x: 1, y: 0.8 }}
               style={{
                 borderRadius: 16,
-                height: 258,
-                width: 378,
+                width: MODAL_WIDTH,
                 alignItems: "center",
               }}
             >
               <ImageBackground
                 source={require("../../Images/confetti.jpeg")}
-                imageStyle={{ opacity: 0.2 }}
-                animationType="fade"
-                style={{ width: 378, height: 318, padding: 25 }}
+                imageStyle={{ opacity: 0.2, borderRadius: 16 }}
+                style={{ alignSelf: "stretch", padding: 25, alignItems: "center" }}
               >
                 <Text
                   style={{

@@ -127,7 +127,7 @@ const GameScreenChallenge2 = ({ navigation }) => {
                     <ImageBackground
                       source={require("../../Images/confetti.jpeg")}
                       imageStyle={{ opacity: 0.2, borderRadius: 16 }}
-                      style={{ width: MODAL_WIDTH, padding: 28, alignItems: "center" }}
+                      style={{ alignSelf: "stretch", padding: 28, alignItems: "center" }}
                     >
                       <Text style={styles.modalTitle}>Congratulations!</Text>
                       <Text style={styles.modalBody}>

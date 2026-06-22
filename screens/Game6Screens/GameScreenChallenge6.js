@@ -10,6 +10,7 @@ import {
   Platform,
   Keyboard,
   TouchableWithoutFeedback,
+  Dimensions,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Text, Input, Button } from "@rneui/base";
@@ -17,6 +18,9 @@ import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { useHeaderHeight } from "@react-navigation/elements";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
 
 const GameScreenChallenge6 = ({ navigation }) => {
   const { colors, dark } = useTheme();
@@ -95,10 +99,7 @@ const GameScreenChallenge6 = ({ navigation }) => {
               animationType="fade"
               transparent={true}
               visible={finishModal}
-              onRequestClose={() => {
-                Alert.alert("Closed");
-                setModalVisible(!finishModal);
-              }}
+              onRequestClose={() => setFinishModal(false)}
             >
               <View
                 style={{
@@ -114,6 +115,7 @@ const GameScreenChallenge6 = ({ navigation }) => {
                     {
                       borderColor: colors.text,
                       borderWidth: 3,
+                      width: MODAL_WIDTH,
                     },
                   ]}
                 >
@@ -123,16 +125,14 @@ const GameScreenChallenge6 = ({ navigation }) => {
                     end={{ x: 1, y: 0.8 }}
                     style={{
                       borderRadius: 16,
-                      height: 258,
-                      width: 378,
+                      width: MODAL_WIDTH,
                       alignItems: "center",
                     }}
                   >
                     <ImageBackground
                       source={require("../../Images/confetti.jpeg")}
-                      imageStyle={{ opacity: 0.2 }}
-                      animationType="fade"
-                      style={{ width: 378, height: 318, padding: 25 }}
+                      imageStyle={{ opacity: 0.2, borderRadius: 16 }}
+                      style={{ alignSelf: "stretch", padding: 25, alignItems: "center" }}
                     >
                       <Text
                         style={{

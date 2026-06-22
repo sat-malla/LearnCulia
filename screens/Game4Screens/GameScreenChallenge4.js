@@ -10,7 +10,11 @@ import {
   Platform,
   Keyboard,
   TouchableWithoutFeedback,
+  Dimensions,
 } from "react-native";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
 import React, { useState } from "react";
 import { Text, Input, Button } from "@rneui/base";
 import { useTheme } from "../../DarkTheme/ThemeProvider";
@@ -143,16 +147,14 @@ const GameScreenChallenge4 = ({ navigation }) => {
                     end={{ x: 1, y: 0.8 }}
                     style={{
                       borderRadius: 16,
-                      height: 258,
-                      width: 378,
+                      width: MODAL_WIDTH,
                       alignItems: "center",
                     }}
                   >
                     <ImageBackground
                       source={require("../../Images/confetti.jpeg")}
-                      imageStyle={{ opacity: 0.2 }}
-                      animationType="fade"
-                      style={{ width: 378, height: 318, padding: 25 }}
+                      imageStyle={{ opacity: 0.2, borderRadius: 16 }}
+                      style={{ alignSelf: "stretch", padding: 25, alignItems: "center" }}
                     >
                       <Text
                         style={{
