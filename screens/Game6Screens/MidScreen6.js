@@ -1,41 +1,56 @@
-import { StyleSheet, Button, View, Dimensions } from "react-native";
+import { StyleSheet, TouchableOpacity, Dimensions, ScrollView } from "react-native";
 import React from "react";
 import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { Text } from "@rneui/base";
 import YoutubeIframe from "react-native-youtube-iframe";
 
-const screenWidth = Dimensions.get("screen");
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
 const MidScreen6 = ({ navigation }) => {
   const { colors } = useTheme();
 
   return (
-    <View
-      style={{
-        alignItems: "center",
-        height: "100%",
-        backgroundColor: colors.primary,
-        paddingHorizontal: 20,
-      }}
+    <ScrollView
+      style={{ backgroundColor: colors.primary }}
+      contentContainerStyle={{ alignItems: "center", paddingHorizontal: 20, paddingBottom: 40 }}
+      scrollIndicatorInsets={{ right: 1 }}
     >
-      <Text style={{ fontSize: 25, fontWeight: "bold", marginTop: 60, color: colors.text }}>Before we move on to challenge...</Text>
-      <Text style={{ fontSize: 19, marginTop: 40, color: colors.text, textAlign: "center" }}>Let's talk about organizing fractions and decimals!</Text>
-      <Text style={{ fontSize: 19, marginTop: 20, marginBottom: 20, color: colors.text, textAlign: "center" }}> Click the video below to watch!</Text>
+      <Text style={{ fontSize: 25, fontWeight: "bold", marginTop: 60, color: colors.text, textAlign: "center" }}>
+        Before we move on to challenge...
+      </Text>
+      <Text style={{ fontSize: 19, marginTop: 40, color: colors.text, textAlign: "center" }}>
+        Let's talk about organizing fractions and decimals!
+      </Text>
+      <Text style={{ fontSize: 19, marginTop: 20, marginBottom: 20, color: colors.text, textAlign: "center" }}>
+        Click the video below to watch!
+      </Text>
       <YoutubeIframe
-        height={300}
-        width={screenWidth.width - 30}
+        height={220}
+        width={SCREEN_WIDTH - 40}
         play={false}
         videoId="YtdJtlZphkA"
       />
-      <Text style={{ fontSize: 19, marginBottom: 10, color: colors.text, textAlign: "center" }}>Now, let's try some problems by clicking the button below!</Text>
-      <Button 
-        title="Click to go to game page!"
+      <Text style={{ fontSize: 19, marginTop: 20, marginBottom: 30, color: colors.text, textAlign: "center" }}>
+        Now, let's try some problems by clicking the button below!
+      </Text>
+      <TouchableOpacity
+        style={styles.startButton}
         onPress={() => navigation.navigate("GameScreenChallenge6")}
-      />
-    </View>
+      >
+        <Text style={{ fontSize: 20, fontWeight: "bold" }}>Click to go to game page!</Text>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
 export default MidScreen6;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  startButton: {
+    backgroundColor: "#6bffc6",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    alignItems: "center",
+  },
+});
