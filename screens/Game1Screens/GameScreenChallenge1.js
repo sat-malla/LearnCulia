@@ -2,19 +2,64 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-  FlatList,
   Modal,
   Pressable,
   ImageBackground,
   Image,
-  ScrollView
+  ScrollView,
+  Dimensions,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { Text } from "@rneui/base";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { useGlobalState } from "../RewardSystem.js";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
+
+// Defined outside component so they aren't recreated on every render
+const AppleImages = [
+  require("../../Images/AppleImages/oneApple.png"),
+  require("../../Images/AppleImages/twoApple.png"),
+  require("../../Images/AppleImages/threeApple.png"),
+  require("../../Images/AppleImages/fourApple.png"),
+  require("../../Images/AppleImages/fiveApple.png"),
+  require("../../Images/AppleImages/sixApple.png"),
+  require("../../Images/AppleImages/sevenApple.png"),
+  require("../../Images/AppleImages/eightApple.png"),
+  require("../../Images/AppleImages/nineApple.png"),
+  require("../../Images/AppleImages/tenApple.png"),
+];
+
+const OrangeImages = [
+  require("../../Images/OrangeImages/oneOrange.png"),
+  require("../../Images/OrangeImages/twoOrange.png"),
+  require("../../Images/OrangeImages/threeOrange.png"),
+  require("../../Images/OrangeImages/fourOrange.png"),
+  require("../../Images/OrangeImages/fiveOrange.png"),
+  require("../../Images/OrangeImages/sixOrange.png"),
+  require("../../Images/OrangeImages/sevenOrange.png"),
+  require("../../Images/OrangeImages/eightOrange.png"),
+  require("../../Images/OrangeImages/nineOrange.png"),
+  require("../../Images/OrangeImages/tenOrange.png"),
+];
+
+const BananaImages = [
+  require("../../Images/BananaImages/oneBanana.png"),
+  require("../../Images/BananaImages/twoBanana.png"),
+  require("../../Images/BananaImages/threeBanana.png"),
+  require("../../Images/BananaImages/fourBanana.png"),
+  require("../../Images/BananaImages/fiveBanana.png"),
+  require("../../Images/BananaImages/sixBanana.png"),
+  require("../../Images/BananaImages/sevenBanana.png"),
+  require("../../Images/BananaImages/eightBanana.png"),
+  require("../../Images/BananaImages/nineBanana.png"),
+  require("../../Images/BananaImages/tenBanana.png"),
+];
+
+const ALL_BUTTONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const GameScreenChallenge1 = ({ navigation }) => {
   const { colors } = useTheme();
@@ -25,92 +70,8 @@ const GameScreenChallenge1 = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const [finishModal, setFinishModal] = useState(false);
   const [image, setImage] = useState(null);
-  const [userFruit, setUserFruit] = useGlobalState("game1Fruit");
-
-  const buttons = [
-    {
-      id: "1",
-      number: 1,
-    },
-    {
-      id: "2",
-      number: 2,
-    },
-    {
-      id: "3",
-      number: 3,
-    },
-    {
-      id: "4",
-      number: 4,
-    },
-    {
-      id: "5",
-      number: 5,
-    },
-  ];
-
-  const buttons1 = [
-    {
-      id: "6",
-      number: 6,
-    },
-    {
-      id: "7",
-      number: 7,
-    },
-    {
-      id: "8",
-      number: 8,
-    },
-    {
-      id: "9",
-      number: 9,
-    },
-    {
-      id: "10",
-      number: 10,
-    },
-  ];
-
-  const AppleImages = [
-    require("../../Images/AppleImages/oneApple.png"),
-    require("../../Images/AppleImages/twoApple.png"),
-    require("../../Images/AppleImages/threeApple.png"),
-    require("../../Images/AppleImages/fourApple.png"),
-    require("../../Images/AppleImages/fiveApple.png"),
-    require("../../Images/AppleImages/sixApple.png"),
-    require("../../Images/AppleImages/sevenApple.png"),
-    require("../../Images/AppleImages/eightApple.png"),
-    require("../../Images/AppleImages/nineApple.png"),
-    require("../../Images/AppleImages/tenApple.png"),
-  ];
-
-  const OrangeImages = [
-    require("../../Images/OrangeImages/oneOrange.png"),
-    require("../../Images/OrangeImages/twoOrange.png"),
-    require("../../Images/OrangeImages/threeOrange.png"),
-    require("../../Images/OrangeImages/fourOrange.png"),
-    require("../../Images/OrangeImages/fiveOrange.png"),
-    require("../../Images/OrangeImages/sixOrange.png"),
-    require("../../Images/OrangeImages/sevenOrange.png"),
-    require("../../Images/OrangeImages/eightOrange.png"),
-    require("../../Images/OrangeImages/nineOrange.png"),
-    require("../../Images/OrangeImages/tenOrange.png"),
-  ];
-
-  const BananaImages = [
-    require("../../Images/BananaImages/oneBanana.png"),
-    require("../../Images/BananaImages/twoBanana.png"),
-    require("../../Images/BananaImages/threeBanana.png"),
-    require("../../Images/BananaImages/fourBanana.png"),
-    require("../../Images/BananaImages/fiveBanana.png"),
-    require("../../Images/BananaImages/sixBanana.png"),
-    require("../../Images/BananaImages/sevenBanana.png"),
-    require("../../Images/BananaImages/eightBanana.png"),
-    require("../../Images/BananaImages/nineBanana.png"),
-    require("../../Images/BananaImages/tenBanana.png"),
-  ];
+  const [userFruit] = useGlobalState("game1Fruit");
+  const pool = useRef([]);
 
   const finishGame = () => {
     setFinishModal(false);
@@ -118,14 +79,20 @@ const GameScreenChallenge1 = ({ navigation }) => {
   };
 
   const generateNumber = () => {
-    const randomNum = Math.floor(Math.random() * 10) + 1;
-    setNumber(randomNum);
-    if (userFruit == "apple") {
-      setImage(AppleImages[randomNum - 1]);
-    } else if (userFruit == "orange") {
-      setImage(OrangeImages[randomNum - 1]);
-    } else if (userFruit == "banana") {
-      setImage(BananaImages[randomNum - 1]);
+    if (pool.current.length === 0) {
+      pool.current = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        .map((n) => ({ n, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ n }) => n);
+    }
+    const next = pool.current.pop();
+    setNumber(next);
+    if (userFruit === "apple") {
+      setImage(AppleImages[next - 1]);
+    } else if (userFruit === "orange") {
+      setImage(OrangeImages[next - 1]);
+    } else {
+      setImage(BananaImages[next - 1]);
     }
   };
 
@@ -134,77 +101,46 @@ const GameScreenChallenge1 = ({ navigation }) => {
     setReady(false);
   };
 
-  const verify = (buttonId) => {
+  const verify = (num) => {
     isButtonClicked(true);
-    let realAnswer = number;
     if (count < 10) {
-      if (realAnswer == buttonId) {
-        generateNumber();
+      if (number === num) {
         isAnswerCorrect(true);
         setCount(count + 1);
-      } else if (realAnswer != buttonId) {
+        generateNumber();
+      } else {
         isAnswerCorrect(false);
       }
-    } else if (count == 10) {
+    } else {
       setFinishModal(true);
     }
   };
 
   return (
     <ScrollView
-    style={{
-      backgroundColor: colors.primary,
-      flex: 1
-    }}
-    contentContainerStyle={{
-      alignItems: "center",
-      paddingHorizontal: 15,
-    }}
-    scrollIndicatorInsets={{ right: 1 }}
-  >
+      style={{ backgroundColor: colors.primary, flex: 1 }}
+      contentContainerStyle={{ alignItems: "center", paddingHorizontal: 15 }}
+      scrollIndicatorInsets={{ right: 1 }}
+    >
+      {/* Completion modal */}
       <Modal
         animationType="fade"
         transparent={true}
         visible={finishModal}
-        onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!setFinishModal);
-        }}
+        onRequestClose={() => setFinishModal(false)}
       >
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            alignSelf: "center",
-          }}
-        >
-          <View
-            style={[
-              styles.modalVw,
-              {
-                borderColor: colors.text,
-                borderWidth: 3,
-              },
-            ]}
-          >
+        <View style={styles.modalBackdrop}>
+          <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
             <LinearGradient
               colors={["#6bffc6", colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
-              style={{
-                borderRadius: 16,
-                height: 208,
-                width: 378,
-                alignItems: "center",
-              }}
+              style={[styles.modalGradient, { width: MODAL_WIDTH }]}
             >
-              {/* Image credit: https://unsplash.com/@dendrolago89 */}
               <ImageBackground
                 source={require("../../Images/confetti.jpeg")}
-                imageStyle={{ opacity: 0.2 }}
-                animationType="fade"
-                style={{ width: 378, height: 318, padding: 35 }}
+                imageStyle={{ opacity: 0.2, borderRadius: 16 }}
+                style={{ width: MODAL_WIDTH, padding: 28, alignItems: "center" }}
               >
                 <Text
                   style={{
@@ -217,38 +153,25 @@ const GameScreenChallenge1 = ({ navigation }) => {
                   Congratulations! Now you know how to count numbers with your
                   fingers!
                 </Text>
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 150,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 30,
-                    alignSelf: "center",
-                  }}
-                  onPress={() => finishGame()}
-                >
+                <Pressable style={styles.finishButton} onPress={finishGame}>
                   <Text
                     style={{
                       color: "black",
                       fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
+                      fontSize: 18,
+                      marginRight: 8,
                     }}
                   >
                     Finish
                   </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
+                  <AntDesign name="arrowright" size={22} color="black" />
                 </Pressable>
               </ImageBackground>
             </LinearGradient>
           </View>
         </View>
       </Modal>
+
       <Text
         style={{
           color: colors.text,
@@ -260,27 +183,15 @@ const GameScreenChallenge1 = ({ navigation }) => {
       >
         Let's apply the skills we learned for the following problems!
       </Text>
+
       {ready ? (
-        <TouchableOpacity
-          style={{
-            width: 200,
-            borderWidth: 2,
-            borderColor: colors.text,
-            backgroundColor: "#6bffc6",
-            borderRadius: 8,
-            height: 50,
-            padding: 10,
-            alignItems: "center",
-            marginTop: 50,
-          }}
-          onPress={startGame}
-        >
+        <TouchableOpacity style={styles.startButton} onPress={startGame}>
           <Text style={{ fontSize: 20, fontWeight: "bold" }}>
             Press to Play!
           </Text>
         </TouchableOpacity>
       ) : (
-        <View style={{ justifyContent: "center" }}>
+        <View style={{ width: "100%", alignItems: "center" }}>
           <Text
             style={{
               color: colors.text,
@@ -294,23 +205,12 @@ const GameScreenChallenge1 = ({ navigation }) => {
           {image && (
             <Image
               source={image}
-              style={
-                number > 0 && number < 6
-                  ? {
-                      width: 300,
-                      height: 150,
-                      alignSelf: "center",
-                      marginTop: 30,
-                      resizeMode: "stretch",
-                    }
-                  : {
-                      width: 300,
-                      height: 200,
-                      alignSelf: "center",
-                      marginTop: 30,
-                      resizeMode: "stretch",
-                    }
-              }
+              style={[
+                styles.fruitImage,
+                number >= 1 && number <= 5
+                  ? { width: SCREEN_WIDTH * 0.75, height: SCREEN_WIDTH * 0.38 }
+                  : { width: SCREEN_WIDTH * 0.75, height: SCREEN_WIDTH * 0.5 },
+              ]}
             />
           )}
           {buttonClicked ? (
@@ -324,66 +224,24 @@ const GameScreenChallenge1 = ({ navigation }) => {
               </Text>
             )
           ) : (
-            <Text> </Text>
+            <Text style={styles.response}> </Text>
           )}
-          <FlatList
-            data={buttons}
-            scrollEnabled={false}
-            contentContainerStyle={{
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-            style={{ marginTop: 50 }}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
+
+          {/* Unified 2-row button grid */}
+          <View style={styles.buttonGrid}>
+            {ALL_BUTTONS.map((num) => (
               <TouchableOpacity
-                style={{
-                  borderColor: colors.text,
-                  borderWidth: 1,
-                  height: 40,
-                  width: 40,
-                  marginLeft: 15,
-                  alignItems: "center",
-                  borderRadius: 8,
-                  padding: 10,
-                  backgroundColor: "#b3ffe4",
-                }}
-                onPress={() => verify(item.id)}
+                key={num}
+                style={[styles.answerButton, { borderColor: colors.text }]}
+                onPress={() => verify(num)}
               >
-                <Text>{item.number}</Text>
+                <Text style={{ fontWeight: "bold", fontSize: 16 }}>{num}</Text>
               </TouchableOpacity>
-            )}
-          />
-          <FlatList
-            data={buttons1}
-            scrollEnabled={false}
-            contentContainerStyle={{
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-            style={{ marginTop: -240 }}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={{
-                  borderColor: colors.text,
-                  borderWidth: 1,
-                  height: 40,
-                  width: 40,
-                  marginLeft: 15,
-                  alignItems: "center",
-                  borderRadius: 8,
-                  padding: 10,
-                  backgroundColor: "#b3ffe4",
-                }}
-                onPress={() => verify(item.id)}
-              >
-                <Text>{item.number}</Text>
-              </TouchableOpacity>
-            )}
-          />
+            ))}
+          </View>
         </View>
       )}
+      <View style={{ height: 60 }} />
     </ScrollView>
   );
 };
@@ -391,21 +249,74 @@ const GameScreenChallenge1 = ({ navigation }) => {
 export default GameScreenChallenge1;
 
 const styles = StyleSheet.create({
-  modalVw: {
-    borderRadius: 20,
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.45)",
     alignItems: "center",
+    justifyContent: "center",
+  },
+  modalVw: {
+    borderRadius: 16,
+    borderWidth: 3,
+    overflow: "hidden",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
   },
+  modalGradient: {
+    borderRadius: 16,
+    alignItems: "center",
+  },
+  finishButton: {
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    elevation: 2,
+    backgroundColor: "#6bffc6",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  startButton: {
+    width: 200,
+    borderWidth: 2,
+    borderColor: "#333",
+    backgroundColor: "#6bffc6",
+    borderRadius: 8,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 50,
+  },
+  fruitImage: {
+    alignSelf: "center",
+    marginTop: 30,
+    resizeMode: "contain",
+  },
   response: {
-    marginTop: 40,
+    marginTop: 20,
+    marginBottom: 8,
     fontSize: 20,
     textAlign: "center",
+    minHeight: 30,
+  },
+  buttonGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    marginTop: 16,
+    gap: 12,
+    paddingHorizontal: 8,
+  },
+  answerButton: {
+    borderWidth: 1.5,
+    height: 48,
+    width: 48,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 8,
+    backgroundColor: "#b3ffe4",
   },
 });

@@ -5,8 +5,6 @@ import {
   TouchableOpacity,
   Modal,
   ImageBackground,
-  Pressable,
-  Button,
 } from "react-native";
 import { Text } from "@rneui/base";
 import React, { useState } from "react";
@@ -216,40 +214,18 @@ const SinglePlayer = ({ navigation }) => {
                   please contact me below. Press 'Start Game' to start. Good
                   Luck and Have Fun!
                 </Text>
-                <Button title="Contact" onPress={goToContact1} />
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 200,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 20,
-                    alignSelf: "center",
-                    borderWidth: 2,
-                  }}
-                  onPress={() => startGame1()}
-                >
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
-                    }}
-                  >
-                    Start Game
-                  </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
-                </Pressable>
-                <Button
-                  title="Close"
-                  onPress={() => setFirstGameModal(false)}
-                  color="black"
-                />
+                <View style={styles.modalButtonRow}>
+                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact1}>
+                    <Text style={styles.modalBtnText}>Contact</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.modalBtn} onPress={startGame1}>
+                    <Text style={styles.modalBtnText}>Start Game</Text>
+                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setFirstGameModal(false)}>
+                  <Text style={styles.modalBtnText}>Close</Text>
+                </TouchableOpacity>
               </ImageBackground>
             </LinearGradient>
           </View>
@@ -337,40 +313,18 @@ const SinglePlayer = ({ navigation }) => {
                   contact me below. Click 'Start Game' to start. Good Luck and
                   Have Fun!
                 </Text>
-                <Button title="Contact" onPress={goToContact2} />
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 200,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 10,
-                    alignSelf: "center",
-                    borderWidth: 2,
-                  }}
-                  onPress={() => startGame2()}
-                >
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
-                    }}
-                  >
-                    Start Game
-                  </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
-                </Pressable>
-                <Button
-                  title="Close"
-                  onPress={() => setSecondGameModal(false)}
-                  color="black"
-                />
+                <View style={styles.modalButtonRow}>
+                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact2}>
+                    <Text style={styles.modalBtnText}>Contact</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.modalBtn} onPress={startGame2}>
+                    <Text style={styles.modalBtnText}>Start Game</Text>
+                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setSecondGameModal(false)}>
+                  <Text style={styles.modalBtnText}>Close</Text>
+                </TouchableOpacity>
               </ImageBackground>
             </LinearGradient>
           </View>
@@ -456,40 +410,18 @@ const SinglePlayer = ({ navigation }) => {
                   improvements to this game, please contact me below. Click
                   'Start Game' to start. Good Luck and Have Fun!
                 </Text>
-                <Button title="Contact" onPress={goToContact3} />
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 200,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 10,
-                    alignSelf: "center",
-                    borderWidth: 2,
-                  }}
-                  onPress={startGame3}
-                >
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
-                    }}
-                  >
-                    Start Game
-                  </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
-                </Pressable>
-                <Button
-                  title="Close"
-                  onPress={() => setThirdGameModal(false)}
-                  color="black"
-                />
+                <View style={styles.modalButtonRow}>
+                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact3}>
+                    <Text style={styles.modalBtnText}>Contact</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.modalBtn} onPress={startGame3}>
+                    <Text style={styles.modalBtnText}>Start Game</Text>
+                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setThirdGameModal(false)}>
+                  <Text style={styles.modalBtnText}>Close</Text>
+                </TouchableOpacity>
               </ImageBackground>
             </LinearGradient>
           </View>
@@ -576,40 +508,18 @@ const SinglePlayer = ({ navigation }) => {
                   suggest any improvements to this game, please contact me
                   below. Click 'Start Game' to start. Good Luck and Have Fun!
                 </Text>
-                <Button title="Contact" onPress={goToContact4} />
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 200,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 10,
-                    alignSelf: "center",
-                    borderWidth: 2,
-                  }}
-                  onPress={startGame4}
-                >
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
-                    }}
-                  >
-                    Start Game
-                  </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
-                </Pressable>
-                <Button
-                  title="Close"
-                  onPress={() => setFourthGameModal(false)}
-                  color="black"
-                />
+                <View style={styles.modalButtonRow}>
+                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact4}>
+                    <Text style={styles.modalBtnText}>Contact</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.modalBtn} onPress={startGame4}>
+                    <Text style={styles.modalBtnText}>Start Game</Text>
+                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setFourthGameModal(false)}>
+                  <Text style={styles.modalBtnText}>Close</Text>
+                </TouchableOpacity>
               </ImageBackground>
             </LinearGradient>
           </View>
@@ -696,40 +606,18 @@ const SinglePlayer = ({ navigation }) => {
                   this game, please contact me below. Click 'Start Game' to
                   start. Good Luck and Have Fun!
                 </Text>
-                <Button title="Contact" onPress={goToContact5} />
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 200,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 10,
-                    alignSelf: "center",
-                    borderWidth: 2,
-                  }}
-                  onPress={startGame5}
-                >
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
-                    }}
-                  >
-                    Start Game
-                  </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
-                </Pressable>
-                <Button
-                  title="Close"
-                  onPress={() => setFifthGameModal(false)}
-                  color="black"
-                />
+                <View style={styles.modalButtonRow}>
+                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact5}>
+                    <Text style={styles.modalBtnText}>Contact</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.modalBtn} onPress={startGame5}>
+                    <Text style={styles.modalBtnText}>Start Game</Text>
+                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setFifthGameModal(false)}>
+                  <Text style={styles.modalBtnText}>Close</Text>
+                </TouchableOpacity>
               </ImageBackground>
             </LinearGradient>
           </View>
@@ -816,40 +704,18 @@ const SinglePlayer = ({ navigation }) => {
                   contact me below. Click 'Start Game' to start. Good Luck and
                   Have Fun!
                 </Text>
-                <Button title="Contact" onPress={goToContact6} />
-                <Pressable
-                  style={{
-                    borderRadius: 20,
-                    padding: 10,
-                    elevation: 2,
-                    width: 200,
-                    backgroundColor: "#6bffc6",
-                    flexDirection: "row",
-                    justifyContent: "space-evenly",
-                    marginTop: 10,
-                    marginBottom: 10,
-                    alignSelf: "center",
-                    borderWidth: 2,
-                  }}
-                  onPress={startGame6}
-                >
-                  <Text
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      fontSize: 20,
-                    }}
-                  >
-                    Start Game
-                  </Text>
-                  <AntDesign name="arrowright" size={24} color="black" />
-                </Pressable>
-                <Button
-                  title="Close"
-                  onPress={() => setSixthGameModal(false)}
-                  color="black"
-                />
+                <View style={styles.modalButtonRow}>
+                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact6}>
+                    <Text style={styles.modalBtnText}>Contact</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.modalBtn} onPress={startGame6}>
+                    <Text style={styles.modalBtnText}>Start Game</Text>
+                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setSixthGameModal(false)}>
+                  <Text style={styles.modalBtnText}>Close</Text>
+                </TouchableOpacity>
               </ImageBackground>
             </LinearGradient>
           </View>
@@ -1005,12 +871,39 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalButtonRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    marginTop: 36,
+    gap: 10,
+  },
+  modalBtn: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#6bffc6",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    elevation: 2,
+  },
+  modalBtnClose: {
+    flex: 0,
+    width: "100%",
+    marginTop: 10,
+    marginBottom: 8,
+  },
+  modalBtnText: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 16,
+    textAlign: "center",
   },
 });
