@@ -5,22 +5,44 @@ import {
   Button,
   Image,
   ScrollView,
+  Modal,
+  Animated,
+  Switch,
+  Dimensions,
 } from "react-native";
 import { Text } from "@rneui/base";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState, useRef, useCallback } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
-import { AntDesign, Ionicons, Entypo } from "@expo/vector-icons";
+import { AntDesign, Ionicons, Feather } from "@expo/vector-icons";
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
+const PANEL_WIDTH = SCREEN_WIDTH * 0.72;
 
 const Home = ({ navigation }) => {
   const { colors, dark, setScheme } = useTheme();
   const [heyThere, setHeyThere] = useState(false);
   const [registered, isRegistered] = useGlobalState("registered");
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
 
-  const toggleTheme = () => {
-    dark ? setScheme("light") : setScheme("dark");
-  };
+  const openSettings = useCallback(() => {
+    setSettingsVisible(true);
+    Animated.timing(slideAnim, {
+      toValue: 0,
+      duration: 260,
+      useNativeDriver: true,
+    }).start();
+  }, [slideAnim]);
+
+  const closeSettings = useCallback(() => {
+    Animated.timing(slideAnim, {
+      toValue: PANEL_WIDTH,
+      duration: 220,
+      useNativeDriver: true,
+    }).start(() => setSettingsVisible(false));
+  }, [slideAnim]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -57,18 +79,56 @@ const Home = ({ navigation }) => {
             marginRight: 10,
           }}
         >
-          <TouchableOpacity
-            onPress={() => navigation.navigate("Info")}
-            activeOpacity={0.5}
-          >
-            <AntDesign name="infocirlceo" size={25} color="black" />
+          <TouchableOpacity onPress={openSettings} activeOpacity={0.5}>
+            <Feather name="settings" size={25} color="black" />
           </TouchableOpacity>
         </View>
       ),
     });
-  }, [navigation]);
+  }, [navigation, openSettings]);
 
   return (
+    <>
+    <Modal
+      visible={settingsVisible}
+      transparent
+      animationType="none"
+      onRequestClose={closeSettings}
+    >
+      <TouchableOpacity
+        style={styles.modalOverlay}
+        activeOpacity={1}
+        onPress={closeSettings}
+      />
+      <Animated.View
+        style={[
+          styles.settingsPanel,
+          { backgroundColor: colors.primary, transform: [{ translateX: slideAnim }] },
+        ]}
+      >
+        <Text style={[styles.panelTitle, { color: colors.text }]}>Settings</Text>
+
+        <View style={styles.panelRow}>
+          <Text style={[styles.panelLabel, { color: colors.text }]}>Dark Mode</Text>
+          <Switch
+            value={dark}
+            onValueChange={(val) => setScheme(val ? "dark" : "light")}
+            trackColor={{ false: "#ccc", true: "#6bffc6" }}
+            thumbColor={dark ? "#fff" : "#fff"}
+          />
+        </View>
+
+        <View style={styles.panelDivider} />
+
+        <TouchableOpacity
+          style={styles.panelRow}
+          onPress={() => { closeSettings(); navigation.navigate("Info"); }}
+        >
+          <Text style={[styles.panelLabel, { color: colors.text }]}>About</Text>
+          <AntDesign name="arrowright" size={20} color={colors.text} />
+        </TouchableOpacity>
+      </Animated.View>
+    </Modal>
     <ScrollView
       style={{
         height: "100%",
@@ -221,59 +281,55 @@ const Home = ({ navigation }) => {
         color={colors.buttonColor}
         onPress={() => navigation.navigate("Suggest")}
       />
-      {dark ? (
-            <Text
-              style={{
-                alignSelf: "center",
-                fontSize: 30,
-                fontWeight: "bold",
-                marginTop: 40,
-                color: colors.text,
-              }}
-            >
-              Light Mode:
-            </Text>
-          ) : (
-            <Text
-              style={{
-                alignSelf: "center",
-                fontSize: 30,
-                fontWeight: "bold",
-                marginTop: 40,
-                color: colors.text,
-              }}
-            >
-              Dark Mode:
-            </Text>
-          )}
-          <TouchableOpacity
-            onPress={toggleTheme}
-            style={{
-              marginTop: 15,
-              marginBottom: 70,
-              width: "95%",
-              height: "5.5%",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 8,
-              borderWidth: 2,
-              padding: 5,
-              paddingHorizontal: 6,
-              backgroundColor: dark ? "#2E293A" : "white",
-              borderColor: dark ? "white" : "black",
-            }}
-          >
-            {dark ? (
-              <Entypo name="light-up" size={25} color={"white"} />
-            ) : (
-              <Ionicons name="moon" size={25} color={"black"} />
-            )}
-          </TouchableOpacity>
       <View style={{ height: 70 }} />
     </ScrollView>
+    </>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  modalOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.35)",
+  },
+  settingsPanel: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    bottom: 0,
+    width: PANEL_WIDTH,
+    paddingTop: 60,
+    paddingHorizontal: 24,
+    shadowColor: "#000",
+    shadowOffset: { width: -3, height: 0 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 10,
+  },
+  panelTitle: {
+    fontSize: 26,
+    fontWeight: "bold",
+    marginBottom: 30,
+  },
+  panelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 16,
+  },
+  panelLabel: {
+    fontSize: 18,
+    fontWeight: "500",
+  },
+  panelDivider: {
+    height: 1,
+    backgroundColor: "#ccc",
+    opacity: 0.4,
+  },
+});
