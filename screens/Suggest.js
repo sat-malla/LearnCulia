@@ -9,6 +9,8 @@ import {
   Keyboard,
   ScrollView,
   Platform,
+  Linking,
+  TouchableOpacity,
 } from "react-native";
 import React, { useState } from "react";
 import { Text, Input, Button } from "@rneui/base";
@@ -17,6 +19,7 @@ import { useHeaderHeight } from "@react-navigation/elements";
 import { db } from "../firebase";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CONTACT_EMAIL = "learnculia@gmail.com";
 
 const Suggest = ({ navigation }) => {
   const { dark, colors } = useTheme();
@@ -28,6 +31,22 @@ const Suggest = ({ navigation }) => {
   const myHeaderHeight = useHeaderHeight();
 
   const isValid = name.trim() && email.trim() && message.trim();
+
+  const openMail = async (client) => {
+    const subject = encodeURIComponent("LearnCulia - Contact");
+    const urls = {
+      gmail: `https://mail.google.com/mail/?view=cm&to=${CONTACT_EMAIL}&su=${subject}`,
+      yahoo: `https://compose.mail.yahoo.com/?to=${CONTACT_EMAIL}&subject=${subject}`,
+      apple: `mailto:${CONTACT_EMAIL}?subject=${subject}`,
+    };
+    const url = urls[client];
+    const supported = await Linking.canOpenURL(url);
+    if (supported) {
+      Linking.openURL(url);
+    } else {
+      Alert.alert("Not available", "Could not open this mail app on your device.");
+    }
+  };
 
   const sendMessage = async () => {
     if (!name.trim() || !email.trim() || !message.trim()) return;
@@ -219,6 +238,35 @@ const Suggest = ({ navigation }) => {
             disabledStyle={{ backgroundColor: colors.loginBanner, opacity: 0.5 }}
             onPress={sendMessage}
           />
+
+          <Text style={[styles.orText, { color: colors.text }]}>
+            Or you can contact through the following means...
+          </Text>
+
+          <View style={styles.mailButtons}>
+            <TouchableOpacity
+              style={[styles.mailBtn, styles.gmailBtn]}
+              onPress={() => openMail("gmail")}
+            >
+              <Text style={styles.mailBtnText}>Gmail</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={[styles.mailBtn, styles.yahooBtn]}
+              onPress={() => openMail("yahoo")}
+            >
+              <Text style={styles.mailBtnText}>Yahoo Mail</Text>
+            </TouchableOpacity>
+
+            {Platform.OS === "ios" && (
+              <TouchableOpacity
+                style={[styles.mailBtn, styles.appleBtn]}
+                onPress={() => openMail("apple")}
+              >
+                <Text style={styles.mailBtnText}>Apple Mail</Text>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
@@ -253,6 +301,40 @@ const styles = StyleSheet.create({
   button: {
     width: 200,
     marginTop: 50,
+  },
+  orText: {
+    fontWeight: "bold",
+    marginTop: 40,
+    marginBottom: 10,
+    fontSize: 16,
+    textAlign: "center",
+  },
+  mailButtons: {
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+    marginBottom: 60,
+  },
+  mailBtn: {
+    width: "80%",
+    paddingVertical: 18,
+    borderRadius: 12,
+    alignItems: "center",
+    marginTop: 16,
+  },
+  gmailBtn: {
+    backgroundColor: "#EA4335",
+  },
+  yahooBtn: {
+    backgroundColor: "#6001D2",
+  },
+  appleBtn: {
+    backgroundColor: "#1C1C1E",
+  },
+  mailBtnText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 18,
   },
   modalView: {
     margin: 20,
