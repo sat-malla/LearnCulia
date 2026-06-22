@@ -3,13 +3,13 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
-  Pressable,
   Modal,
   ActivityIndicator,
   Platform,
   Keyboard,
   ScrollView,
   TouchableWithoutFeedback,
+  Dimensions,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Text, Input, Button } from "@rneui/base";
@@ -17,6 +17,9 @@ import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { useHeaderHeight } from "@react-navigation/elements";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
 
 const GameScreen2 = ({ navigation }) => {
   const { colors, dark } = useTheme();
@@ -33,35 +36,25 @@ const GameScreen2 = ({ navigation }) => {
   const [marks2, setMarks2] = useState([]);
   const [loading, setLoading] = useState(true);
   const myHeaderHeight = useHeaderHeight();
-  const markAdd = 1;
-  const markAdd2 = 1;
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
+    const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
   const generateNumbers = () => {
-    const randomNum = Math.floor(Math.random() * 10) + 0;
-    const randomNum2 = Math.floor(Math.random() * 10) + 0;
-    const addOrSubtract = Math.floor(Math.random() * 2) + 1;
+    const randomNum = Math.floor(Math.random() * 10);
+    const randomNum2 = Math.floor(Math.random() * 10);
+    const isAddition = Math.random() < 0.5;
 
-    if (addOrSubtract == 2) {
+    if (isAddition) {
       setProblemSign("+");
       setNum1(randomNum);
       setNum2(randomNum2);
-    } else if (addOrSubtract == 1) {
-      setProblemSign("–");
-      if (randomNum > randomNum2) {
-        setNum1(randomNum);
-        setNum2(randomNum2);
-      } else {
-        setNum1(randomNum2);
-        setNum2(randomNum);
-      }
+    } else {
+      setProblemSign("-");
+      setNum1(Math.max(randomNum, randomNum2));
+      setNum2(Math.min(randomNum, randomNum2));
     }
   };
 
@@ -72,24 +65,19 @@ const GameScreen2 = ({ navigation }) => {
 
   const verify = () => {
     isButtonClicked(true);
-    let realAnswer = 0;
-    if (problemSign === "–") {
-      realAnswer = num1 - num2;
-    } else {
-      realAnswer = num1 + num2;
-    }
+    const realAnswer = problemSign === "-" ? num1 - num2 : num1 + num2;
     if (count < 10) {
-      if (Number(answer) == realAnswer) {
-        generateNumbers();
+      if (Number(answer) === realAnswer) {
         isAnswerCorrect(true);
         setMarks([]);
         setMarks2([]);
         setAnswer("");
         setCount(count + 1);
-      } else if (Number(answer) != realAnswer) {
+        generateNumbers();
+      } else {
         isAnswerCorrect(false);
       }
-    } else if (count == 10) {
+    } else {
       setChallengeModal(true);
     }
   };
@@ -99,411 +87,161 @@ const GameScreen2 = ({ navigation }) => {
     navigation.navigate("GameScreenChallenge2");
   };
 
-  const addLine = () => {
-    setMarks((prevLines) => [
-      ...prevLines,
-      <Text
-        key={prevLines.length}
-        style={{
-          marginRight: 10,
-          fontSize: 20,
-          fontWeight: "500",
-          color: colors.text,
-        }}
-      >
-        |
-      </Text>,
+  const addLine = () =>
+    setMarks((prev) => [
+      ...prev,
+      <Text key={prev.length} style={styles.tally(colors)}>|</Text>,
     ]);
-  };
-  const addLine2 = () => {
-    setMarks2((prevLines) => [
-      ...prevLines,
-      <Text
-        key={prevLines.length}
-        style={{
-          marginRight: 10,
-          fontSize: 20,
-          fontWeight: "500",
-          color: colors.text,
-        }}
-      >
-        |
-      </Text>,
+
+  const removeLine = () =>
+    setMarks((prev) => prev.slice(0, -1));
+
+  const addLine2 = () =>
+    setMarks2((prev) => [
+      ...prev,
+      <Text key={prev.length} style={styles.tally(colors)}>|</Text>,
     ]);
-  };
-  const removeLine = () => {
-    setMarks((prevLines) => {
-      let newLines = [...prevLines];
-      newLines.splice(-markAdd);
-      return newLines;
-    });
-  };
-  const removeLine2 = () => {
-    setMarks2((prevLines) => {
-      let newLines = [...prevLines];
-      newLines.splice(-markAdd2);
-      return newLines;
-    });
-  };
+
+  const removeLine2 = () =>
+    setMarks2((prev) => prev.slice(0, -1));
 
   return (
-    <View>
+    <View style={{ flex: 1, backgroundColor: colors.primary }}>
       {loading ? (
-        <View
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            marginTop: 370,
-          }}
-        >
-          <ActivityIndicator size="large" color="#6bffc6" animating={loading} />
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+          <ActivityIndicator size="large" color="#6bffc6" />
         </View>
       ) : (
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : null}
-          style={{
-            height: "100%",
-            backgroundColor: colors.primary,
-          }}
-          contentContainerStyle={{
-            flexDirection: "column",
-            paddingHorizontal: 10,
-            flex: 1
-          }}
+          style={{ flex: 1 }}
           keyboardVerticalOffset={myHeaderHeight + 107}
         >
-          <ScrollView
-             scrollIndicatorInsets={{ right: 1 }}
-          >
-          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View
-              style={{
-                alignItems: "center",
-              }}
-            >
-              <Modal
-                animationType="fade"
-                transparent={true}
-                visible={challengeModal}
-                onRequestClose={() => {
-                  Alert.alert("Closed");
-                  setModalVisible(!challengeModal);
-                }}
-              >
-                <View
-                  style={{
-                    flex: 1,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    alignSelf: "center",
-                  }}
+          <ScrollView scrollIndicatorInsets={{ right: 1 }}>
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+              <View style={{ alignItems: "center", paddingHorizontal: 20 }}>
+                <Modal
+                  animationType="fade"
+                  transparent={true}
+                  visible={challengeModal}
+                  onRequestClose={() => setChallengeModal(false)}
                 >
-                  <View
-                    style={[
-                      styles.modalVw,
-                      {
-                        borderColor: colors.text,
-                        borderWidth: 3,
-                      },
-                    ]}
-                  >
-                    <LinearGradient
-                      colors={["#6bffc6", colors.gradientEndCol]}
-                      start={{ x: 1, y: 0 }}
-                      end={{ x: 1, y: 0.8 }}
-                      style={{
-                        borderRadius: 16,
-                        height: 208,
-                        width: 378,
-                        alignItems: "center",
-                        padding: 26,
-                      }}
-                    >
-                      <Text
-                        style={{
-                          marginBottom: 10,
-                          textAlign: "center",
-                          fontSize: 20,
-                          fontWeight: "bold",
-                        }}
+                  <View style={styles.modalBackdrop}>
+                    <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
+                      <LinearGradient
+                        colors={["#6bffc6", colors.gradientEndCol]}
+                        start={{ x: 1, y: 0 }}
+                        end={{ x: 1, y: 0.8 }}
+                        style={[styles.modalGradient, { width: MODAL_WIDTH }]}
                       >
-                        🙌Well Done!🙌
-                      </Text>
-                      <Text
-                        style={{
-                          marginBottom: 20,
-                          textAlign: "center",
-                          fontSize: 20,
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Let's move on to the Hard Problems! You got this!
-                      </Text>
-                      <Pressable
-                        style={{
-                          borderRadius: 20,
-                          padding: 10,
-                          elevation: 2,
-                          width: 150,
-                          backgroundColor: "#6bffc6",
-                          flexDirection: "row",
-                          justifyContent: "space-evenly",
-                          marginTop: 10,
-                          alignSelf: "center",
-                        }}
-                        onPress={nextScreen}
-                      >
-                        <Text
-                          style={{
-                            color: "black",
-                            fontWeight: "bold",
-                            textAlign: "center",
-                            fontSize: 20,
-                          }}
-                        >
-                          Next
+                        <Text style={styles.modalTitle}>🙌 Well Done! 🙌</Text>
+                        <Text style={styles.modalBody}>
+                          Let's move on to the Hard Problems! You got this!
                         </Text>
-                        <AntDesign name="arrowright" size={24} color="black" />
-                      </Pressable>
-                    </LinearGradient>
-                  </View>
-                </View>
-              </Modal>
-              <Text
-                style={{
-                  color: colors.text,
-                  marginTop: 60,
-                  fontSize: 25,
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}
-              >
-                Let's apply the skills we learned for the following problems!
-              </Text>
-              {ready ? (
-                <TouchableOpacity
-                  style={{
-                    width: 200,
-                    borderWidth: 2,
-                    borderColor: colors.text,
-                    backgroundColor: "#6bffc6",
-                    borderRadius: 8,
-                    height: 50,
-                    padding: 10,
-                    alignItems: "center",
-                    marginTop: 50,
-                  }}
-                  onPress={startGame}
-                >
-                  <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                    Press to Play!
-                  </Text>
-                </TouchableOpacity>
-              ) : (
-                <View
-                  style={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: colors.text,
-                      marginTop: 20,
-                      fontSize: 20,
-                      fontWeight: "400",
-                      textAlign: "center",
-                    }}
-                  >
-                    Type in the correct answer below.
-                  </Text>
-                  <View
-                    style={{
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "flex-start",
-                      marginRight: 150,
-                      paddingHorizontal: 10,
-                    }}
-                  >
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        marginTop: 70,
-                        marginLeft: 310,
-                        width: 300,
-                        alignItems: "center",
-                      }}
-                    >
-                      <Text style={{ fontSize: 50, color: colors.text }}>
-                        {num1}
-                      </Text>
-                      <Button
-                        title="+"
-                        style={{ marginRight: 10, marginLeft: 30 }}
-                        buttonStyle={{
-                          borderRadius: 8,
-                          backgroundColor: "#6bffc6",
-                          borderWidth: 1,
-                          borderColor: "black",
-                        }}
-                        titleStyle={{
-                          color: "black",
-                          fontWeight: "bold",
-                        }}
-                        onPress={addLine}
-                      />
-                      <Button
-                        title="–"
-                        style={{ marginLeft: 10, marginRight: 10 }}
-                        buttonStyle={{
-                          borderRadius: 8,
-                          backgroundColor: "#6bffc6",
-                          borderWidth: 1.5,
-                          borderColor: "black",
-                        }}
-                        titleStyle={{
-                          color: "black",
-                          fontWeight: "bold",
-                        }}
-                        onPress={removeLine}
-                      />
-                      {marks}
+                        <TouchableOpacity style={styles.modalBtn} onPress={nextScreen}>
+                          <Text style={styles.modalBtnText}>Next</Text>
+                          <AntDesign name="arrowright" size={22} color="black" style={{ marginLeft: 8 }} />
+                        </TouchableOpacity>
+                      </LinearGradient>
                     </View>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        flexWrap: "wrap",
-                        marginLeft: 235,
-                        width: 300,
-                        alignItems: "center",
-                      }}
-                    >
-                      <View
-                        style={{
-                          flexDirection: "row",
-                        }}
-                      >
-                        <Text style={{ fontSize: 50, color: colors.text }}>
-                          {problemSign}
-                        </Text>
-                        <Text
-                          style={{
-                            fontSize: 50,
-                            marginLeft: 10,
-                            color: colors.text,
-                          }}
-                        >
-                          {num2}
-                        </Text>
-                      </View>
-                      {problemSign === "-" ? (
-                        <Text> </Text>
-                      ) : (
-                        <View
-                          style={{
-                            flexDirection: "row",
-                            flexWrap: "nowrap",
-                          }}
-                        >
+                  </View>
+                </Modal>
+
+                <Text style={[styles.heading, { color: colors.text }]}>
+                  Let's apply the skills we learned for the following problems!
+                </Text>
+
+                {ready ? (
+                  <TouchableOpacity style={styles.startButton} onPress={startGame}>
+                    <Text style={{ fontSize: 20, fontWeight: "bold" }}>Press to Play!</Text>
+                  </TouchableOpacity>
+                ) : (
+                  <View style={{ alignItems: "center", width: "100%" }}>
+                    <Text style={[styles.instruction, { color: colors.text }]}>
+                      Type in the correct answer below.
+                    </Text>
+
+                    {/* Problem display — right-aligned column */}
+                    <View style={styles.problemBlock}>
+                      {/* Row 1: num1 + tally helpers */}
+                      <View style={styles.problemRow}>
+                        <Text style={[styles.numText, { color: colors.text }]}>{num1}</Text>
+                        <View style={styles.tallyButtons}>
                           <Button
                             title="+"
-                            style={{ marginRight: 10, marginLeft: 30 }}
-                            buttonStyle={{
-                              borderRadius: 8,
-                              backgroundColor: "#6bffc6",
-                              borderWidth: 1.5,
-                              borderColor: "black",
-                            }}
-                            titleStyle={{
-                              color: "black",
-                              fontWeight: "bold",
-                            }}
+                            buttonStyle={styles.tallyBtn}
+                            titleStyle={styles.tallyBtnText}
+                            onPress={addLine}
+                          />
+                          <Button
+                            title="-"
+                            buttonStyle={styles.tallyBtn}
+                            titleStyle={styles.tallyBtnText}
+                            onPress={removeLine}
+                          />
+                        </View>
+                      </View>
+                      <View style={styles.tallyRow}>{marks}</View>
+
+                      {/* Row 2: sign + num2 + tally helpers */}
+                      <View style={styles.problemRow}>
+                        <Text style={[styles.numText, { color: colors.text }]}>
+                          {problemSign} {num2}
+                        </Text>
+                        <View style={styles.tallyButtons}>
+                          <Button
+                            title="+"
+                            buttonStyle={styles.tallyBtn}
+                            titleStyle={styles.tallyBtnText}
                             onPress={addLine2}
                           />
                           <Button
-                            title="–"
-                            style={{ marginLeft: 10, marginRight: 10 }}
-                            buttonStyle={{
-                              borderRadius: 8,
-                              backgroundColor: "#6bffc6",
-                              borderWidth: 1.5,
-                              borderColor: "black",
-                            }}
-                            titleStyle={{
-                              color: "black",
-                              fontWeight: "bold",
-                            }}
+                            title="-"
+                            buttonStyle={styles.tallyBtn}
+                            titleStyle={styles.tallyBtnText}
                             onPress={removeLine2}
                           />
-                          {marks2}
                         </View>
-                      )}
+                      </View>
+                      <View style={styles.tallyRow}>{marks2}</View>
+
+                      <View style={[styles.divider, { borderColor: colors.text }]} />
+                      <Text style={[styles.numText, { color: colors.text, alignSelf: "flex-end" }]}>?</Text>
                     </View>
-                    <View
-                      style={{
-                        borderColor: colors.text,
-                        borderWidth: 3,
-                        width: 110,
-                        borderBottomWidth: StyleSheet.hairlineWidth,
-                      }}
+
+                    <Input
+                      placeholder="Type answer here"
+                      keyboardType="numeric"
+                      keyboardAppearance={dark ? "dark" : "light"}
+                      value={answer}
+                      onChangeText={setAnswer}
+                      inputContainerStyle={{ borderBottomWidth: 0 }}
+                      style={{ color: colors.text }}
+                      containerStyle={[{ borderColor: colors.text }, styles.styleInput]}
                     />
-                    <Text
-                      style={{
-                        fontSize: 50,
-                        marginLeft: 40,
-                        color: colors.text,
-                      }}
-                    >
-                      ?
-                    </Text>
-                  </View>
-                  <Input
-                    placeholder="Type answer here"
-                    type="text"
-                    keyboardAppearance={dark ? "dark" : "light"}
-                    value={answer}
-                    onChangeText={(text) => setAnswer(text)}
-                    inputContainerStyle={{ borderBottomWidth: 0 }}
-                    style={{ color: colors.text }}
-                    containerStyle={[
-                      { borderColor: colors.text },
-                      styles.styleInput,
-                    ]}
-                  />
-                  <Button
-                    disabled={!answer}
-                    title="Check"
-                    style={styles.button}
-                    titleStyle={{
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
-                    buttonStyle={{
-                      borderRadius: 8,
-                      backgroundColor: "#6bffc6",
-                    }}
-                    onPress={verify}
-                  />
-                  {buttonClicked ? (
-                    answerCorrect ? (
-                      <Text style={[styles.response, { color: colors.text }]}>
-                        👏Good Job!👏
-                      </Text>
+                    <Button
+                      disabled={!answer}
+                      title="Check"
+                      style={{ width: 200, marginTop: 24 }}
+                      titleStyle={{ color: "black", fontWeight: "bold" }}
+                      buttonStyle={{ borderRadius: 8, backgroundColor: "#6bffc6" }}
+                      onPress={verify}
+                    />
+                    {buttonClicked ? (
+                      answerCorrect ? (
+                        <Text style={[styles.response, { color: colors.text }]}>👏 Good Job! 👏</Text>
+                      ) : (
+                        <Text style={[styles.response, { color: colors.text }]}>
+                          No pressure! Try it one more time!
+                        </Text>
+                      )
                     ) : (
-                      <Text style={[styles.response, { color: colors.text }]}>
-                        No pressure! Try it one more time!
-                      </Text>
-                    )
-                  ) : (
-                    <Text> </Text>
-                  )}
-                </View>
-              )}
-            </View>
-          </TouchableWithoutFeedback>
+                      <Text style={styles.response}> </Text>
+                    )}
+                  </View>
+                )}
+              </View>
+            </TouchableWithoutFeedback>
           </ScrollView>
         </KeyboardAvoidingView>
       )}
@@ -514,33 +252,140 @@ const GameScreen2 = ({ navigation }) => {
 export default GameScreen2;
 
 const styles = StyleSheet.create({
-  styleInput: {
-    borderWidth: 2,
-    alignContent: "center",
-    borderRadius: 8,
-    padding: 5,
-    marginTop: 70,
-    width: 300,
-    height: 50,
-  },
-  button: {
-    width: 200,
-    marginTop: 50,
-  },
-  response: {
-    marginTop: 40,
-    fontSize: 20,
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.45)",
+    alignItems: "center",
+    justifyContent: "center",
   },
   modalVw: {
-    borderRadius: 20,
-    alignItems: "center",
+    borderRadius: 16,
+    borderWidth: 3,
+    overflow: "hidden",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalGradient: {
+    borderRadius: 16,
+    alignItems: "center",
+    paddingVertical: 24,
+    paddingHorizontal: 20,
+  },
+  modalTitle: {
+    marginBottom: 10,
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  modalBody: {
+    marginBottom: 20,
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  modalBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#6bffc6",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    elevation: 2,
+  },
+  modalBtnText: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  heading: {
+    marginTop: 60,
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  instruction: {
+    marginTop: 20,
+    fontSize: 20,
+    fontWeight: "400",
+    textAlign: "center",
+  },
+  startButton: {
+    width: 200,
+    borderWidth: 2,
+    borderColor: "#333",
+    backgroundColor: "#6bffc6",
+    borderRadius: 8,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 50,
+  },
+  problemBlock: {
+    marginTop: 40,
+    width: "80%",
+    alignItems: "flex-end",
+  },
+  problemRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    width: "100%",
+    marginBottom: 4,
+  },
+  numText: {
+    fontSize: 50,
+  },
+  tallyButtons: {
+    flexDirection: "row",
+    marginLeft: 12,
+    gap: 6,
+  },
+  tallyBtn: {
+    borderRadius: 8,
+    backgroundColor: "#6bffc6",
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  tallyBtnText: {
+    color: "black",
+    fontWeight: "bold",
+  },
+  tallyRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "flex-end",
+    width: "100%",
+    marginBottom: 4,
+    minHeight: 28,
+  },
+  tally: (colors) => ({
+    marginRight: 6,
+    fontSize: 20,
+    fontWeight: "500",
+    color: colors.text,
+  }),
+  divider: {
+    borderWidth: 2,
+    width: "100%",
+    marginVertical: 6,
+  },
+  styleInput: {
+    borderWidth: 2,
+    borderRadius: 8,
+    padding: 5,
+    marginTop: 24,
+    width: 260,
+    height: 50,
+  },
+  response: {
+    marginTop: 24,
+    marginBottom: 40,
+    fontSize: 20,
+    textAlign: "center",
+    minHeight: 30,
   },
 });

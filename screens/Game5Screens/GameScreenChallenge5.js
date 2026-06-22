@@ -401,9 +401,9 @@ const GameScreenChallenge5 = ({ navigation }) => {
                         onPress={item.onPressAdd}
                       />
                       <Button
-                        title="–"
+                        title="-"
                         style={{ marginLeft: 10, marginRight: 10 }}
-                        buttonStyle={{
+                        buttonStyle={{  
                           borderRadius: 8,
                           backgroundColor: "#6bffc6",
                           borderWidth: 1.5,

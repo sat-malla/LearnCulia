@@ -51,7 +51,6 @@ const GameScreen1 = ({ navigation }) => {
 
   const generateNumber = () => {
     if (pool.current.length === 0) {
-      // Refill and shuffle a fresh pool of 1–10
       pool.current = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         .map((n) => ({ n, sort: Math.random() }))
         .sort((a, b) => a.sort - b.sort)
