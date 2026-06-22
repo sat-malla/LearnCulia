@@ -2,7 +2,6 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-  Button,
   Image,
   ScrollView,
   Modal,
@@ -16,14 +15,68 @@ import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
 import { AntDesign, Ionicons, Feather } from "@expo/vector-icons";
+import Svg, { Path, Defs, LinearGradient as SvgLinearGradient, Stop } from "react-native-svg";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const PANEL_WIDTH = SCREEN_WIDTH * 0.72;
+const CARD_HEIGHT = 90;
+const SLANT = 24;
+const R = 16;
+const PAD = 3;
+
+const ParallelogramCard = ({ title, desc, onPress, gradientColors }) => {
+  const w = SCREEN_WIDTH - 40;
+  const h = CARD_HEIGHT;
+  const s = SLANT;
+  const svgW = w + PAD * 2;
+  const svgH = h + PAD * 2;
+  const x0 = PAD, y0 = PAD, x1 = w + PAD, y1 = h + PAD;
+  const tl = { x: x0 + s, y: y0 };
+  const tr = { x: x1, y: y0 };
+  const br = { x: x1 - s, y: y1 };
+  const bl = { x: x0, y: y1 };
+  const slantLen = Math.sqrt(s * s + h * h);
+  const su = s / slantLen;
+  const hu = h / slantLen;
+  const d = [
+    `M ${tl.x + R} ${tl.y}`,
+    `L ${tr.x - R} ${tr.y}`,
+    `Q ${tr.x} ${tr.y} ${tr.x - su * R} ${tr.y + hu * R}`,
+    `L ${br.x + su * R} ${br.y - hu * R}`,
+    `Q ${br.x} ${br.y} ${br.x - R} ${br.y}`,
+    `L ${bl.x + R} ${bl.y}`,
+    `Q ${bl.x} ${bl.y} ${bl.x + su * R} ${bl.y - hu * R}`,
+    `L ${tl.x - su * R} ${tl.y + hu * R}`,
+    `Q ${tl.x} ${tl.y} ${tl.x + R} ${tl.y}`,
+    `Z`,
+  ].join(" ");
+
+  return (
+    <TouchableOpacity onPress={onPress} activeOpacity={0.82} style={{ width: w, height: h }}>
+      <Svg width={svgW} height={svgH} style={{ position: "absolute", top: -PAD, left: -PAD }}>
+        <Defs>
+          <SvgLinearGradient id="cardGrad" x1="0" y1="0" x2="1" y2="0">
+            <Stop offset="0" stopColor={gradientColors[0]} />
+            <Stop offset="1" stopColor={gradientColors[1]} />
+          </SvgLinearGradient>
+        </Defs>
+        <Path d={d} fill="url(#cardGrad)" stroke="#000" strokeWidth="2" />
+      </Svg>
+      <View style={{ position: "absolute", top: 0, left: s, right: s, bottom: 0, justifyContent: "center", flexDirection: "row", alignItems: "center", paddingHorizontal: 12 }}>
+        <View style={{ flex: 1, marginRight: 16 }}>
+          <Text style={styles.cardTitle}>{title}</Text>
+          <Text style={styles.cardDesc}>{desc}</Text>
+        </View>
+        <AntDesign name="arrowright" size={30} color="black" />
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const Home = ({ navigation }) => {
   const { colors, dark, setScheme } = useTheme();
   const [heyThere, setHeyThere] = useState(false);
-  const [registered, isRegistered] = useGlobalState("registered");
+  const [registered] = useGlobalState("registered");
   const [settingsVisible, setSettingsVisible] = useState(false);
   const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
 
@@ -192,32 +245,7 @@ const Home = ({ navigation }) => {
             </Text>
           </View>
         )
-      ) : (
-        <TouchableOpacity
-          style={{
-            borderRadius: 10,
-            padding: 10,
-            elevation: 2,
-            width: "75%",
-            backgroundColor: colors.loginBanner,
-            flexDirection: "row",
-            justifyContent: "center",
-            marginTop: 30,
-            alignSelf: "center",
-          }}
-          onPress={() => navigation.navigate("Login")}
-        >
-          <Text style={{ color: colors.bannerText, fontWeight: "500", fontSize: 30, marginLeft: 90 }}>
-            Login
-          </Text>
-          <AntDesign
-            name="arrowright"
-            size={30}
-            color={colors.bannerText}
-            style={{ marginTop: 4, marginLeft: 70 }}
-          />
-        </TouchableOpacity>
-      )}
+      ) : null}
       <Text
         style={{
           fontSize: 30,
@@ -239,48 +267,28 @@ const Home = ({ navigation }) => {
       >
         Get started below!
       </Text>
-      <TouchableOpacity
-        style={{
-          borderWidth: 1,
-          height: 170,
-          width: 180,
-          alignItems: "center",
-          marginTop: 50,
-          marginBottom: 50,
-          borderRadius: 16,
-          borderColor: colors.text,
-        }}
-        onPress={() => navigation.navigate("SinglePlayer")}
-      >
-        <LinearGradient
-          colors={["#6bffc6", colors.gradientEndCol]}
-          start={{ x: 1, y: 0 }}
-          end={{ x: 1, y: 0.8 }}
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: 16,
-            width: 178,
-            marginRight: 0.75,
-            height: 168,
-            padding: 10,
-          }}
-        >
-          <Text style={{ fontSize: 20, fontWeight: "bold", marginTop: 10 }}>
-            Single Player
-          </Text>
-          <Text style={{ fontSize: 17, marginTop: 10 }}>
-            Solve exciting challenges for desired self-improvement!
-          </Text>
-          <AntDesign name="arrowright" size={24} style={{ marginTop: 5 }} />
-        </LinearGradient>
-      </TouchableOpacity>
-      <Button
-        title="Any problems or advice? Contact here"
-        color={colors.buttonColor}
-        onPress={() => navigation.navigate("Suggest")}
-      />
+      <View style={styles.cardStack}>
+        <ParallelogramCard
+          title="Single Player"
+          desc="Solve exciting challenges for desired self-improvement!"
+          onPress={() => navigation.navigate("SinglePlayer")}
+          gradientColors={["#6bffc6", colors.gradientEndCol]}
+        />
+        {!registered && (
+          <ParallelogramCard
+            title="Login"
+            desc="Sign in to track your progress and rewards!"
+            onPress={() => navigation.navigate("Login")}
+            gradientColors={["#6bffc6", colors.gradientEndCol]}
+          />
+        )}
+        <ParallelogramCard
+          title="Contact"
+          desc="Any problems or advice? Reach out here!"
+          onPress={() => navigation.navigate("Suggest")}
+          gradientColors={["#6bffc6", colors.gradientEndCol]}
+        />
+      </View>
       <View style={{ height: 70 }} />
     </ScrollView>
     </>
@@ -331,5 +339,21 @@ const styles = StyleSheet.create({
     height: 1,
     backgroundColor: "#ccc",
     opacity: 0.4,
+  },
+  cardStack: {
+    width: "100%",
+    marginTop: 40,
+    gap: 24,
+    alignItems: "center",
+  },
+  cardTitle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#000",
+  },
+  cardDesc: {
+    fontSize: 14,
+    color: "#000",
+    marginTop: 3,
   },
 });
