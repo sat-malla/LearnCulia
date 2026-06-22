@@ -122,8 +122,7 @@ const GameScreenChallenge1 = ({ navigation }) => {
       contentContainerStyle={{ alignItems: "center", paddingHorizontal: 15 }}
       scrollIndicatorInsets={{ right: 1 }}
     >
-      {/* Completion modal */}
-      <Modal
+      <Modal  
         animationType="fade"
         transparent={true}
         visible={finishModal}
@@ -227,7 +226,6 @@ const GameScreenChallenge1 = ({ navigation }) => {
             <Text style={styles.response}> </Text>
           )}
 
-          {/* Unified 2-row button grid */}
           <View style={styles.buttonGrid}>
             {ALL_BUTTONS.map((num) => (
               <TouchableOpacity

@@ -75,7 +75,6 @@ const StartScreen1 = ({ navigation }) => {
         random number generator. Just click the correct number again!
       </Text>
 
-      {/* Slideshow */}
       <View style={{ marginTop: 20, width: WIDTH * 0.9 }}>
         <ScrollView
           onScroll={onScroll}
@@ -101,7 +100,6 @@ const StartScreen1 = ({ navigation }) => {
           ))}
         </ScrollView>
 
-        {/* Dot indicators sit directly below the slides */}
         <View style={styles.slidesDot}>
           {images.map((_, index) => (
             <Text

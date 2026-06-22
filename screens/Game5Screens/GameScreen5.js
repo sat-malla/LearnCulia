@@ -395,7 +395,7 @@ const GameScreen5 = ({ navigation }) => {
                         onPress={item.onPressAdd}
                       />
                       <Button
-                        title="-"
+                        title="—"
                         style={{ marginLeft: 10, marginRight: 10 }}
                         buttonStyle={{
                           borderRadius: 8,

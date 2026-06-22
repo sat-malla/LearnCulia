@@ -3,19 +3,23 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
-  Pressable,
   Modal,
-  Image,
   Platform,
   Keyboard,
+  ScrollView,
   TouchableWithoutFeedback,
+  Dimensions,
 } from "react-native";
 import React, { useState, useLayoutEffect } from "react";
 import { Text, Input, Button } from "@rneui/base";
 import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import MultiplicationTable from "./MultiplicationTable";
 import { useHeaderHeight } from "@react-navigation/elements";
+
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+const MODAL_WIDTH = SCREEN_WIDTH - 24;
 
 const GameScreen3 = ({ navigation }) => {
   const { colors, dark } = useTheme();
@@ -33,29 +37,18 @@ const GameScreen3 = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            width: 80,
-            marginRight: 10,
-          }}
-        >
-          <TouchableOpacity
-            onPress={() => setTableModal(true)}
-            activeOpacity={0.5}
-          >
+        <View style={{ flexDirection: "row", justifyContent: "flex-end", width: 80, marginRight: 10 }}>
+          <TouchableOpacity onPress={() => setTableModal(true)} activeOpacity={0.5}>
             <FontAwesome name="table" size={27} color="black" />
           </TouchableOpacity>
         </View>
       ),
     });
-  });
+  }, [navigation]);
 
   const generateNumbersMult = () => {
-    const randomNum = Math.floor(Math.random() * 12) + 0;
-    const randomNum2 = Math.floor(Math.random() * 12) + 0;
-
+    const randomNum = Math.floor(Math.random() * 12);
+    const randomNum2 = Math.floor(Math.random() * 12);
     setNum1(randomNum);
     setNum2(randomNum2);
   };
@@ -67,17 +60,17 @@ const GameScreen3 = ({ navigation }) => {
 
   const verify = () => {
     isButtonClicked(true);
-    realAnswer = num1 * num2;
+    const realAnswer = num1 * num2;
     if (count < 10) {
-      if (Number(answer) == realAnswer) {
-        generateNumbersMult();
+      if (Number(answer) === realAnswer) {
         isAnswerCorrect(true);
         setAnswer("");
         setCount(count + 1);
-      } else if (Number(answer) != realAnswer) {
+        generateNumbersMult();
+      } else {
         isAnswerCorrect(false);
       }
-    } else if (count == 10) {
+    } else {
       setChallengeModal(true);
     }
   };
@@ -90,295 +83,120 @@ const GameScreen3 = ({ navigation }) => {
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : null}
-      style={{
-        height: "100%",
-        backgroundColor: colors.primary,
-      }}
-      contentContainerStyle={{
-        flexDirection: "column",
-        paddingHorizontal: 20,
-        flex: 1,
-      }}
+      style={{ flex: 1, backgroundColor: colors.primary }}
       keyboardVerticalOffset={height + 107}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View
-          style={{
-            alignItems: "center",
-          }}
-        >
-          <Modal
-            animationType="fade"
-            transparent={true}
-            visible={challengeModal}
-            onRequestClose={() => {
-              Alert.alert("Closed");
-              setModalVisible(!challengeModal);
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-              }}
+      <ScrollView scrollIndicatorInsets={{ right: 1 }}>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <View style={{ alignItems: "center", paddingHorizontal: 20 }}>
+            <Modal
+              animationType="fade"
+              transparent={true}
+              visible={challengeModal}
+              onRequestClose={() => setChallengeModal(false)}
             >
-              <View
-                style={[
-                  styles.modalVw,
-                  {
-                    borderColor: colors.text,
-                    borderWidth: 3,
-                  },
-                ]}
-              >
-                <LinearGradient
-                  colors={["#6bffc6", colors.gradientEndCol]}
-                  start={{ x: 1, y: 0 }}
-                  end={{ x: 1, y: 0.8 }}
-                  style={{
-                    borderRadius: 16,
-                    height: 258,
-                    width: 378,
-                    alignItems: "center",
-                    padding: 26,
-                  }}
-                >
-                  <Text
-                    style={{
-                      marginBottom: 10,
-                      textAlign: "center",
-                      fontSize: 20,
-                      fontWeight: "bold",
-                    }}
+              <View style={styles.modalBackdrop}>
+                <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
+                  <LinearGradient
+                    colors={["#6bffc6", colors.gradientEndCol]}
+                    start={{ x: 1, y: 0 }}
+                    end={{ x: 1, y: 0.8 }}
+                    style={[styles.modalGradient, { width: MODAL_WIDTH }]}
                   >
-                    🙌Well Done!🙌
-                  </Text>
-                  <Text
-                    style={{
-                      marginBottom: 20,
-                      textAlign: "center",
-                      fontSize: 20,
-                      fontWeight: "bold",
-                    }}
-                  >
-                    In the next set of questions, let's see if you can solve
-                    them without the multiplication table! You got this!
-                  </Text>
-                  <Pressable
-                    style={{
-                      borderRadius: 20,
-                      padding: 10,
-                      elevation: 2,
-                      width: 150,
-                      backgroundColor: "#6bffc6",
-                      flexDirection: "row",
-                      justifyContent: "space-evenly",
-                      marginTop: 10,
-                      alignSelf: "center",
-                    }}
-                    onPress={nextScreen}
-                  >
-                    <Text
-                      style={{
-                        color: "black",
-                        fontWeight: "bold",
-                        textAlign: "center",
-                        fontSize: 20,
-                      }}
-                    >
-                      Next
+                    <Text style={styles.modalTitle}>🙌 Well Done! 🙌</Text>
+                    <Text style={styles.modalBody}>
+                      In the next set of questions, let's see if you can solve
+                      them without the multiplication table! You got this!
                     </Text>
-                    <AntDesign name="arrowright" size={24} color="black" />
-                  </Pressable>
-                </LinearGradient>
+                    <TouchableOpacity style={styles.modalBtn} onPress={nextScreen}>
+                      <Text style={styles.modalBtnText}>Next</Text>
+                      <AntDesign name="arrowright" size={22} color="black" style={{ marginLeft: 8 }} />
+                    </TouchableOpacity>
+                  </LinearGradient>
+                </View>
               </View>
-            </View>
-          </Modal>
-          <Modal
-            animationType="fade"
-            transparent={true}
-            visible={tableModal}
-            onRequestClose={() => {
-              Alert.alert("Closed");
-              setModalVisible(!setTableModal);
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-              }}
+            </Modal>
+
+            <Modal
+              animationType="fade"
+              transparent={true}
+              visible={tableModal}
+              onRequestClose={() => setTableModal(false)}
             >
-              <View
-                style={[
-                  styles.modalVw,
-                  {
-                    borderColor: colors.text,
-                    borderWidth: 3,
-                  },
-                ]}
-              >
-                <LinearGradient
-                  colors={["#6bffc6", colors.gradientEndCol]}
-                  start={{ x: 1, y: 0 }}
-                  end={{ x: 1, y: 0.8 }}
-                  style={{
-                    borderRadius: 16,
-                    height: 558,
-                    width: 378,
-                    alignItems: "center",
-                    padding: 26,
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: 30,
-                      fontWeight: "bold",
-                      marginBottom: 20,
-                    }}
+              <View style={styles.modalBackdrop}>
+                <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
+                  <LinearGradient
+                    colors={["#6bffc6", colors.gradientEndCol]}
+                    start={{ x: 1, y: 0 }}
+                    end={{ x: 1, y: 0.8 }}
+                    style={[styles.modalGradient, { width: MODAL_WIDTH }]}
                   >
-                    Multiplication Table:
-                  </Text>
-                  <Image
-                    source={require("../../Images/MultiplicationTable.jpg")}
-                    style={{
-                      width: 350,
-                      height: 350,
-                      borderRadius: 8,
-                      borderWidth: 1,
-                    }}
-                  />
-                  <Button
-                    title="Close"
-                    onPress={() => setTableModal(false)}
-                    style={{
-                      marginTop: 50,
-                      width: 100,
-                    }}
-                    titleStyle={{
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
-                    buttonStyle={{
-                      borderRadius: 8,
-                      borderWidth: 2,
-                      borderColor: "black",
-                      backgroundColor: "#6bffc6",
-                    }}
-                  />
-                </LinearGradient>
+                    <Text style={[styles.modalTitle, { marginBottom: 16 }]}>
+                      Multiplication Table:
+                    </Text>
+                    <MultiplicationTable />
+                    <TouchableOpacity
+                      style={[styles.modalBtn, { marginTop: 20 }]}
+                      onPress={() => setTableModal(false)}
+                    >
+                      <Text style={styles.modalBtnText}>Close</Text>
+                    </TouchableOpacity>
+                  </LinearGradient>
+                </View>
               </View>
-            </View>
-          </Modal>
-          <Text
-            style={{
-              color: colors.text,
-              marginTop: 60,
-              fontSize: 25,
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            Let's apply the skills we learned for the following problems!
-          </Text>
-          {ready ? (
-            <TouchableOpacity
-              style={{
-                width: 200,
-                borderWidth: 2,
-                borderColor: colors.text,
-                backgroundColor: "#6bffc6",
-                borderRadius: 8,
-                height: 50,
-                padding: 10,
-                alignItems: "center",
-                marginTop: 50,
-              }}
-              onPress={startGame}
-            >
-              <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                Press to Play!
-              </Text>
-            </TouchableOpacity>
-          ) : (
-            <View
-              style={{
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: colors.text,
-                  marginTop: 20,
-                  fontSize: 20,
-                  fontWeight: "400",
-                  textAlign: "center",
-                }}
-              >
-                Type in the correct answer below.
-              </Text>
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  paddingHorizontal: 20,
-                  marginTop: 50,
-                }}
-              >
-                <Text style={{ fontSize: 70, color: colors.text }}>
-                  {num1} x {num2} = ?
+            </Modal>
+
+            <Text style={[styles.heading, { color: colors.text }]}>
+              Let's apply the skills we learned for the following problems!
+            </Text>
+
+            {ready ? (
+              <TouchableOpacity style={styles.startButton} onPress={startGame}>
+                <Text style={{ fontSize: 20, fontWeight: "bold" }}>Press to Play!</Text>
+              </TouchableOpacity>
+            ) : (
+              <View style={{ alignItems: "center", width: "100%" }}>
+                <Text style={[styles.instruction, { color: colors.text }]}>
+                  Type in the correct answer below.
                 </Text>
-              </View>
-              <Input
-                placeholder="Type answer here"
-                type="text"
-                keyboardAppearance={dark ? "dark" : "light"}
-                value={answer}
-                onChangeText={(text) => setAnswer(text)}
-                inputContainerStyle={{ borderBottomWidth: 0 }}
-                style={{ color: colors.text }}
-                containerStyle={[
-                  { borderColor: colors.text },
-                  styles.styleInput,
-                ]}
-              />
-              <Button
-                disabled={!answer}
-                title="Check"
-                style={styles.button}
-                titleStyle={{
-                  color: "black",
-                  fontWeight: "bold",
-                }}
-                buttonStyle={{
-                  borderRadius: 8,
-                  backgroundColor: "#6bffc6",
-                }}
-                onPress={verify}
-              />
-              {buttonClicked ? (
-                answerCorrect ? (
-                  <Text style={[styles.response, { color: colors.text }]}>
-                    👏Good Job!👏
-                  </Text>
+                <Text style={[styles.equation, { color: colors.text }]}>
+                  {num1} × {num2} = ?
+                </Text>
+                <Input
+                  placeholder="Type answer here"
+                  keyboardType="numeric"
+                  keyboardAppearance={dark ? "dark" : "light"}
+                  value={answer}
+                  onChangeText={setAnswer}
+                  inputContainerStyle={{ borderBottomWidth: 0 }}
+                  style={{ color: colors.text }}
+                  containerStyle={[{ borderColor: colors.text }, styles.styleInput]}
+                />
+                <Button
+                  disabled={!answer}
+                  title="Check"
+                  style={{ width: 200, marginTop: 24 }}
+                  titleStyle={{ color: "black", fontWeight: "bold" }}
+                  buttonStyle={{ borderRadius: 8, backgroundColor: "#6bffc6" }}
+                  onPress={verify}
+                />
+                {buttonClicked ? (
+                  answerCorrect ? (
+                    <Text style={[styles.response, { color: colors.text }]}>👏 Good Job! 👏</Text>
+                  ) : (
+                    <Text style={[styles.response, { color: colors.text }]}>
+                      No pressure! Try it one more time!
+                    </Text>
+                  )
                 ) : (
-                  <Text style={[styles.response, { color: colors.text }]}>
-                    No pressure! Try it one more time!
-                  </Text>
-                )
-              ) : (
-                <Text> </Text>
-              )}
-            </View>
-          )}
-        </View>
-      </TouchableWithoutFeedback>
+                  <Text style={styles.response}> </Text>
+                )}
+              </View>
+            )}
+            <View style={{ height: 60 }} />
+          </View>
+        </TouchableWithoutFeedback>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };
@@ -386,33 +204,96 @@ const GameScreen3 = ({ navigation }) => {
 export default GameScreen3;
 
 const styles = StyleSheet.create({
-  styleInput: {
-    borderWidth: 2,
-    alignContent: "center",
-    borderRadius: 8,
-    padding: 5,
-    marginTop: 70,
-    width: 300,
-    height: 50,
-  },
-  button: {
-    width: 200,
-    marginTop: 50,
-  },
-  response: {
-    marginTop: 40,
-    fontSize: 20,
+  modalBackdrop: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.45)",
+    alignItems: "center",
+    justifyContent: "center",
   },
   modalVw: {
-    borderRadius: 20,
-    alignItems: "center",
+    borderRadius: 16,
+    borderWidth: 3,
+    overflow: "hidden",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalGradient: {
+    borderRadius: 16,
+    alignItems: "center",
+    paddingVertical: 24,
+    paddingHorizontal: 20,
+  },
+  modalTitle: {
+    textAlign: "center",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  modalBody: {
+    marginTop: 8,
+    marginBottom: 20,
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  modalBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#6bffc6",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    elevation: 2,
+  },
+  modalBtnText: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  heading: {
+    marginTop: 60,
+    fontSize: 25,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  instruction: {
+    marginTop: 20,
+    fontSize: 20,
+    fontWeight: "400",
+    textAlign: "center",
+  },
+  equation: {
+    fontSize: Math.min(60, SCREEN_WIDTH * 0.14),
+    marginTop: 40,
+    textAlign: "center",
+  },
+  startButton: {
+    width: 200,
+    borderWidth: 2,
+    borderColor: "#333",
+    backgroundColor: "#6bffc6",
+    borderRadius: 8,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 50,
+  },
+  styleInput: {
+    borderWidth: 2,
+    borderRadius: 8,
+    padding: 5,
+    marginTop: 24,
+    width: 260,
+    height: 50,
+  },
+  response: {
+    marginTop: 24,
+    marginBottom: 20,
+    fontSize: 20,
+    textAlign: "center",
+    minHeight: 30,
   },
 });

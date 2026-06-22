@@ -101,7 +101,6 @@ const GameScreen1 = ({ navigation }) => {
         </View>
       ) : (
         <View style={{ alignItems: "center", width: "100%" }}>
-          {/* Fruit picker modal */}
           <Modal
             animationType="fade"
             transparent={true}
@@ -212,7 +211,6 @@ const GameScreen1 = ({ navigation }) => {
                 <Text style={styles.response}> </Text>
               )}
 
-              {/* Single unified button grid */}
               <View style={styles.buttonGrid}>
                 {ALL_BUTTONS.map((num) => (
                   <TouchableOpacity

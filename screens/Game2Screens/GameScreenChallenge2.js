@@ -48,7 +48,7 @@ const GameScreenChallenge2 = ({ navigation }) => {
       setNum1(randomNum);
       setNum2(randomNum2);
     } else {
-      setProblemSign("-");
+      setProblemSign("—");
       setNum1(Math.max(randomNum, randomNum2));
       setNum2(Math.min(randomNum, randomNum2));
     }
@@ -110,7 +110,6 @@ const GameScreenChallenge2 = ({ navigation }) => {
       <ScrollView scrollIndicatorInsets={{ right: 1 }}>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={{ alignItems: "center", paddingHorizontal: 20 }}>
-            {/* Completion modal */}
             <Modal
               animationType="fade"
               transparent={true}
@@ -159,9 +158,7 @@ const GameScreenChallenge2 = ({ navigation }) => {
                   Type in the correct answer below.
                 </Text>
 
-                {/* Problem display — right-aligned column */}
                 <View style={styles.problemBlock}>
-                  {/* Row 1: num1 + tally helpers */}
                   <View style={styles.problemRow}>
                     <Text style={[styles.numText, { color: colors.text }]}>{num1}</Text>
                     <View style={styles.tallyButtons}>
@@ -172,7 +169,7 @@ const GameScreenChallenge2 = ({ navigation }) => {
                         onPress={addLine}
                       />
                       <Button
-                        title="-"
+                        title="—"
                         buttonStyle={styles.tallyBtn}
                         titleStyle={styles.tallyBtnText}
                         onPress={removeLine}
@@ -181,7 +178,6 @@ const GameScreenChallenge2 = ({ navigation }) => {
                   </View>
                   <View style={styles.tallyRow}>{marks}</View>
 
-                  {/* Row 2: sign + num2 + tally helpers */}
                   <View style={styles.problemRow}>
                     <Text style={[styles.numText, { color: colors.text }]}>
                       {problemSign} {num2}
@@ -194,7 +190,7 @@ const GameScreenChallenge2 = ({ navigation }) => {
                         onPress={addLine2}
                       />
                       <Button
-                        title="-"
+                        title="—"
                         buttonStyle={styles.tallyBtn}
                         titleStyle={styles.tallyBtnText}
                         onPress={removeLine2}
