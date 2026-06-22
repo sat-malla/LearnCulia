@@ -171,15 +171,6 @@ const Home = ({ navigation }) => {
           />
         </View>
 
-        <View style={styles.panelDivider} />
-
-        <TouchableOpacity
-          style={styles.panelRow}
-          onPress={() => { closeSettings(); navigation.navigate("Info"); }}
-        >
-          <Text style={[styles.panelLabel, { color: colors.text }]}>About</Text>
-          <AntDesign name="arrowright" size={20} color={colors.text} />
-        </TouchableOpacity>
       </Animated.View>
     </Modal>
     <ScrollView
@@ -286,6 +277,12 @@ const Home = ({ navigation }) => {
           title="Contact"
           desc="Any problems or advice? Reach out here!"
           onPress={() => navigation.navigate("Suggest")}
+          gradientColors={["#6bffc6", colors.gradientEndCol]}
+        />
+        <ParallelogramCard
+          title="About"
+          desc="Learn more about LearnCulia and what we do!"
+          onPress={() => navigation.navigate("Info")}
           gradientColors={["#6bffc6", colors.gradientEndCol]}
         />
       </View>

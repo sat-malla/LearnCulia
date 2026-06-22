@@ -10,6 +10,7 @@ import {
   Image,
   ScrollView,
   Alert,
+  Dimensions,
 } from "react-native";
 import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
@@ -20,209 +21,132 @@ import { Feather } from "@expo/vector-icons";
 import { auth } from "../firebase.js";
 import { useGlobalState } from "./RewardSystem.js";
 
+const { width: SCREEN_WIDTH } = Dimensions.get("window");
+
 const Login = ({ navigation }) => {
   const { dark, colors } = useTheme();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [revealPass, setRevealPass] = useState(false);
-  const [registered, isRegistered] = useGlobalState("registered");
+  const [loading, setLoading] = useState(false);
+  const [, isRegistered] = useGlobalState("registered");
   const myHeaderHeight = useHeaderHeight();
 
   const login = async () => {
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail || !password) return;
+
+    setLoading(true);
     try {
-      await auth
-      .signInWithEmailAndPassword(email, password)
-      .then(() => navigation.navigate("Home"), isRegistered(true))
+      await auth.signInWithEmailAndPassword(trimmedEmail, password);
+      isRegistered(true);
+      navigation.navigate("Home");
     } catch (e) {
       isRegistered(false);
       switch (e.code) {
-        case "auth/email-already-in-use":
-          Alert.alert(`Email address ${email} already in use.`);
+        case "auth/user-not-found":
+          Alert.alert("Account not found", `No account found for ${trimmedEmail}. Please register first.`);
+          break;
+        case "auth/wrong-password":
+          Alert.alert("Incorrect password", "The password you entered is wrong. Try again.");
           break;
         case "auth/invalid-email":
-          Alert.alert(`Email address ${email} is invalid.`);
+          Alert.alert("Invalid email", "Please enter a valid email address.");
           break;
-        case "auth/operation-not-allowed":
-          Alert.alert(`Error during sign up.`);
+        case "auth/too-many-requests":
+          Alert.alert("Too many attempts", "Account temporarily locked. Please try again later.");
           break;
-        case "auth/weak-password":
-          Alert.alert(
-            "Password is not strong enough. Add additional characters including special characters and numbers."
-          );
+        case "auth/user-disabled":
+          Alert.alert("Account disabled", "This account has been disabled. Contact support.");
           break;
         default:
-          Alert.alert("Incorrect email or password, or user not found. Register below or type again.");
-          break;
+          Alert.alert("Login failed", "Incorrect email or password. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : null}
-      style={{
-        backgroundColor: colors.primary,
-        flex: 1,
-        padding: 10
-      }}
+      style={{ backgroundColor: colors.primary, flex: 1 }}
       keyboardVerticalOffset={myHeaderHeight + 47}
     >
-      <ScrollView scrollIndicatorInsets={{ right: 1 }}>
+      <ScrollView
+        scrollIndicatorInsets={{ right: 1 }}
+        keyboardShouldPersistTaps="handled"
+      >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <View
-            style={{
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 30,
-                fontWeight: "bold",
-                marginTop: 50,
-                color: colors.text,
-              }}
-            >
-              Login
-            </Text>
-            <Text
-              style={{
-                fontSize: 20,
-                marginTop: 35,
-                color: colors.text,
-                textAlign: "center",
-              }}
-            >
-              Login today to have custom profile pictures, achievements, and
-              more!
+          <View style={{ alignItems: "center", paddingHorizontal: 20, paddingBottom: 50 }}>
+            <Text style={[styles.title, { color: colors.text }]}>Login</Text>
+            <Text style={[styles.subtitle, { color: colors.text }]}>
+              Login today to have custom profile pictures, achievements, and more!
             </Text>
             <Image
               source={require("../Images/loginPic.png")}
-              style={{
-                width: 300,
-                height: 150,
-                marginTop: 30,
-                borderRadius: 8,
-              }}
+              style={styles.image}
             />
+
             <View style={styles.inputCont}>
               <TextInput
                 placeholder="Email"
                 placeholderTextColor="gray"
-                style={[
-                  styles.styleInput,
-                  { borderColor: colors.text, color: colors.text },
-                ]}
+                style={[styles.styleInput, { borderColor: colors.text, color: colors.text }]}
                 keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
                 value={email}
                 onChangeText={setEmail}
                 keyboardAppearance={dark ? "dark" : "light"}
               />
-              <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              <View style={styles.passwordRow}>
                 <TextInput
                   placeholder="Password"
                   placeholderTextColor="gray"
-                  style={[
-                    styles.styleInput,
-                    {
-                      borderColor: colors.text,
-                      width: 330,
-                      color: colors.text,
-                    },
-                  ]}
-                  keyboardType="default"
+                  style={[styles.styleInput, { borderColor: colors.text, color: colors.text, flex: 1 }]}
+                  autoCapitalize="none"
+                  autoCorrect={false}
                   value={password}
                   onChangeText={setPassword}
-                  secureTextEntry={revealPass ? false : true}
+                  secureTextEntry={!revealPass}
+                  keyboardAppearance={dark ? "dark" : "light"}
                 />
-                <TouchableOpacity
-                  style={{
-                    borderLeftWidth: 1,
-                    borderColor: "gray",
-                    padding: 5,
-                    paddingHorizontal: 6,
-                    width: 40,
-                    height: 45,
-                    marginLeft: -40,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                  onPress={() => setRevealPass(!revealPass)}
-                >
-                  {revealPass ? (
-                    <Feather name="eye" size={24} color={colors.text} />
-                  ) : (
-                    <Feather name="eye-off" size={24} color={colors.text} />
-                  )}
+                <TouchableOpacity style={styles.eyeBtn} onPress={() => setRevealPass(!revealPass)}>
+                  <Feather name={revealPass ? "eye" : "eye-off"} size={22} color={colors.text} />
                 </TouchableOpacity>
               </View>
             </View>
+
             <Button
-              disabled={!email || !password}
+              disabled={!email.trim() || !password || loading}
+              loading={loading}
               title="Login"
-              style={[styles.button, { marginTop: 50 }]}
-              titleStyle={{
-                fontWeight: "bold",
-                color: colors.bannerText,
-              }}
-              buttonStyle={{
-                borderRadius: 8,
-                backgroundColor: colors.loginBanner,
-                height: 45,
-              }}
+              containerStyle={{ marginTop: 40, width: "100%" }}
+              titleStyle={{ fontWeight: "bold", color: colors.bannerText }}
+              disabledTitleStyle={{ color: colors.bannerText, fontWeight: "bold" }}
+              buttonStyle={{ borderRadius: 8, backgroundColor: colors.loginBanner, height: 50 }}
+              disabledStyle={{ backgroundColor: colors.loginBanner, opacity: 0.5 }}
               onPress={login}
             />
+
             <Link
               to={{ screen: "ForgotPass", params: { id: "id" } }}
-              style={{
-                marginTop: 20,
-                color: colors.buttonColor,
-                fontSize: 17,
-              }}
+              style={{ marginTop: 20, color: colors.buttonColor, fontSize: 17 }}
             >
               Forgot Password?
             </Link>
-            <Text
-              style={{
-                fontWeight: "bold",
-                marginTop: 30,
-                color: colors.orYouCan,
-              }}
-            >
-              Or you can...
-            </Text>
+
+            <Text style={[styles.orText, { color: colors.orYouCan }]}>Or you can...</Text>
+
             <TouchableOpacity
-              style={{
-                borderRadius: 8,
-                padding: 10,
-                elevation: 2,
-                width: "85%",
-                backgroundColor: colors.orangeBG,
-                flexDirection: "row",
-                justifyContent: "space-around",
-                alignItems: "center",
-                marginTop: 30,
-                alignSelf: "center",
-              }}
+              style={[styles.registerBtn, { backgroundColor: colors.orangeBG }]}
               onPress={() => navigation.navigate("Register")}
             >
-              <Text
-                style={{
-                  color: colors.orangeText,
-                  fontWeight: "bold",
-                  fontSize: 18,
-                }}
-              >
+              <Text style={{ color: colors.orangeText, fontWeight: "bold", fontSize: 18 }}>
                 Create New Account
               </Text>
             </TouchableOpacity>
-            <View style={{ height: 50 }} />
           </View>
         </TouchableWithoutFeedback>
       </ScrollView>
@@ -233,22 +157,56 @@ const Login = ({ navigation }) => {
 export default Login;
 
 const styles = StyleSheet.create({
-  inputCont: {
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
     marginTop: 50,
-    width: 350,
-    paddingHorizontal: 10,
+  },
+  subtitle: {
+    fontSize: 18,
+    marginTop: 20,
+    textAlign: "center",
+  },
+  image: {
+    width: SCREEN_WIDTH - 80,
+    height: 150,
+    marginTop: 30,
+    borderRadius: 8,
+    resizeMode: "cover",
+  },
+  inputCont: {
+    marginTop: 40,
+    width: "100%",
   },
   styleInput: {
-    borderColor: "black",
     borderWidth: 1.5,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginVertical: 15,
-    height: 45,
-    elevation: 2,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    marginVertical: 10,
+    height: 50,
+    fontSize: 16,
   },
-  button: {
-    width: 330,
-    height: 60,
+  passwordRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  eyeBtn: {
+    position: "absolute",
+    right: 12,
+    height: 50,
+    justifyContent: "center",
+    paddingHorizontal: 4,
+  },
+  orText: {
+    fontWeight: "bold",
+    marginTop: 30,
+    fontSize: 16,
+  },
+  registerBtn: {
+    borderRadius: 20,
+    paddingVertical: 14,
+    width: "100%",
+    alignItems: "center",
+    marginTop: 20,
   },
 });

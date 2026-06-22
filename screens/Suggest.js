@@ -16,26 +16,40 @@ import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { db } from "../firebase";
 
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const Suggest = ({ navigation }) => {
   const { dark, colors } = useTheme();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const myHeaderHeight = useHeaderHeight();
 
+  const isValid = name.trim() && email.trim() && message.trim();
+
   const sendMessage = async () => {
-    await db
-      .collection("contactresponses")
-      .add({
-        name: name,
-        email: email,
-        message: message,
-      })
-      .then(() => {
-        setModalVisible(true);
-      })
-      .catch((error) => alert(error));
+    if (!name.trim() || !email.trim() || !message.trim()) return;
+
+    if (!EMAIL_REGEX.test(email.trim())) {
+      Alert.alert("Invalid email", "Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await db.collection("contactresponses").add({
+        name: name.trim(),
+        email: email.trim(),
+        message: message.trim(),
+      });
+      setModalVisible(true);
+    } catch (error) {
+      Alert.alert("Failed to send", "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -58,8 +72,7 @@ const Suggest = ({ navigation }) => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!modalVisible);
+          setModalVisible(false);
         }}
       >
         <View
@@ -125,7 +138,6 @@ const Suggest = ({ navigation }) => {
         <View
           style={{
             alignItems: "center",
-            height: "100%",
           }}
         >
           <Text
@@ -152,54 +164,59 @@ const Suggest = ({ navigation }) => {
           <View style={styles.inputCont}>
             <Input
               placeholder="Name"
-              multiline={true}
+              placeholderTextColor="gray"
               type="text"
               keyboardAppearance={dark ? "dark" : "light"}
               value={name}
               style={{ color: colors.text }}
               onChangeText={(text) => setName(text)}
-              containerStyle={[styles.inputStyl, { borderColor: colors.text }]} // Add this for dark mode:  { borderColor: colors.text }
+              containerStyle={[styles.inputStyl, { borderColor: colors.text }]}
               inputContainerStyle={{ borderBottomWidth: 0 }}
             />
             <Input
               placeholder="Email"
-              multiline={true}
-              type="email"
+              placeholderTextColor="gray"
+              keyboardType="email-address"
+              autoCapitalize="none"
+              autoCorrect={false}
               keyboardAppearance={dark ? "dark" : "light"}
               value={email}
               style={{ color: colors.text }}
               onChangeText={(text) => setEmail(text)}
-              containerStyle={[styles.inputStyl, { borderColor: colors.text }]} // Add this for dark mode:  { borderColor: colors.text }
+              containerStyle={[styles.inputStyl, { borderColor: colors.text }]}
               inputContainerStyle={{ borderBottomWidth: 0 }}
             />
             <Input
               placeholder="Your Message"
+              placeholderTextColor="gray"
               multiline={true}
               type="text"
               keyboardAppearance={dark ? "dark" : "light"}
               value={message}
-              style={{ color: colors.text }}
+              style={{ color: colors.text, textAlignVertical: "top" }}
               onChangeText={(text) => setMessage(text)}
               containerStyle={[
                 styles.mesContainer,
                 { borderColor: colors.text },
-              ]} // Add this for dark mode:  { borderColor: colors.text }
+              ]}
               inputContainerStyle={{ borderBottomWidth: 0 }}
             />
           </View>
           <Button
-            disabled={!name || !email || !message}
+            disabled={!isValid || loading}
+            loading={loading}
             title="Send"
             style={styles.button}
             titleStyle={{
-              color: colors.text,
               fontWeight: "bold",
               color: colors.bannerText,
             }}
+            disabledTitleStyle={{ color: colors.bannerText, fontWeight: "bold" }}
             buttonStyle={{
               borderRadius: 8,
               backgroundColor: colors.loginBanner,
             }}
+            disabledStyle={{ backgroundColor: colors.loginBanner, opacity: 0.5 }}
             onPress={sendMessage}
           />
         </View>
@@ -214,7 +231,7 @@ export default Suggest;
 const styles = StyleSheet.create({
   inputCont: {
     marginTop: 50,
-    width: 350,
+    width: "100%",
     paddingHorizontal: 10,
   },
   inputStyl: {
