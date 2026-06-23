@@ -1,12 +1,16 @@
 import "react-native-gesture-handler";
-import { StyleSheet, TouchableOpacity, Image, Modal, View } from "react-native";
+import { StyleSheet, TouchableOpacity, Image, Modal, View, Animated, Switch, Dimensions } from "react-native";
 import { Text } from "@rneui/base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState } from "react";
-import { AntDesign } from "@expo/vector-icons";
+import React, { useState, useRef, useCallback, useContext } from "react";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { ThemeProvider, useTheme } from "./DarkTheme/ThemeProvider"
+import { SettingsContext } from "./SettingsContext";
+
+const SCREEN_WIDTH = Dimensions.get("window").width;
+const PANEL_WIDTH = SCREEN_WIDTH * 0.72;
 
 // Importing Screens
 import Home from "./screens/Home";
@@ -58,6 +62,7 @@ const globalScreenOptions = {
   headerTitleStyle: { color: "black" },
   headerTintColor: "black",
   headerBackTitleVisible: true,
+  headerRight: () => <SettingsButton />,
 };
 
 // Screen titles in functions
@@ -179,9 +184,47 @@ function QuitGameButton({ navigation }) {
   );
 }
 
-export default function App({ navigation }) {
+function SettingsButton() {
+  const { openSettings } = useContext(SettingsContext);
   return (
-    <ThemeProvider>
+    <TouchableOpacity onPress={openSettings} activeOpacity={0.5} style={{ marginRight: 10 }}>
+      <Feather name="settings" size={25} color="black" />
+    </TouchableOpacity>
+  );
+}
+
+function AppInner() {
+  const { colors, dark, setScheme } = useTheme();
+  const [settingsVisible, setSettingsVisible] = useState(false);
+  const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
+
+  const openSettings = useCallback(() => {
+    setSettingsVisible(true);
+    Animated.timing(slideAnim, { toValue: 0, duration: 260, useNativeDriver: true }).start();
+  }, [slideAnim]);
+
+  const closeSettings = useCallback(() => {
+    Animated.timing(slideAnim, { toValue: PANEL_WIDTH, duration: 220, useNativeDriver: true })
+      .start(() => setSettingsVisible(false));
+  }, [slideAnim]);
+
+  return (
+    <SettingsContext.Provider value={{ openSettings, closeSettings }}>
+      <Modal visible={settingsVisible} transparent animationType="none" onRequestClose={closeSettings}>
+        <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={closeSettings} />
+        <Animated.View style={[styles.settingsPanel, { backgroundColor: colors.primary, transform: [{ translateX: slideAnim }] }]}>
+          <Text style={[styles.panelTitle, { color: colors.text }]}>Settings</Text>
+          <View style={styles.panelRow}>
+            <Text style={[styles.panelLabel, { color: colors.text }]}>Dark Mode</Text>
+            <Switch
+              value={dark}
+              onValueChange={(val) => setScheme(val ? "dark" : "light")}
+              trackColor={{ false: "#ccc", true: "#6bffc6" }}
+              thumbColor="#fff"
+            />
+          </View>
+        </Animated.View>
+      </Modal>
       <NavigationContainer>
         <Stack.Navigator screenOptions={globalScreenOptions}>
           <Stack.Screen
@@ -467,6 +510,14 @@ export default function App({ navigation }) {
           />
         </Stack.Navigator>
       </NavigationContainer>
+    </SettingsContext.Provider>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppInner />
     </ThemeProvider>
   );
 }
@@ -528,5 +579,37 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     color: "black",
+  },
+  modalOverlay: {
+    position: "absolute",
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.35)",
+  },
+  settingsPanel: {
+    position: "absolute",
+    top: 0, right: 0, bottom: 0,
+    width: PANEL_WIDTH,
+    paddingTop: 60,
+    paddingHorizontal: 24,
+    shadowColor: "#000",
+    shadowOffset: { width: -3, height: 0 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 10,
+  },
+  panelTitle: {
+    fontSize: 26,
+    fontWeight: "bold",
+    marginBottom: 30,
+  },
+  panelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 16,
+  },
+  panelLabel: {
+    fontSize: 18,
+    fontWeight: "500",
   },
 });

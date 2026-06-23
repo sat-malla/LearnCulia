@@ -12,11 +12,11 @@ import {
   Alert,
   Dimensions,
 } from "react-native";
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useHeaderHeight } from "@react-navigation/elements";
-import { Feather, Entypo } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 import { CheckBox } from "@rneui/base";
 import { Link } from "@react-navigation/native";
 import { auth, db } from "../firebase.js";
@@ -86,17 +86,6 @@ const Register = ({ navigation }) => {
     }
   };
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (
-        <View style={{ flexDirection: "row", justifyContent: "flex-end", width: 80, marginRight: 10 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("Home")} activeOpacity={0.5}>
-            <Entypo name="home" size={30} color="black" />
-          </TouchableOpacity>
-        </View>
-      ),
-    });
-  }, [navigation]);
 
   return (
     <KeyboardAvoidingView

@@ -10,19 +10,21 @@ import {
   TouchableWithoutFeedback,
   Dimensions,
 } from "react-native";
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect, useContext } from "react";
 import { Text, Input, Button } from "@rneui/base";
 import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { LinearGradient } from "expo-linear-gradient";
-import { AntDesign, FontAwesome } from "@expo/vector-icons";
+import { AntDesign, FontAwesome, Feather } from "@expo/vector-icons";
 import MultiplicationTable from "./MultiplicationTable";
 import { useHeaderHeight } from "@react-navigation/elements";
+import { SettingsContext } from "../../SettingsContext";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MODAL_WIDTH = SCREEN_WIDTH - 24;
 
 const GameScreen3 = ({ navigation }) => {
   const { colors, dark } = useTheme();
+  const { openSettings } = useContext(SettingsContext);
   const [ready, setReady] = useState(true);
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
@@ -37,14 +39,17 @@ const GameScreen3 = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <View style={{ flexDirection: "row", justifyContent: "flex-end", width: 80, marginRight: 10 }}>
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 16, marginRight: 10 }}>
           <TouchableOpacity onPress={() => setTableModal(true)} activeOpacity={0.5}>
             <FontAwesome name="table" size={27} color="black" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={openSettings} activeOpacity={0.5}>
+            <Feather name="settings" size={25} color="black" />
           </TouchableOpacity>
         </View>
       ),
     });
-  }, [navigation]);
+  }, [navigation, openSettings]);
 
   const generateNumbersMult = () => {
     const randomNum = Math.floor(Math.random() * 12);

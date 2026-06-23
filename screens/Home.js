@@ -4,20 +4,16 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
-  Modal,
-  Animated,
-  Switch,
   Dimensions,
 } from "react-native";
 import { Text } from "@rneui/base";
-import React, { useLayoutEffect, useState, useRef, useCallback } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
-import { AntDesign, Ionicons, Feather } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import Svg, { Path, Defs, LinearGradient as SvgLinearGradient, Stop } from "react-native-svg";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
-const PANEL_WIDTH = SCREEN_WIDTH * 0.72;
 const CARD_HEIGHT = 90;
 const SLANT = 24;
 const R = 16;
@@ -73,105 +69,24 @@ const ParallelogramCard = ({ title, desc, onPress, gradientColors }) => {
 };
 
 const Home = ({ navigation }) => {
-  const { colors, dark, setScheme } = useTheme();
+  const { colors } = useTheme();
   const [heyThere, setHeyThere] = useState(false);
   const [registered] = useGlobalState("registered");
-  const [settingsVisible, setSettingsVisible] = useState(false);
-  const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
-
-  const openSettings = useCallback(() => {
-    setSettingsVisible(true);
-    Animated.timing(slideAnim, {
-      toValue: 0,
-      duration: 260,
-      useNativeDriver: true,
-    }).start();
-  }, [slideAnim]);
-
-  const closeSettings = useCallback(() => {
-    Animated.timing(slideAnim, {
-      toValue: PANEL_WIDTH,
-      duration: 220,
-      useNativeDriver: true,
-    }).start(() => setSettingsVisible(false));
-  }, [slideAnim]);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            marginRight: 22,
-            marginLeft: -5,
-            marginBottom: 2,
-          }}
-        >
-          <TouchableOpacity
-            style={{
-              alignItems: "center",
-            }}
-            onPress={() => navigation.navigate("Profile")}
-          >
-            <Ionicons
-              name="ios-person-circle-outline"
-              size={40}
-              color="black"
-            />
-          </TouchableOpacity>
-        </View>
-      ),
-      headerRight: () => (
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "flex-end",
-            width: 80,
-            marginRight: 10,
-          }}
-        >
-          <TouchableOpacity onPress={openSettings} activeOpacity={0.5}>
-            <Feather name="settings" size={25} color="black" />
+        <View style={{ flexDirection: "row", marginRight: 22, marginLeft: -5, marginBottom: 2 }}>
+          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+            <Ionicons name="ios-person-circle-outline" size={40} color="black" />
           </TouchableOpacity>
         </View>
       ),
     });
-  }, [navigation, openSettings]);
+  }, [navigation]);
 
   return (
     <>
-    <Modal
-      visible={settingsVisible}
-      transparent
-      animationType="none"
-      onRequestClose={closeSettings}
-    >
-      <TouchableOpacity
-        style={styles.modalOverlay}
-        activeOpacity={1}
-        onPress={closeSettings}
-      />
-      <Animated.View
-        style={[
-          styles.settingsPanel,
-          { backgroundColor: colors.primary, transform: [{ translateX: slideAnim }] },
-        ]}
-      >
-        <Text style={[styles.panelTitle, { color: colors.text }]}>Settings</Text>
-
-        <View style={styles.panelRow}>
-          <Text style={[styles.panelLabel, { color: colors.text }]}>Dark Mode</Text>
-          <Switch
-            value={dark}
-            onValueChange={(val) => setScheme(val ? "dark" : "light")}
-            trackColor={{ false: "#ccc", true: "#6bffc6" }}
-            thumbColor={dark ? "#fff" : "#fff"}
-          />
-        </View>
-
-      </Animated.View>
-    </Modal>
     <ScrollView
       style={{
         height: "100%",
@@ -294,48 +209,6 @@ const Home = ({ navigation }) => {
 export default Home;
 
 const styles = StyleSheet.create({
-  modalOverlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: "rgba(0,0,0,0.35)",
-  },
-  settingsPanel: {
-    position: "absolute",
-    top: 0,
-    right: 0,
-    bottom: 0,
-    width: PANEL_WIDTH,
-    paddingTop: 60,
-    paddingHorizontal: 24,
-    shadowColor: "#000",
-    shadowOffset: { width: -3, height: 0 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 10,
-  },
-  panelTitle: {
-    fontSize: 26,
-    fontWeight: "bold",
-    marginBottom: 30,
-  },
-  panelRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingVertical: 16,
-  },
-  panelLabel: {
-    fontSize: 18,
-    fontWeight: "500",
-  },
-  panelDivider: {
-    height: 1,
-    backgroundColor: "#ccc",
-    opacity: 0.4,
-  },
   cardStack: {
     width: "100%",
     marginTop: 40,
