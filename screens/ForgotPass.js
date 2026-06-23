@@ -1,94 +1,72 @@
 import {
   KeyboardAvoidingView,
+  Platform,
   StyleSheet,
   TextInput,
   TouchableWithoutFeedback,
+  Keyboard,
   View,
-  Alert
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
-import { ThemeProvider } from "../DarkTheme/ThemeProvider"
+import { useTheme } from "../DarkTheme/ThemeProvider";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { auth } from "../firebase.js";
 
 const ForgotPass = ({ navigation }) => {
   const { dark, colors } = useTheme();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const myHeaderHeight = useHeaderHeight();
 
   const forgotPass = async () => {
-    await auth
-        .sendPasswordResetEmail(email)
-        .catch((error) => alert(error))
-        .then(() => {
-            Alert.alert("Success!", "Password reset email sent."),
-            navigation.navigate("Login")
-        })
-  }
+    setLoading(true);
+    try {
+      await auth.sendPasswordResetEmail(email.trim());
+      Alert.alert("Success!", "Password reset email sent.", [
+        { text: "OK", onPress: () => navigation.navigate("Login") },
+      ]);
+    } catch (error) {
+      Alert.alert("Error", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : null}
-      style={{
-        backgroundColor: colors.primary,
-        paddingHorizontal: 20,
-        flex: 1,
-      }}
+      style={{ backgroundColor: colors.primary, flex: 1 }}
       keyboardVerticalOffset={myHeaderHeight + 47}
     >
-      <TouchableWithoutFeedback>
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 30,
-              fontWeight: "bold",
-              marginTop: 50,
-              color: colors.text
-            }}
-          >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.inner}>
+          <Text style={[styles.title, { color: colors.text }]}>
             Forgot Password?
           </Text>
-          <Text
-            style={{
-              fontSize: 20,
-              marginTop: 30,
-              textAlign: "center",
-              color: colors.text
-            }}
-          >
-            Type in your email address so we can send you a confirmation email.
+          <Text style={[styles.subtitle, { color: colors.text }]}>
+            Enter your email address and we'll send you a link to reset your
+            password.
           </Text>
           <TextInput
             placeholder="Email"
             placeholderTextColor="gray"
-            style={[
-              styles.styleInput,
-              { borderColor: colors.text, color: colors.text },
-            ]}
-            textContentType="text"
+            style={[styles.input, { borderColor: colors.text, color: colors.text }]}
+            textContentType="emailAddress"
+            autoCapitalize="none"
+            keyboardType="email-address"
+            keyboardAppearance={dark ? "dark" : "light"}
             value={email}
             onChangeText={setEmail}
-            keyboardAppearance={dark ? "dark" : "light"}
           />
           <Button
-            disabled={!email}
-            title="Send"
-            style={{ marginTop: 30, width: 300, height: 60 }}
-            titleStyle={{
-              fontWeight: "bold",
-              color: "#11ad71",
-            }}
-            buttonStyle={{
-              borderRadius: 8,
-              backgroundColor: colors.loginBanner,
-              height: 45,
-            }}
+            disabled={!email.trim() || loading}
+            loading={loading}
+            title="Send Reset Email"
+            containerStyle={styles.buttonContainer}
+            titleStyle={styles.buttonTitle}
+            buttonStyle={[styles.button, { backgroundColor: colors.loginBanner }]}
             onPress={forgotPass}
           />
         </View>
@@ -100,15 +78,41 @@ const ForgotPass = ({ navigation }) => {
 export default ForgotPass;
 
 const styles = StyleSheet.create({
-  styleInput: {
-    borderColor: "black",
+  inner: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  subtitle: {
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 10,
+    lineHeight: 24,
+  },
+  input: {
     borderWidth: 1.5,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    marginVertical: 15,
-    marginTop: 40,
-    height: 45,
-    elevation: 2,
-    width: 300
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    marginTop: 30,
+    height: 48,
+    width: 300,
+  },
+  buttonContainer: {
+    marginTop: 30,
+    width: 300,
+  },
+  buttonTitle: {
+    fontWeight: "bold",
+    color: "#11ad71",
+  },
+  button: {
+    borderRadius: 8,
+    height: 48,
   },
 });
