@@ -1,11 +1,12 @@
 import "react-native-gesture-handler";
-import { StyleSheet, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, TouchableOpacity, Image, Modal, View } from "react-native";
 import { Text } from "@rneui/base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
-import { ThemeProvider } from "./DarkTheme/ThemeProvider"
+import { LinearGradient } from "expo-linear-gradient";
+import { ThemeProvider, useTheme } from "./DarkTheme/ThemeProvider"
 
 // Importing Screens
 import Home from "./screens/Home";
@@ -122,8 +123,61 @@ function Game6Title({ navigation }) {
   return <Text style={{ fontSize: 25 }}>Arrange Nums</Text>;
 }
 
-//ADD MODAL WHEN SOMEONE PRESS QUIT GAME, ASK ARE YOU SURE YOU WANT TO QUIT GAME!!!
-// DOESN'T FREAKING WOOORKRRKRKRKKRKRKRK!!!! >:( >:( >:( >:( >:( >:( >:( >:(>:(>:(>:(>:(>:(>:(>:(>:(>:(>:(>:(>:(>:(
+function QuitGameButton({ navigation }) {
+  const { colors } = useTheme();
+  const [visible, setVisible] = useState(false);
+  const MODAL_WIDTH = 300;
+
+  return (
+    <>
+      <TouchableOpacity
+        onPress={() => setVisible(true)}
+        style={{ flexDirection: "row", marginLeft: -10 }}
+      >
+        <AntDesign name="arrowleft" size={18} color="black" style={{ marginTop: 2.5 }} />
+        <Text style={{ fontSize: 18, marginLeft: 5 }}>Quit Game</Text>
+      </TouchableOpacity>
+
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={visible}
+        onRequestClose={() => setVisible(false)}
+      >
+        <View style={styles.modalBackdrop}>
+          <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
+            <LinearGradient
+              colors={["#6bffc6", colors.gradientEndCol]}
+              start={{ x: 1, y: 0 }}
+              end={{ x: 1, y: 0.8 }}
+              style={[styles.modalGradient, { width: MODAL_WIDTH }]}
+            >
+              <Text style={styles.modalTitle}>Quit Game?</Text>
+              <Text style={styles.modalBody}>
+                Are you sure you want to quit? Your progress will be lost.
+              </Text>
+              <TouchableOpacity
+                style={styles.modalBtnConfirm}
+                onPress={() => {
+                  setVisible(false);
+                  navigation.navigate("SinglePlayer");
+                }}
+              >
+                <Text style={styles.modalBtnText}>Yes, Quit</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.modalBtnCancel, { borderColor: colors.text }]}
+                onPress={() => setVisible(false)}
+              >
+                <Text style={[styles.modalBtnText, { color: colors.text }]}>Keep Playing</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          </View>
+        </View>
+      </Modal>
+    </>
+  );
+}
 
 export default function App({ navigation }) {
   return (
@@ -211,29 +265,13 @@ export default function App({ navigation }) {
               };
             }}
           />
-          {/* Single Player Game 1 Screens */}
           <Stack.Screen
             name="StartScreen1"
             component={StartScreen1}
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game1Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -243,22 +281,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game1Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -268,48 +291,17 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game1Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
-          {/* Single Player Game 2 Screens */}
           <Stack.Screen
             name="StartScreen2"
             component={StartScreen2}
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game2Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -319,22 +311,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game2Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -344,48 +321,17 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game2Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
-          {/* Single Player Game 3 Screens */}
           <Stack.Screen
             name="StartScreen3"
             component={StartScreen3}
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game3Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -395,22 +341,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game3Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -420,48 +351,17 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game3Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
-          {/* Single Player Game 4 Screens */}
           <Stack.Screen
             name="StartScreen4"
             component={StartScreen4}
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game4Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -471,22 +371,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game4Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -496,48 +381,17 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game4Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
-          {/* Single Player Game 5 Screens */}
           <Stack.Screen
             name="StartScreen5"
             component={StartScreen5}
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game5Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -547,22 +401,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game5Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -572,22 +411,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game5Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -597,48 +421,17 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game5Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
-          {/* Single Player Game 6 Screens */}
           <Stack.Screen
             name="StartScreen6"
             component={StartScreen6}
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game6Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -648,22 +441,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game6Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -673,22 +451,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game6Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -698,22 +461,7 @@ export default function App({ navigation }) {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <Game6Title navigation={navigation} />,
-                headerLeft: () => (
-                  <TouchableOpacity
-                    onPress={() => navigation.navigate("SinglePlayer")}
-                    style={{ flexDirection: "row", marginLeft: -10 }}
-                  >
-                    <AntDesign
-                      name="arrowleft"
-                      size={18}
-                      color="black"
-                      style={{ marginTop: 2.5 }}
-                    />
-                    <Text style={{ fontSize: 18, marginLeft: 5 }}>
-                      Quit Game
-                    </Text>
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => <QuitGameButton navigation={navigation} />,
               };
             }}
           />
@@ -724,22 +472,61 @@ export default function App({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  modalBackdrop: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "rgba(0,0,0,0.45)",
     alignItems: "center",
     justifyContent: "center",
   },
   modalVw: {
-    borderRadius: 20,
-    alignItems: "center",
+    borderRadius: 16,
+    borderWidth: 3,
+    overflow: "hidden",
     shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalGradient: {
+    borderRadius: 16,
+    alignItems: "center",
+    padding: 28,
+  },
+  modalTitle: {
+    fontSize: 22,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 12,
+  },
+  modalBody: {
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 24,
+    lineHeight: 22,
+  },
+  modalBtnConfirm: {
+    backgroundColor: "#ff4747",
+    borderRadius: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 28,
+    marginBottom: 12,
+    elevation: 2,
+    width: 200,
+    alignItems: "center",
+  },
+  modalBtnCancel: {
+    backgroundColor: "transparent",
+    borderRadius: 20,
+    borderWidth: 2,
+    paddingVertical: 10,
+    paddingHorizontal: 28,
+    width: 200,
+    alignItems: "center",
+  },
+  modalBtnText: {
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "black",
   },
 });

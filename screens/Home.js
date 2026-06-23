@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { Text } from "@rneui/base";
 import React, { useLayoutEffect, useState, useRef, useCallback } from "react";
-import { LinearGradient } from "expo-linear-gradient";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
 import { AntDesign, Ionicons, Feather } from "@expo/vector-icons";
@@ -246,7 +245,7 @@ const Home = ({ navigation }) => {
           color: colors.text,
         }}
       >
-        Let LearnCulia guide you to conquer your math hurdles!
+        Let LearnCulia™ guide you to conquer your math hurdles!
       </Text>
       <Text
         style={{
