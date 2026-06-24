@@ -240,8 +240,11 @@ function AppInner() {
                 ]}
                 activeOpacity={0.7}
               >
-                <View style={[styles.colorSwatch, { backgroundColor: hex }]} />
-                <Text style={[styles.panelLabel, { color: colors.text, flex: 1 }]}>{label}</Text>
+                <View style={[styles.headerPreview, { backgroundColor: hex }]}>
+                  <Text style={styles.headerPreviewText}>LearnCulia</Text>
+                  <Feather name="settings" size={13} color="black" />
+                </View>
+                <Text style={[styles.panelLabel, { color: colors.text, flex: 1, marginLeft: 10 }]}>{label}</Text>
                 <View style={[styles.radioOuter, { borderColor: selected ? hex : (dark ? "#555" : "#ccc") }]}>
                   {selected && <View style={[styles.radioInner, { backgroundColor: hex }]} />}
                 </View>
@@ -650,11 +653,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     marginBottom: 10,
   },
-  colorSwatch: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    marginRight: 12,
+  headerPreview: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: 100,
+    height: 28,
+    borderRadius: 6,
+    paddingHorizontal: 7,
+    overflow: "hidden",
+  },
+  headerPreviewText: {
+    fontSize: 11,
+    fontWeight: "bold",
+    color: "black",
   },
   radioOuter: {
     width: 22,
