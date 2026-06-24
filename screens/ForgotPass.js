@@ -65,7 +65,7 @@ const ForgotPass = ({ navigation }) => {
             loading={loading}
             title="Send Reset Email"
             containerStyle={styles.buttonContainer}
-            titleStyle={styles.buttonTitle}
+            titleStyle={[styles.buttonTitle, { color: colors.bannerText }]}
             buttonStyle={[styles.button, { backgroundColor: colors.loginBanner }]}
             onPress={forgotPass}
           />
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
   },
   buttonTitle: {
     fontWeight: "bold",
-    color: "#11ad71",
   },
   button: {
     borderRadius: 8,

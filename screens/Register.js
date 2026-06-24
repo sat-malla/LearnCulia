@@ -147,7 +147,7 @@ const Register = ({ navigation }) => {
                   margin: 0,
                   marginRight: 4,
                 }}
-                checkedColor="#11ad71"
+                checkedColor={colors.bannerText}
                 checked={termsCo}
                 onPress={() => setTermsCo(!termsCo)}
               />

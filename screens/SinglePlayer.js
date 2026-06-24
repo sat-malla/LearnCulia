@@ -161,7 +161,7 @@ const SinglePlayer = ({ navigation }) => {
             ]}
           >
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={{
@@ -215,15 +215,15 @@ const SinglePlayer = ({ navigation }) => {
                   Luck and Have Fun!
                 </Text>
                 <View style={styles.modalButtonRow}>
-                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact1}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={goToContact1}>
                     <Text style={styles.modalBtnText}>Contact</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.modalBtn} onPress={startGame1}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame1}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
                     <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setFirstGameModal(false)}>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setFirstGameModal(false)}>
                   <Text style={styles.modalBtnText}>Close</Text>
                 </TouchableOpacity>
               </ImageBackground>
@@ -259,7 +259,7 @@ const SinglePlayer = ({ navigation }) => {
             ]}
           >
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={{
@@ -314,15 +314,15 @@ const SinglePlayer = ({ navigation }) => {
                   Have Fun!
                 </Text>
                 <View style={styles.modalButtonRow}>
-                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact2}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={goToContact2}>
                     <Text style={styles.modalBtnText}>Contact</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.modalBtn} onPress={startGame2}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame2}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
                     <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setSecondGameModal(false)}>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setSecondGameModal(false)}>
                   <Text style={styles.modalBtnText}>Close</Text>
                 </TouchableOpacity>
               </ImageBackground>
@@ -358,7 +358,7 @@ const SinglePlayer = ({ navigation }) => {
             ]}
           >
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={{
@@ -411,15 +411,15 @@ const SinglePlayer = ({ navigation }) => {
                   'Start Game' to start. Good Luck and Have Fun!
                 </Text>
                 <View style={styles.modalButtonRow}>
-                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact3}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={goToContact3}>
                     <Text style={styles.modalBtnText}>Contact</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.modalBtn} onPress={startGame3}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame3}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
                     <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setThirdGameModal(false)}>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setThirdGameModal(false)}>
                   <Text style={styles.modalBtnText}>Close</Text>
                 </TouchableOpacity>
               </ImageBackground>
@@ -455,7 +455,7 @@ const SinglePlayer = ({ navigation }) => {
             ]}
           >
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={{
@@ -509,15 +509,15 @@ const SinglePlayer = ({ navigation }) => {
                   below. Click 'Start Game' to start. Good Luck and Have Fun!
                 </Text>
                 <View style={styles.modalButtonRow}>
-                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact4}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={goToContact4}>
                     <Text style={styles.modalBtnText}>Contact</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.modalBtn} onPress={startGame4}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame4}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
                     <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setFourthGameModal(false)}>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setFourthGameModal(false)}>
                   <Text style={styles.modalBtnText}>Close</Text>
                 </TouchableOpacity>
               </ImageBackground>
@@ -553,7 +553,7 @@ const SinglePlayer = ({ navigation }) => {
             ]}
           >
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={{
@@ -607,15 +607,15 @@ const SinglePlayer = ({ navigation }) => {
                   start. Good Luck and Have Fun!
                 </Text>
                 <View style={styles.modalButtonRow}>
-                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact5}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={goToContact5}>
                     <Text style={styles.modalBtnText}>Contact</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.modalBtn} onPress={startGame5}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame5}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
                     <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setFifthGameModal(false)}>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setFifthGameModal(false)}>
                   <Text style={styles.modalBtnText}>Close</Text>
                 </TouchableOpacity>
               </ImageBackground>
@@ -651,7 +651,7 @@ const SinglePlayer = ({ navigation }) => {
             ]}
           >
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={{
@@ -705,15 +705,15 @@ const SinglePlayer = ({ navigation }) => {
                   Have Fun!
                 </Text>
                 <View style={styles.modalButtonRow}>
-                  <TouchableOpacity style={styles.modalBtn} onPress={goToContact6}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={goToContact6}>
                     <Text style={styles.modalBtnText}>Contact</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity style={styles.modalBtn} onPress={startGame6}>
+                  <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame6}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
                     <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose]} onPress={() => setSixthGameModal(false)}>
+                <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setSixthGameModal(false)}>
                   <Text style={styles.modalBtnText}>Close</Text>
                 </TouchableOpacity>
               </ImageBackground>
@@ -757,7 +757,7 @@ const SinglePlayer = ({ navigation }) => {
               onPress={item.openModal}
             >
               <LinearGradient
-                colors={["#6bffc6", colors.gradientEndCol]}
+                colors={[colors.accent, colors.gradientEndCol]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{
@@ -819,7 +819,7 @@ const SinglePlayer = ({ navigation }) => {
               onPress={item.openModal}
             >
               <LinearGradient
-                colors={["#6bffc6", colors.gradientEndCol]}
+                colors={[colors.accent, colors.gradientEndCol]}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 style={{
@@ -888,7 +888,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#6bffc6",
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 12,

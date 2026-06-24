@@ -34,7 +34,7 @@ const StartScreen5 = ({ navigation }) => {
         Now, let's try some problems by clicking the button below!
       </Text>
       <TouchableOpacity
-        style={styles.startButton}
+        style={[styles.startButton, { backgroundColor: colors.accent }]}
         onPress={() => navigation.navigate("GameScreen5")}
       >
         <Text style={{ fontSize: 20, fontWeight: "bold" }}>Click to go to game page!</Text>
@@ -47,7 +47,6 @@ export default StartScreen5;
 
 const styles = StyleSheet.create({
   startButton: {
-    backgroundColor: "#6bffc6",
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 24,

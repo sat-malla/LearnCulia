@@ -135,7 +135,7 @@ const Suggest = ({ navigation }) => {
             <Pressable
               style={[
                 { borderRadius: 20, padding: 10, elevation: 2, width: 150 },
-                { backgroundColor: "#6bffc6" },
+                { backgroundColor: colors.accent },
               ]}
               onPress={() => navigation.goBack()}
             >

@@ -177,27 +177,27 @@ const Home = ({ navigation }) => {
           title="Single Player"
           desc="Solve exciting challenges for desired self-improvement!"
           onPress={() => navigation.navigate("SinglePlayer")}
-          gradientColors={["#6bffc6", colors.gradientEndCol]}
+          gradientColors={[colors.accent, colors.gradientEndCol]}
         />
         {!registered && (
           <ParallelogramCard
             title="Login"
             desc="Sign in to track your progress and rewards!"
             onPress={() => navigation.navigate("Login")}
-            gradientColors={["#6bffc6", colors.gradientEndCol]}
+            gradientColors={[colors.accent, colors.gradientEndCol]}
           />
         )}
         <ParallelogramCard
           title="Contact"
           desc="Any problems or advice? Reach out here!"
           onPress={() => navigation.navigate("Suggest")}
-          gradientColors={["#6bffc6", colors.gradientEndCol]}
+          gradientColors={[colors.accent, colors.gradientEndCol]}
         />
         <ParallelogramCard
           title="About"
           desc="Learn more about LearnCulia and what we do!"
           onPress={() => navigation.navigate("Info")}
-          gradientColors={["#6bffc6", colors.gradientEndCol]}
+          gradientColors={[colors.accent, colors.gradientEndCol]}
         />
       </View>
       <View style={{ height: 70 }} />

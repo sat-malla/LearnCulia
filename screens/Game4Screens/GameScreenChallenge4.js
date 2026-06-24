@@ -109,7 +109,7 @@ const GameScreenChallenge4 = ({ navigation }) => {
               <View style={styles.modalBackdrop}>
                 <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
                   <LinearGradient
-                    colors={["#6bffc6", colors.gradientEndCol]}
+                    colors={[colors.accent, colors.gradientEndCol]}
                     start={{ x: 1, y: 0 }}
                     end={{ x: 1, y: 0.8 }}
                     style={[styles.modalGradient, { width: MODAL_WIDTH }]}
@@ -124,7 +124,7 @@ const GameScreenChallenge4 = ({ navigation }) => {
                         You have completed this game! Now you know how to read
                         equations forwards and backwards!
                       </Text>
-                      <TouchableOpacity style={styles.modalBtn} onPress={finishGame}>
+                      <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={finishGame}>
                         <Text style={styles.modalBtnText}>Finish</Text>
                         <AntDesign name="arrowright" size={22} color="black" style={{ marginLeft: 8 }} />
                       </TouchableOpacity>
@@ -143,7 +143,7 @@ const GameScreenChallenge4 = ({ navigation }) => {
               <View style={styles.modalBackdrop}>
                 <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
                   <LinearGradient
-                    colors={["#6bffc6", colors.gradientEndCol]}
+                    colors={[colors.accent, colors.gradientEndCol]}
                     start={{ x: 1, y: 0 }}
                     end={{ x: 1, y: 0.8 }}
                     style={[styles.modalGradient, { width: MODAL_WIDTH }]}
@@ -164,11 +164,11 @@ const GameScreenChallenge4 = ({ navigation }) => {
                       Let me know if you are still struggling by contacting me
                       below, and I can help you out!
                     </Text>
-                    <TouchableOpacity style={styles.modalBtn} onPress={contactScreen}>
+                    <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={contactScreen}>
                       <Text style={styles.modalBtnText}>Contact Me!</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                      style={[styles.modalBtn, { marginTop: 12 }]}
+                      style={[styles.modalBtn, { marginTop: 12, backgroundColor: colors.accent }]}
                       onPress={() => setHelpModal(false)}
                     >
                       <Text style={styles.modalBtnText}>Close</Text>
@@ -183,7 +183,7 @@ const GameScreenChallenge4 = ({ navigation }) => {
             </Text>
 
             {ready ? (
-              <TouchableOpacity style={styles.startButton} onPress={startGame}>
+              <TouchableOpacity style={[styles.startButton, { backgroundColor: colors.accent }]} onPress={startGame}>
                 <Text style={{ fontSize: 20, fontWeight: "bold" }}>Press to Play!</Text>
               </TouchableOpacity>
             ) : (
@@ -209,7 +209,7 @@ const GameScreenChallenge4 = ({ navigation }) => {
                   title="Check"
                   style={{ width: 200, marginTop: 24 }}
                   titleStyle={{ color: "black", fontWeight: "bold" }}
-                  buttonStyle={{ borderRadius: 8, backgroundColor: "#6bffc6" }}
+                  buttonStyle={{ borderRadius: 8, backgroundColor: colors.accent }}
                   onPress={verify}
                 />
                 {buttonClicked ? (
@@ -272,7 +272,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#6bffc6",
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -304,7 +303,6 @@ const styles = StyleSheet.create({
     width: 200,
     borderWidth: 2,
     borderColor: "#333",
-    backgroundColor: "#6bffc6",
     borderRadius: 8,
     height: 50,
     alignItems: "center",

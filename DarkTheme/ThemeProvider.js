@@ -1,31 +1,37 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { lightTheme, darkTheme } from "./colors";
+import { buildTheme } from "./colors";
 import { useColorScheme } from "react-native";
 
 export const ThemeContext = createContext({
   dark: false,
-  colors: lightTheme,
+  appColor: "green",
+  colors: buildTheme(false, "green"),
   setScheme: () => {},
+  setAppColor: () => {},
 });
 
 export const ThemeProvider = (props) => {
   const colorScheme = useColorScheme();
-  const [isDark, setIsDark] = useState(colorScheme == "dark");
+  const [isDark, setIsDark] = useState(colorScheme === "dark");
+  const [appColor, setAppColor] = useState("green");
+
   useEffect(() => {
-    setIsDark(colorScheme == "dark");
+    setIsDark(colorScheme === "dark");
   }, [colorScheme]);
-  const defaultTheme = {
+
+  const value = {
     dark: isDark,
-    colors: isDark ? darkTheme : lightTheme,
-    setScheme: (scheme) => setIsDark(scheme == "dark"),
+    appColor,
+    colors: buildTheme(isDark, appColor),
+    setScheme: (scheme) => setIsDark(scheme === "dark"),
+    setAppColor,
   };
 
   return (
-    <ThemeContext.Provider value={defaultTheme}>
+    <ThemeContext.Provider value={value}>
       {props.children}
     </ThemeContext.Provider>
   );
 };
 
-//creating custom hook
 export const useTheme = () => useContext(ThemeContext);

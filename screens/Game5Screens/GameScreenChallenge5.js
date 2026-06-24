@@ -111,7 +111,7 @@ const GameScreenChallenge5 = ({ navigation }) => {
         <View style={styles.modalBackdrop}>
           <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={[styles.modalGradient, { width: MODAL_WIDTH }]}
@@ -126,7 +126,7 @@ const GameScreenChallenge5 = ({ navigation }) => {
                   You have completed this game! Now you know how to compare two
                   numbers with different comparison symbols!
                 </Text>
-                <TouchableOpacity style={styles.modalBtn} onPress={finishScreen}>
+                <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={finishScreen}>
                   <Text style={styles.modalBtnText}>Finish</Text>
                   <AntDesign name="arrowright" size={22} color="black" style={{ marginLeft: 8 }} />
                 </TouchableOpacity>
@@ -141,7 +141,7 @@ const GameScreenChallenge5 = ({ navigation }) => {
       </Text>
 
       {ready ? (
-        <TouchableOpacity style={styles.startButton} onPress={startGame}>
+        <TouchableOpacity style={[styles.startButton, { backgroundColor: colors.accent }]} onPress={startGame}>
           <Text style={{ fontSize: 20, fontWeight: "bold" }}>Press to Play!</Text>
         </TouchableOpacity>
       ) : (
@@ -162,14 +162,14 @@ const GameScreenChallenge5 = ({ navigation }) => {
               <View style={styles.tallyControls}>
                 <Button
                   title="+"
-                  buttonStyle={styles.tallyBtn}
+                  buttonStyle={[styles.tallyBtn, { backgroundColor: colors.accent }]}
                   titleStyle={styles.tallyBtnText}
                   onPress={row.onAdd}
                 />
                 <Button
                   title="—"
                   style={{ marginLeft: 10 }}
-                  buttonStyle={styles.tallyBtn}
+                  buttonStyle={[styles.tallyBtn, { backgroundColor: colors.accent }]}
                   titleStyle={styles.tallyBtnText}
                   onPress={row.onRemove}
                 />
@@ -217,7 +217,7 @@ const GameScreenChallenge5 = ({ navigation }) => {
             title="Check"
             style={{ width: 200, marginTop: 100 }}
             titleStyle={{ color: "black", fontWeight: "bold" }}
-            buttonStyle={{ borderRadius: 8, backgroundColor: "#6bffc6" }}
+            buttonStyle={{ borderRadius: 8, backgroundColor: colors.accent }}
             onPress={verify}
           />
           {buttonClicked ? (
@@ -275,7 +275,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#6bffc6",
     borderRadius: 20,
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -312,7 +311,6 @@ const styles = StyleSheet.create({
     width: 200,
     borderWidth: 2,
     borderColor: "#333",
-    backgroundColor: "#6bffc6",
     borderRadius: 8,
     height: 50,
     alignItems: "center",
@@ -334,7 +332,6 @@ const styles = StyleSheet.create({
   },
   tallyBtn: {
     borderRadius: 8,
-    backgroundColor: "#6bffc6",
     borderWidth: 1.5,
     width: 50,
     borderColor: "black",

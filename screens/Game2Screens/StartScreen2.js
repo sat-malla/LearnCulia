@@ -84,7 +84,7 @@ const StartScreen2 = ({ navigation }) => {
         button below!
       </Text>
       <TouchableOpacity
-        style={styles.startButton}
+        style={[styles.startButton, { backgroundColor: colors.accent }]}
         onPress={() => navigation.navigate("GameScreen2")}
       >
         <Text style={{ fontSize: 18, fontWeight: "bold" }}>
@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   }),
   startButton: {
-    backgroundColor: "#6bffc6",
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 24,

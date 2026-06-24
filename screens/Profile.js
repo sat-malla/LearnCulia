@@ -194,7 +194,7 @@ const Profile = ({ navigation }) => {
               styles.buttonGStyle,
               { borderColor: colors.text, backgroundColor: colors.primary },
             ]}
-            selectedButtonStyle={{ backgroundColor: "#6bffc6" }}
+            selectedButtonStyle={{ backgroundColor: colors.accent }}
             textStyle={{ color: colors.text, fontWeight: "bold", fontSize: 20 }}
             selectedTextStyle={{ color: "black", fontWeight: "bold" }}
           />

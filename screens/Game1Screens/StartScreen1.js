@@ -93,7 +93,7 @@ const StartScreen1 = ({ navigation }) => {
                 height: SLIDE_HEIGHT,
                 borderRadius: 8,
                 borderWidth: 2,
-                borderColor: "#6bffc6",
+                borderColor: colors.accent,
               }}
               source={src}
             />
@@ -104,7 +104,7 @@ const StartScreen1 = ({ navigation }) => {
           {images.map((_, index) => (
             <Text
               key={index}
-              style={imgActive === index ? styles.dotActive : styles.dot}
+              style={[imgActive === index ? styles.dotActive : styles.dot, imgActive === index ? { color: colors.accent } : null]}
             >
               ⬤
             </Text>
@@ -125,7 +125,7 @@ const StartScreen1 = ({ navigation }) => {
       </Text>
       <TouchableOpacity
         style={{
-          backgroundColor: "#6bffc6",
+          backgroundColor: colors.accent,
           borderRadius: 8,
           paddingVertical: 12,
           paddingHorizontal: 24,
@@ -157,6 +157,5 @@ const styles = StyleSheet.create({
   },
   dotActive: {
     margin: 3,
-    color: "#6bffc6",
   },
 });

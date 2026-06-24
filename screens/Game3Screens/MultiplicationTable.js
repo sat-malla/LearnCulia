@@ -8,9 +8,9 @@ const TABLE_WIDTH = Dimensions.get("window").width - 48;
 const CELL = Math.floor(TABLE_WIDTH / SIZE);
 
 const MultiplicationTable = () => {
-  const { dark } = useTheme();
+  const { dark, colors } = useTheme();
 
-  const headerBg = "#6bffc6";
+  const headerBg = colors.accent;
   const headerText = "#000";
   const evenBg = dark ? "#2e2e3a" : "#f0fff8";
   const oddBg = dark ? "#242430" : "#ffffff";

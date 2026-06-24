@@ -131,7 +131,7 @@ const GameScreenChallenge1 = ({ navigation }) => {
         <View style={styles.modalBackdrop}>
           <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={[styles.modalGradient, { width: MODAL_WIDTH }]}
@@ -152,7 +152,7 @@ const GameScreenChallenge1 = ({ navigation }) => {
                   Congratulations! Now you know how to count numbers with your
                   fingers!
                 </Text>
-                <Pressable style={styles.finishButton} onPress={finishGame}>
+                <Pressable style={[styles.finishButton, { backgroundColor: colors.accent }]} onPress={finishGame}>
                   <Text
                     style={{
                       color: "black",
@@ -184,7 +184,7 @@ const GameScreenChallenge1 = ({ navigation }) => {
       </Text>
 
       {ready ? (
-        <TouchableOpacity style={styles.startButton} onPress={startGame}>
+        <TouchableOpacity style={[styles.startButton, { backgroundColor: colors.accent }]} onPress={startGame}>
           <Text style={{ fontSize: 20, fontWeight: "bold" }}>
             Press to Play!
           </Text>
@@ -272,7 +272,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     elevation: 2,
-    backgroundColor: "#6bffc6",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
@@ -281,7 +280,6 @@ const styles = StyleSheet.create({
     width: 200,
     borderWidth: 2,
     borderColor: "#333",
-    backgroundColor: "#6bffc6",
     borderRadius: 8,
     height: 50,
     alignItems: "center",

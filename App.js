@@ -57,8 +57,7 @@ import GameScreenChallenge6 from "./screens/Game6Screens/GameScreenChallenge6";
 
 const Stack = createNativeStackNavigator();
 
-const globalScreenOptions = {
-  headerStyle: { backgroundColor: "#6bffc6" },
+const globalScreenOptionsBase = {
   headerTitleStyle: { color: "black" },
   headerTintColor: "black",
   headerBackTitleVisible: true,
@@ -152,7 +151,7 @@ function QuitGameButton({ navigation }) {
         <View style={styles.modalBackdrop}>
           <View style={[styles.modalVw, { borderColor: colors.text, width: MODAL_WIDTH }]}>
             <LinearGradient
-              colors={["#6bffc6", colors.gradientEndCol]}
+              colors={[colors.accent, colors.gradientEndCol]}
               start={{ x: 1, y: 0 }}
               end={{ x: 1, y: 0.8 }}
               style={[styles.modalGradient, { width: MODAL_WIDTH }]}
@@ -194,7 +193,7 @@ function SettingsButton() {
 }
 
 function AppInner() {
-  const { colors, dark, setScheme } = useTheme();
+  const { colors, dark, setScheme, appColor, setAppColor } = useTheme();
   const [settingsVisible, setSettingsVisible] = useState(false);
   const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
 
@@ -219,14 +218,40 @@ function AppInner() {
             <Switch
               value={dark}
               onValueChange={(val) => setScheme(val ? "dark" : "light")}
-              trackColor={{ false: "#ccc", true: "#6bffc6" }}
+              trackColor={{ false: "#ccc", true: colors.accent }}
               thumbColor="#fff"
             />
           </View>
+          <View style={[styles.panelDivider, { backgroundColor: colors.text }]} />
+          <Text style={[styles.panelLabel, { color: colors.text, marginTop: 16, marginBottom: 12 }]}>App Color</Text>
+          {[
+            { key: "green", hex: "#6bffc6", label: "Green" },
+            { key: "red",   hex: "#ff4d4d", label: "Red"   },
+            { key: "blue",  hex: "#2f96fd", label: "Blue"  },
+          ].map(({ key, hex, label }) => {
+            const selected = appColor === key;
+            return (
+              <TouchableOpacity
+                key={key}
+                onPress={() => setAppColor(key)}
+                style={[
+                  styles.colorRadio,
+                  { borderColor: selected ? hex : (dark ? "#555" : "#ccc"), backgroundColor: selected ? hex + "22" : "transparent" },
+                ]}
+                activeOpacity={0.7}
+              >
+                <View style={[styles.colorSwatch, { backgroundColor: hex }]} />
+                <Text style={[styles.panelLabel, { color: colors.text, flex: 1 }]}>{label}</Text>
+                <View style={[styles.radioOuter, { borderColor: selected ? hex : (dark ? "#555" : "#ccc") }]}>
+                  {selected && <View style={[styles.radioInner, { backgroundColor: hex }]} />}
+                </View>
+              </TouchableOpacity>
+            );
+          })}
         </Animated.View>
       </Modal>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={globalScreenOptions}>
+        <Stack.Navigator screenOptions={{ ...globalScreenOptionsBase, headerStyle: { backgroundColor: colors.accent } }}>
           <Stack.Screen
             name="Home"
             component={Home}
@@ -611,5 +636,37 @@ const styles = StyleSheet.create({
   panelLabel: {
     fontSize: 18,
     fontWeight: "500",
+  },
+  panelDivider: {
+    height: 1,
+    opacity: 0.2,
+  },
+  colorRadio: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 2,
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 14,
+    marginBottom: 10,
+  },
+  colorSwatch: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    marginRight: 12,
+  },
+  radioOuter: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    borderWidth: 2,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  radioInner: {
+    width: 11,
+    height: 11,
+    borderRadius: 6,
   },
 });

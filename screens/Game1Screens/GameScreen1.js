@@ -97,7 +97,7 @@ const GameScreen1 = ({ navigation }) => {
     >
       {loading ? (
         <View style={{ marginTop: "50%" }}>
-          <ActivityIndicator size="large" color="#6bffc6" />
+          <ActivityIndicator size="large" color={colors.accent} />
         </View>
       ) : (
         <View style={{ alignItems: "center", width: "100%" }}>
@@ -115,7 +115,7 @@ const GameScreen1 = ({ navigation }) => {
                 ]}
               >
                 <LinearGradient
-                  colors={["#6bffc6", colors.gradientEndCol]}
+                  colors={[colors.accent, colors.gradientEndCol]}
                   start={{ x: 1, y: 0 }}
                   end={{ x: 1, y: 0.8 }}
                   style={[styles.modalGradient, { width: MODAL_WIDTH }]}
@@ -168,7 +168,7 @@ const GameScreen1 = ({ navigation }) => {
           </Text>
 
           {ready ? (
-            <TouchableOpacity style={styles.startButton} onPress={startGame}>
+            <TouchableOpacity style={[styles.startButton, { backgroundColor: colors.accent }]} onPress={startGame}>
               <Text style={{ fontSize: 20, fontWeight: "bold" }}>
                 Press to Play!
               </Text>
@@ -278,7 +278,6 @@ const styles = StyleSheet.create({
     width: 200,
     borderWidth: 2,
     borderColor: "#333",
-    backgroundColor: "#6bffc6",
     borderRadius: 8,
     height: 50,
     alignItems: "center",
