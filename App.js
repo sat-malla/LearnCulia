@@ -212,45 +212,48 @@ function AppInner() {
       <Modal visible={settingsVisible} transparent animationType="none" onRequestClose={closeSettings}>
         <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={closeSettings} />
         <Animated.View style={[styles.settingsPanel, { backgroundColor: colors.primary, transform: [{ translateX: slideAnim }] }]}>
-          <Text style={[styles.panelTitle, { color: colors.text }]}>Settings</Text>
-          <View style={styles.panelRow}>
-            <Text style={[styles.panelLabel, { color: colors.text }]}>Dark Mode</Text>
-            <Switch
-              value={dark}
-              onValueChange={(val) => setScheme(val ? "dark" : "light")}
-              trackColor={{ false: "#ccc", true: colors.accent }}
-              thumbColor="#fff"
-            />
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.panelTitle, { color: colors.text }]}>Settings</Text>
+            <View style={styles.panelRow}>
+              <Text style={[styles.panelLabel, { color: colors.text }]}>Dark Mode</Text>
+              <Switch
+                value={dark}
+                onValueChange={(val) => setScheme(val ? "dark" : "light")}
+                trackColor={{ false: "#ccc", true: colors.accent }}
+                thumbColor="#fff"
+              />
+            </View>
+            <View style={[styles.panelDivider, { backgroundColor: colors.text }]} />
+            <Text style={[styles.panelLabel, { color: colors.text, marginTop: 16, marginBottom: 12 }]}>App Color</Text>
+            {[
+              { key: "green", hex: "#6bffc6", label: "Green" },
+              { key: "red", hex: "#ff4d4d", label: "Red" },
+              { key: "blue", hex: "#2f96fd", label: "Blue" },
+            ].map(({ key, hex, label }) => {
+              const selected = appColor === key;
+              return (
+                <TouchableOpacity
+                  key={key}
+                  onPress={() => setAppColor(key)}
+                  style={[
+                    styles.colorRadio,
+                    { borderColor: selected ? hex : (dark ? "#555" : "#ccc"), backgroundColor: selected ? hex + "22" : "transparent" },
+                  ]}
+                  activeOpacity={0.7}
+                >
+                  <View style={[styles.headerPreview, { backgroundColor: hex }]}>
+                    <Text style={styles.headerPreviewText}>LearnCulia</Text>
+                    <Feather name="settings" size={13} color="black" />
+                  </View>
+                  <Text style={[styles.panelLabel, { color: colors.text, flex: 1, marginLeft: 10 }]}>{label}</Text>
+                  <View style={[styles.radioOuter, { borderColor: selected ? hex : (dark ? "#555" : "#ccc") }]}>
+                    {selected && <View style={[styles.radioInner, { backgroundColor: hex }]} />}
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
           </View>
-          <View style={[styles.panelDivider, { backgroundColor: colors.text }]} />
-          <Text style={[styles.panelLabel, { color: colors.text, marginTop: 16, marginBottom: 12 }]}>App Color</Text>
-          {[
-            { key: "green", hex: "#6bffc6", label: "Green" },
-            { key: "red",   hex: "#ff4d4d", label: "Red"   },
-            { key: "blue",  hex: "#2f96fd", label: "Blue"  },
-          ].map(({ key, hex, label }) => {
-            const selected = appColor === key;
-            return (
-              <TouchableOpacity
-                key={key}
-                onPress={() => setAppColor(key)}
-                style={[
-                  styles.colorRadio,
-                  { borderColor: selected ? hex : (dark ? "#555" : "#ccc"), backgroundColor: selected ? hex + "22" : "transparent" },
-                ]}
-                activeOpacity={0.7}
-              >
-                <View style={[styles.headerPreview, { backgroundColor: hex }]}>
-                  <Text style={styles.headerPreviewText}>LearnCulia</Text>
-                  <Feather name="settings" size={13} color="black" />
-                </View>
-                <Text style={[styles.panelLabel, { color: colors.text, flex: 1, marginLeft: 10 }]}>{label}</Text>
-                <View style={[styles.radioOuter, { borderColor: selected ? hex : (dark ? "#555" : "#ccc") }]}>
-                  {selected && <View style={[styles.radioInner, { backgroundColor: hex }]} />}
-                </View>
-              </TouchableOpacity>
-            );
-          })}
+          <Text style={[styles.copyright, { color: colors.text }]}>© {new Date().getFullYear()} LearnCulia™. All rights reserved.</Text>
         </Animated.View>
       </Modal>
       <NavigationContainer>
@@ -619,6 +622,7 @@ const styles = StyleSheet.create({
     width: PANEL_WIDTH,
     paddingTop: 60,
     paddingHorizontal: 24,
+    paddingBottom: 32,
     shadowColor: "#000",
     shadowOffset: { width: -3, height: 0 },
     shadowOpacity: 0.2,
@@ -643,6 +647,12 @@ const styles = StyleSheet.create({
   panelDivider: {
     height: 1,
     opacity: 0.2,
+  },
+  copyright: {
+    fontSize: 12,
+    opacity: 0.45,
+    textAlign: "center",
+    paddingTop: 12,
   },
   colorRadio: {
     flexDirection: "row",
