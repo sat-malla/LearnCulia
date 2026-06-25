@@ -120,10 +120,22 @@ const Home = ({ navigation }) => {
             >
               <AntDesign name="close" size={20} color={colors.bannerText} />
             </TouchableOpacity>
-            <Image
-              source={require("../Images/helloHome.png")}
-              style={{ width: "100%", height: 180, marginTop: 0 }}
-            />
+            { colors.accent === "#6bffc6" ? (
+              <Image
+                source={require("../Images/helloHome.png")}
+                style={{ width: "100%", height: 180, marginTop: 0 }}
+              />
+            ) : colors.accent === "#ff4d4d" ? (
+              <Image
+                source={require("../Images/helloHomeRed.png")}
+                style={{ width: "100%", height: 180, marginTop: 0 }}
+              />
+            ) : colors.accent === "#2f96fd" ? (
+              <Image
+                source={require("../Images/helloHomeBlue.png")}
+                style={{ width: "100%", height: 180, marginTop: 0 }}
+              />
+            ) : null}
             <View style={{ paddingHorizontal: 15, paddingBottom: 18 }}>
               <Text
                 style={{
