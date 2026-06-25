@@ -6,7 +6,7 @@ import {
   ScrollView,
   Dimensions,
 } from "react-native";
-import { Text } from "@rneui/base";
+import { Text, Button } from "@rneui/base";
 import React, { useLayoutEffect, useState } from "react";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
@@ -118,9 +118,10 @@ const Home = ({ navigation }) => {
           >
             <Button
               title="Close"
-              color={colors.bannerText}
               onPress={() => setHeyThere(true)}
-              style={{ marginTop: -20, marginBottom: 20, marginRight: 50 }}
+              containerStyle={{ marginTop: -20, marginBottom: 20, marginRight: 50 }}
+              titleStyle={{ color: colors.bannerText, fontWeight: "bold" }}
+              buttonStyle={{ backgroundColor: "transparent" }}
             />
             <Image
               source={require("../Images/helloHome.png")}

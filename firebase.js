@@ -1,6 +1,22 @@
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
-import "firebase/compat/auth"
+import { initializeApp, getApps, getApp } from "firebase/app";
+import {
+  initializeAuth,
+  getReactNativePersistence,
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
+} from "firebase/auth";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  updateDoc,
+} from "firebase/firestore";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDPxbQ6pLzrXYd9LoXulY3RZZT2EwianA8",
@@ -9,18 +25,38 @@ const firebaseConfig = {
   storageBucket: "dyscalculiaapp-104c4.appspot.com",
   messagingSenderId: "48465264244",
   appId: "1:48465264244:web:5e49ed6a078b4746f29b21",
-  measurementId: "G-R838VW6KL8"
+  measurementId: "G-R838VW6KL8",
 };
 
-let app;
+const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
-if (firebase.apps.length === 0) {
-  app = firebase.initializeApp(firebaseConfig);
-} else {
-  app = firebase.app();
+let _auth;
+try {
+  _auth = initializeAuth(app, {
+    persistence: getReactNativePersistence(AsyncStorage),
+  });
+} catch {
+  _auth = getAuth(app);
 }
 
-const db = app.firestore();
-const auth = app.auth();
+const firestore = getFirestore(app);
+
+const db = {
+  collection: (collectionName) => ({
+    add: (data) => addDoc(collection(firestore, collectionName), data),
+    get: () => getDocs(collection(firestore, collectionName)),
+    doc: (docId) => ({
+      update: (data) => updateDoc(doc(firestore, collectionName, docId), data),
+    }),
+  }),
+};
+
+const auth = {
+  get currentUser() { return _auth.currentUser; },
+  signInWithEmailAndPassword: (email, password) => signInWithEmailAndPassword(_auth, email, password),
+  createUserWithEmailAndPassword: (email, password) => createUserWithEmailAndPassword(_auth, email, password),
+  sendPasswordResetEmail: (email) => sendPasswordResetEmail(_auth, email),
+  signOut: () => signOut(_auth),
+};
 
 export { db, auth };

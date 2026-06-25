@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity, Image, Modal, View, Animated, Switch, Dim
 import { Text } from "@rneui/base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useState, useRef, useCallback, useContext } from "react";
+import React, { useState, useRef, useCallback, useContext, useMemo } from "react";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { ThemeProvider, useTheme } from "./DarkTheme/ThemeProvider"
@@ -207,8 +207,15 @@ function AppInner() {
       .start(() => setSettingsVisible(false));
   }, [slideAnim]);
 
+  const screenOptions = useMemo(
+    () => ({ ...globalScreenOptionsBase, headerStyle: { backgroundColor: colors.accent } }),
+    [colors.accent]
+  );
+
+  const settingsContextValue = useMemo(() => ({ openSettings, closeSettings }), [openSettings, closeSettings]);
+
   return (
-    <SettingsContext.Provider value={{ openSettings, closeSettings }}>
+    <SettingsContext.Provider value={settingsContextValue}>
       <Modal visible={settingsVisible} transparent animationType="none" onRequestClose={closeSettings}>
         <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={closeSettings} />
         <Animated.View style={[styles.settingsPanel, { backgroundColor: colors.primary, transform: [{ translateX: slideAnim }] }]}>
@@ -257,7 +264,7 @@ function AppInner() {
         </Animated.View>
       </Modal>
       <NavigationContainer>
-        <Stack.Navigator screenOptions={{ ...globalScreenOptionsBase, headerStyle: { backgroundColor: colors.accent } }}>
+        <Stack.Navigator screenOptions={screenOptions}>
           <Stack.Screen
             name="Home"
             component={Home}

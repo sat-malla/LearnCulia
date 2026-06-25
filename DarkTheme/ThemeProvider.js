@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useEffect, useContext, useMemo, useCallback } from "react";
 import { buildTheme } from "./colors";
 import { useColorScheme } from "react-native";
 
@@ -19,13 +19,16 @@ export const ThemeProvider = (props) => {
     setIsDark(colorScheme === "dark");
   }, [colorScheme]);
 
-  const value = {
+  const colors = useMemo(() => buildTheme(isDark, appColor), [isDark, appColor]);
+  const setScheme = useCallback((scheme) => setIsDark(scheme === "dark"), []);
+
+  const value = useMemo(() => ({
     dark: isDark,
     appColor,
-    colors: buildTheme(isDark, appColor),
-    setScheme: (scheme) => setIsDark(scheme === "dark"),
+    colors,
+    setScheme,
     setAppColor,
-  };
+  }), [isDark, appColor, colors, setScheme]);
 
   return (
     <ThemeContext.Provider value={value}>
