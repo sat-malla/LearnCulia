@@ -6,7 +6,7 @@ import {
   ScrollView,
   Dimensions,
 } from "react-native";
-import { Text, Button } from "@rneui/base";
+import { Text } from "@rneui/base";
 import React, { useLayoutEffect, useState } from "react";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
@@ -105,50 +105,49 @@ const Home = ({ navigation }) => {
           <View
             style={{
               backgroundColor: colors.loginBanner,
-              width: 300,
-              padding: 15,
-              paddingVertical: 10,
-              overflow: "hidden",
               borderWidth: 2,
               borderRadius: 8,
               borderColor: colors.text,
               marginTop: 20,
               width: "86%",
+              overflow: "hidden",
             }}
           >
-            <Button
-              title="Close"
+            <TouchableOpacity
               onPress={() => setHeyThere(true)}
-              containerStyle={{ marginTop: -20, marginBottom: 20, marginRight: 50 }}
-              titleStyle={{ color: colors.bannerText, fontWeight: "bold" }}
-              buttonStyle={{ backgroundColor: "transparent" }}
-            />
+              style={{ position: "absolute", top: 10, right: 12, zIndex: 1, padding: 4 }}
+              hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+            >
+              <AntDesign name="close" size={20} color={colors.bannerText} />
+            </TouchableOpacity>
             <Image
               source={require("../Images/helloHome.png")}
-              style={{ width: 300, height: 200, borderRadius: 6 }}
+              style={{ width: "100%", height: 180, marginTop: 0 }}
             />
-            <Text
-              style={{
-                fontSize: 30,
-                fontWeight: "bold",
-                textAlign: "center",
-                marginTop: 20,
-                color: colors.bannerText
-              }}
-            >
-              Hey There! 👋
-            </Text>
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "bold",
-                textAlign: "center",
-                marginTop: 10,
-                color: colors.bannerText
-              }}
-            >
-              Click the top left corner above to access your profile! ↖️
-            </Text>
+            <View style={{ paddingHorizontal: 15, paddingBottom: 18 }}>
+              <Text
+                style={{
+                  fontSize: 30,
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  marginTop: 16,
+                  color: colors.bannerText
+                }}
+              >
+                Hey There! 👋
+              </Text>
+              <Text
+                style={{
+                  fontSize: 18,
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  marginTop: 10,
+                  color: colors.bannerText
+                }}
+              >
+                Click the top left corner above to access your profile!
+              </Text>
+            </View>
           </View>
         )
       ) : null}

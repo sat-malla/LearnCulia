@@ -4,7 +4,6 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Button,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Text, ButtonGroup } from "@rneui/base";
@@ -407,7 +406,19 @@ const Profile = ({ navigation }) => {
               Save
             </Text>
           </TouchableOpacity>
-          <Button title="Logout" color={colors.redComp} onPress={userLogout} />
+          <TouchableOpacity
+            onPress={userLogout}
+            style={{
+              backgroundColor: "#e53935",
+              borderRadius: 10,
+              paddingVertical: 13,
+              paddingHorizontal: 40,
+              alignItems: "center",
+              marginBottom: 20,
+            }}
+          >
+            <Text style={{ color: "white", fontWeight: "bold", fontSize: 17 }}>Logout</Text>
+          </TouchableOpacity>
           <FlashMessage />
           <View style={{ height: 50 }} />
         </ScrollView>
