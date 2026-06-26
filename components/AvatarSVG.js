@@ -7,6 +7,7 @@ import Svg, {
   G,
   ClipPath,
   Defs,
+  Text as SvgText,
 } from "react-native-svg";
 
 const SHIRT_COLORS = {
@@ -36,12 +37,28 @@ const CX = 200;
 const CY = 200;
 const CR = 190;
 
+// Generates a 5-point star path centered at (cx, cy) with outer radius r
+function starPath(cx, cy, r, points = 5) {
+  const inner = r * 0.45;
+  const step = Math.PI / points;
+  let d = "";
+  for (let i = 0; i < points * 2; i++) {
+    const angle = i * step - Math.PI / 2;
+    const radius = i % 2 === 0 ? r : inner;
+    const x = cx + radius * Math.cos(angle);
+    const y = cy + radius * Math.sin(angle);
+    d += (i === 0 ? "M" : "L") + ` ${x.toFixed(2)} ${y.toFixed(2)} `;
+  }
+  return d + "Z";
+}
+
 export default function AvatarSVG({
   gender = "male",
   shirtColor = "green",
   skinTone = "mediumDark",
   glasses = false,
   partyHat = false,
+  gamesCompleted = 0,
   size = 400,
 }) {
   const shirt = SHIRT_COLORS[shirtColor] || SHIRT_COLORS.green;
@@ -174,6 +191,32 @@ export default function AvatarSVG({
 
       {/* Circle border on top */}
       <Circle cx={CX} cy={CY} r={CR} fill="none" stroke={CIRCLE_STROKE} strokeWidth="2" />
+
+      {/* ── GAMES BADGE (avatar's top-left = screen's top-right of circle) ── */}
+      {gamesCompleted > 0 && (
+        <G>
+          {/* Outer ring */}
+          <Circle cx={CX + CR - 22} cy={CY - CR + 22} r={28} fill="white" />
+          {/* Filled badge */}
+          <Circle cx={CX + CR - 22} cy={CY - CR + 22} r={23} fill="#f4c430" />
+          {/* Star icon — 5-point star drawn as a path */}
+          <Path
+            d={starPath(CX + CR - 22, CY - CR + 22, 11, 5)}
+            fill="#c8860a"
+          />
+          {/* Number */}
+          <SvgText
+            x={CX + CR - 22}
+            y={CY - CR + 22 + 5}
+            fontSize="14"
+            fontWeight="bold"
+            fill="white"
+            textAnchor="middle"
+          >
+            {gamesCompleted}
+          </SvgText>
+        </G>
+      )}
     </Svg>
   );
 }

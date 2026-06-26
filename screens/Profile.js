@@ -40,6 +40,7 @@ const Profile = ({ navigation }) => {
   const [partyHat, setPartyHat] = useState(false);
   const [shirtColor, setShirtColor] = useState("green");
   const [skinTone, setSkinTone] = useState("mediumDark");
+  const [gamesCompleted, setGamesCompleted] = useState(0); // wired to DB later
   const [registered, isRegistered] = useGlobalState("registered");
   //const [starCount, setStarCount] = useGlobalState("starCount");
 
@@ -172,6 +173,7 @@ const Profile = ({ navigation }) => {
             skinTone={skinTone}
             glasses={glasses}
             partyHat={partyHat}
+            gamesCompleted={gamesCompleted}
             size={340}
           />
           <ButtonGroup
