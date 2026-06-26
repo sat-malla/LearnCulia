@@ -196,7 +196,7 @@ const Profile = ({ navigation }) => {
                 style={[
                   styles.swatch,
                   { backgroundColor: color },
-                  shirtColor === key && styles.swatchSelected,
+                  shirtColor === key && [styles.swatchSelected, { borderColor: colors.text }],
                 ]}
               />
             ))}
@@ -212,7 +212,7 @@ const Profile = ({ navigation }) => {
                 style={[
                   styles.swatch,
                   { backgroundColor: color },
-                  skinTone === key && styles.swatchSelected,
+                  skinTone === key && [styles.swatchSelected, { borderColor: colors.text }],
                 ]}
               />
             ))}
