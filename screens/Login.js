@@ -83,11 +83,22 @@ const Login = ({ navigation }) => {
             <Text style={[styles.subtitle, { color: colors.text }]}>
               Login today to have custom profile pictures, achievements, and more!
             </Text>
-            <Image
-              source={require("../Images/loginPic.png")}
-              style={styles.image}
-            />
-
+            {colors.accent === "#6bffc6" ? (
+              <Image
+                source={require("../Images/loginPic.png")}
+                style={styles.image}
+              />
+            ) : colors.accent === "#ff4d4d" ? (
+              <Image
+                source={require("../Images/loginPicRed.png")}
+                style={styles.image}
+              />
+            ) : colors.accent === "#2f96fd" ? (
+              <Image
+                source={require("../Images/loginPicBlue.png")}
+                style={styles.image}
+              />
+            ) : null}
             <View style={styles.inputCont}>
               <TextInput
                 placeholder="Email"

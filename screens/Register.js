@@ -103,11 +103,22 @@ const Register = ({ navigation }) => {
             <Text style={[styles.subtitle, { color: colors.text }]}>
               Register for customized profile pictures, achievements, and more!
             </Text>
-            <Image
-              source={require("../Images/registerPic.png")}
-              style={styles.image}
-            />
-
+            {colors.accent === "#6bffc6" ? (
+              <Image
+                source={require("../Images/registerPic.png")}
+                style={styles.image}
+              />
+            ) : colors.accent === "#ff4d4d" ? (
+              <Image
+                source={require("../Images/registerPicRed.png")}
+                style={styles.image}
+              />
+            ) : colors.accent === "#2f96fd" ? (
+              <Image
+                source={require("../Images/registerPicBlue.png")}
+                style={styles.image}
+              />
+            ) : null}
             <View style={styles.inputCont}>
               <TextInput
                 placeholder="Email"
@@ -195,7 +206,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: SCREEN_WIDTH - 80,
-    height: 200,
+    height: 280,
     marginTop: 30,
     borderRadius: 8,
     resizeMode: "cover",

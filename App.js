@@ -231,7 +231,7 @@ function AppInner() {
               />
             </View>
             <View style={[styles.panelDivider, { backgroundColor: colors.text }]} />
-            <Text style={[styles.panelLabel, { color: colors.text, marginTop: 16, marginBottom: 12 }]}>App Color</Text>
+            <Text style={[styles.panelLabel, { color: colors.text, marginTop: 16, marginBottom: 12 }]}>Color Theme</Text>
             {[
               { key: "green", hex: "#6bffc6", label: "Green" },
               { key: "red", hex: "#ff4d4d", label: "Red" },

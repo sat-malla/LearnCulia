@@ -440,10 +440,22 @@ const Profile = ({ navigation }) => {
           >
             You're not logged in! Log in or Register to access your Profile!
           </Text>
-          <Image
-            source={require("../Images/notRegistered.png")}
-            style={{ width: 300, height: 320, marginTop: 150, borderRadius: 8 }}
-          />
+          {colors.accent === "#6bffc6" ? (
+            <Image
+              source={require("../Images/notRegistered.png")}
+              style={{ width: 300, height: 320, marginTop: 150, borderRadius: 8 }}
+            />
+          ) : colors.accent === "#ff4d4d" ? (
+            <Image
+              source={require("../Images/notRegisteredRed.png")}
+              style={{ width: 300, height: 320, marginTop: 150, borderRadius: 8 }}
+            />
+          ) : colors.accent === "#2f96fd" ? (
+            <Image
+              source={require("../Images/notRegisteredBlue.png")}
+              style={{ width: 300, height: 320, marginTop: 150, borderRadius: 8 }}
+            />
+          ) : null}
         </View>
       )}
     </View>
