@@ -196,6 +196,7 @@ function AppInner() {
   const { colors, dark, setScheme, appColor, setAppColor } = useTheme();
   const [settingsVisible, setSettingsVisible] = useState(false);
   const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
+  const navRef = useRef(null);
 
   const openSettings = useCallback(() => {
     setSettingsVisible(true);
@@ -259,11 +260,19 @@ function AppInner() {
                 </TouchableOpacity>
               );
             })}
+            <View style={[styles.panelDivider, { backgroundColor: colors.text, marginTop: 16 }]} />
+            <TouchableOpacity
+              onPress={() => { closeSettings(); navRef.current?.navigate("TermsAndCo"); }}
+              style={styles.panelRow}
+            >
+              <Text style={[styles.panelLabel, { color: "#0099ff" }]}>Terms & Conditions</Text>
+              <Text style={styles.tacLink}>→</Text>
+            </TouchableOpacity>
           </View>
           <Text style={[styles.copyright, { color: colors.text }]}>© {new Date().getFullYear()} LearnCulia™. All rights reserved.</Text>
         </Animated.View>
       </Modal>
-      <NavigationContainer>
+      <NavigationContainer ref={navRef}>
         <Stack.Navigator screenOptions={screenOptions}>
           <Stack.Screen
             name="Home"
@@ -697,5 +706,10 @@ const styles = StyleSheet.create({
     width: 11,
     height: 11,
     borderRadius: 6,
+  },
+  tacLink: {
+    color: "#0099ff",
+    fontSize: 16,
+    fontWeight: "600",
   },
 });

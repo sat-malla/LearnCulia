@@ -1,4 +1,4 @@
-import { StyleSheet, View, ScrollView, Button } from "react-native";
+import { StyleSheet, View, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
 import { Text } from "@rneui/base";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
@@ -135,17 +135,12 @@ const Info = ({ navigation }) => {
         environment to hone their skills. You are welcome to contact me below if
         you have any questions!
       </Text>
-      <Button
-        title="Contact here"
-        color={colors.buttonColor}
+      <TouchableOpacity
         onPress={() => navigation.navigate("Suggest")}
-      />
-      <Text style={{ fontSize: 20, marginTop: 20, color: colors.text }}>Check Terms & Conditions Here: </Text>
-      <Button
-        title="Terms & Conditions"
-        color={colors.buttonColor}
-        onPress={() => navigation.navigate("TermsAndCo")}
-      />
+        style={[styles.btn, { backgroundColor: colors.accent }]}
+      >
+        <Text style={styles.btnText}>Contact Here</Text>
+      </TouchableOpacity>
       <View style={{ height: 100 }} />
     </ScrollView>
   );
@@ -153,4 +148,17 @@ const Info = ({ navigation }) => {
 
 export default Info;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  btn: {
+    marginTop: 16,
+    borderRadius: 10,
+    paddingVertical: 13,
+    paddingHorizontal: 36,
+    alignItems: "center",
+  },
+  btnText: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+});
