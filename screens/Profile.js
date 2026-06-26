@@ -16,12 +16,30 @@ import {
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { useGlobalState } from "./RewardSystem.js";
 import { auth, db } from "../firebase.js";
+import AvatarSVG from "../components/AvatarSVG.js";
+
+const SKIN_OPTIONS = [
+  { key: "light",       label: "Light",        color: "#f5cba7" },
+  { key: "mediumLight", label: "Medium Light",  color: "#d4956a" },
+  { key: "medium",      label: "Medium",        color: "#b06040" },
+  { key: "mediumDark",  label: "Medium Dark",   color: "#7d4535" },
+  { key: "dark",        label: "Dark",          color: "#4a2820" },
+  { key: "deep",        label: "Deep",          color: "#2c1810" },
+];
+
+const SHIRT_OPTIONS = [
+  { key: "green", color: "#6bffc6" },
+  { key: "red",   color: "#ff4d4d" },
+  { key: "blue",  color: "#2f96fd" },
+];
 
 const Profile = ({ navigation }) => {
   const { colors } = useTheme();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [glasses, setGlasses] = useState(false);
   const [partyHat, setPartyHat] = useState(false);
+  const [shirtColor, setShirtColor] = useState("green");
+  const [skinTone, setSkinTone] = useState("mediumDark");
   const [registered, isRegistered] = useGlobalState("registered");
   //const [starCount, setStarCount] = useGlobalState("starCount");
 
@@ -32,16 +50,15 @@ const Profile = ({ navigation }) => {
         try {
           querySnapshot.forEach(function (doc) {
             if (doc.data().id == auth.currentUser.uid) {
-              setSelectedIndex(doc.data().gender);
-              setGlasses(doc.data().glasses);
-              setPartyHat(doc.data().partyHat);
-              setStarCount(doc.data().stars);
-              throw new Exception("User has been found");
+              setSelectedIndex(doc.data().gender ?? 0);
+              setGlasses(doc.data().glasses ?? false);
+              setPartyHat(doc.data().partyHat ?? false);
+              setShirtColor(doc.data().shirtColor ?? "green");
+              setSkinTone(doc.data().skinTone ?? "mediumDark");
+              throw new Error("found");
             }
           });
-        } catch (e) {
-          console.log("User found");
-        }
+        } catch (e) {}
       });
   };
 
@@ -56,13 +73,13 @@ const Profile = ({ navigation }) => {
                 gender: selectedIndex,
                 glasses: glasses,
                 partyHat: partyHat,
+                shirtColor: shirtColor,
+                skinTone: skinTone,
               });
-              throw new Exception("User is found and is being updated");
+              throw new Error("updated");
             }
           });
-        } catch (e) {
-          console.log("Updated user data");
-        }
+        } catch (e) {}
       });
   };
 
@@ -143,48 +160,20 @@ const Profile = ({ navigation }) => {
               fontSize: 18,
               textAlign: "center",
               marginTop: 15,
+              marginBottom: 20,
               color: colors.text,
             }}
           >
             Make your desired changes, and hit save below!
           </Text>
-          {glasses && partyHat ? (
-            <Image
-              source={
-                selectedIndex == 0
-                  ? require("../Images/maleGPHProfilePic.png")
-                  : require("../Images/femaleGPHProfilePic.png")
-              }
-              style={{ width: 400, height: 400 }}
-            />
-          ) : glasses ? (
-            <Image
-              source={
-                selectedIndex == 0
-                  ? require("../Images/maleGlassesProfilePic.png")
-                  : require("../Images/femaleGlassesProfilePic.png")
-              }
-              style={{ width: 400, height: 400 }}
-            />
-          ) : partyHat ? (
-            <Image
-              source={
-                selectedIndex == 0
-                  ? require("../Images/malePHProfilePic.png")
-                  : require("../Images/femalePHProfilePic.png")
-              }
-              style={{ width: 400, height: 400 }}
-            />
-          ) : (
-            <Image
-              source={
-                selectedIndex == 0
-                  ? require("../Images/maleProfilePic.png")
-                  : require("../Images/femaleProfilePic.png")
-              }
-              style={{ width: 400, height: 400 }}
-            />
-          )}
+          <AvatarSVG
+            gender={selectedIndex === 0 ? "male" : "female"}
+            shirtColor={shirtColor}
+            skinTone={skinTone}
+            glasses={glasses}
+            partyHat={partyHat}
+            size={340}
+          />
           <ButtonGroup
             buttons={buttonOptions}
             selectedIndex={selectedIndex}
@@ -197,18 +186,38 @@ const Profile = ({ navigation }) => {
             textStyle={{ color: colors.text, fontWeight: "bold", fontSize: 20 }}
             selectedTextStyle={{ color: "black", fontWeight: "bold" }}
           />
-          {/* <Text
-        style={{
-          marginTop: 50,
-          fontWeight: "500",
-          fontSize: 20,
-          textAlign: "center",
-          color: colors.text,
-        }}
-      >
-        When you complete 3 single-player games(15 stars), you will earn this
-        feature!:
-      </Text> */}
+          {/* ── SHIRT COLOR ── */}
+          <Text style={[styles.sectionLabel, { color: colors.text }]}>Shirt Color</Text>
+          <View style={styles.swatchRow}>
+            {SHIRT_OPTIONS.map(({ key, color }) => (
+              <TouchableOpacity
+                key={key}
+                onPress={() => setShirtColor(key)}
+                style={[
+                  styles.swatch,
+                  { backgroundColor: color },
+                  shirtColor === key && styles.swatchSelected,
+                ]}
+              />
+            ))}
+          </View>
+
+          {/* ── SKIN TONE ── */}
+          <Text style={[styles.sectionLabel, { color: colors.text }]}>Skin Tone</Text>
+          <View style={styles.swatchRow}>
+            {SKIN_OPTIONS.map(({ key, color }) => (
+              <TouchableOpacity
+                key={key}
+                onPress={() => setSkinTone(key)}
+                style={[
+                  styles.swatch,
+                  { backgroundColor: color },
+                  skinTone === key && styles.swatchSelected,
+                ]}
+              />
+            ))}
+          </View>
+
           {glasses ? (
             <TouchableOpacity
               style={{
@@ -472,5 +481,30 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderWidth: "2",
     borderRadius: 8,
+  },
+  sectionLabel: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginTop: 28,
+    marginBottom: 12,
+    alignSelf: "flex-start",
+    marginLeft: 10,
+  },
+  swatchRow: {
+    flexDirection: "row",
+    gap: 14,
+    alignSelf: "flex-start",
+    marginLeft: 10,
+  },
+  swatch: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    borderWidth: 2,
+    borderColor: "transparent",
+  },
+  swatchSelected: {
+    borderColor: "#000",
+    transform: [{ scale: 1.18 }],
   },
 });
