@@ -35,16 +35,18 @@ const SHIRT_OPTIONS = [
 
 const Profile = ({ navigation }) => {
   const { colors } = useTheme();
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [glasses, setGlasses] = useState(false);
-  const [partyHat, setPartyHat] = useState(false);
-  const [shirtColor, setShirtColor] = useState("green");
-  const [skinTone, setSkinTone] = useState("mediumDark");
-  const [gamesCompleted, setGamesCompleted] = useState(0); // wired to DB later
+  const [profileLoaded, setProfileLoaded] = useGlobalState("profileLoaded");
+  const [selectedIndex, setSelectedIndex] = useGlobalState("gender");
+  const [glasses, setGlasses] = useGlobalState("glasses");
+  const [partyHat, setPartyHat] = useGlobalState("partyHat");
+  const [shirtColor, setShirtColor] = useGlobalState("shirtColor");
+  const [skinTone, setSkinTone] = useGlobalState("skinTone");
+  const [gamesCompleted, setGamesCompleted] = useGlobalState("gamesCompleted");
   const [registered, isRegistered] = useGlobalState("registered");
   //const [starCount, setStarCount] = useGlobalState("starCount");
 
   const loadUserData = () => {
+    if (profileLoaded) return;
     db.collection("userdata")
       .get()
       .then(function (querySnapshot) {
@@ -56,6 +58,8 @@ const Profile = ({ navigation }) => {
               setPartyHat(doc.data().partyHat ?? false);
               setShirtColor(doc.data().shirtColor ?? "green");
               setSkinTone(doc.data().skinTone ?? "mediumDark");
+              setGamesCompleted(doc.data().gamesCompleted ?? 0);
+              setProfileLoaded(true);
               throw new Error("found");
             }
           });
@@ -112,6 +116,8 @@ const Profile = ({ navigation }) => {
     await auth
       .signOut(auth)
       .then(() => {
+        setProfileLoaded(false);
+        setGamesCompleted(0);
         navigation.navigate("Home");
         isRegistered(false);
       })

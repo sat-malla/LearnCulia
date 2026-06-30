@@ -15,6 +15,7 @@ import {
   getDocs,
   doc,
   updateDoc,
+  increment,
 } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -59,4 +60,15 @@ const auth = {
   signOut: () => signOut(_auth),
 };
 
-export { db, auth };
+const incrementGamesCompleted = async (uid) => {
+  const snap = await getDocs(collection(firestore, "userdata"));
+  snap.forEach((d) => {
+    if (d.data().id === uid) {
+      updateDoc(doc(firestore, "userdata", d.id), {
+        gamesCompleted: increment(1),
+      });
+    }
+  });
+};
+
+export { db, auth, increment, incrementGamesCompleted };

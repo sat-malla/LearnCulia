@@ -18,6 +18,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { useGlobalState } from "../RewardSystem";
+import { auth, incrementGamesCompleted } from "../../firebase.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
@@ -34,6 +35,7 @@ const GameScreenChallenge2 = ({ navigation }) => {
   const [count, setCount] = useState(0);
   const [finishModal, setFinishModal] = useState(false);
   const [, setStarCount] = useGlobalState("starCount");
+  const [, setGlobalGamesCompleted] = useGlobalState("gamesCompleted");
   const [marks, setMarks] = useState([]);
   const [marks2, setMarks2] = useState([]);
   const myHeaderHeight = useHeaderHeight();
@@ -80,6 +82,8 @@ const GameScreenChallenge2 = ({ navigation }) => {
 
   const finishGame = () => {
     setFinishModal(false);
+    incrementGamesCompleted(auth.currentUser.uid);
+    setGlobalGamesCompleted((c) => c + 1);
     navigation.navigate("SinglePlayer");
   };
 

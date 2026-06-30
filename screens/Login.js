@@ -18,7 +18,7 @@ import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { Link } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
-import { auth } from "../firebase.js";
+import { auth, db } from "../firebase.js";
 import { useGlobalState } from "./RewardSystem.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
@@ -30,6 +30,13 @@ const Login = ({ navigation }) => {
   const [revealPass, setRevealPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const [, isRegistered] = useGlobalState("registered");
+  const [, setProfileLoaded] = useGlobalState("profileLoaded");
+  const [, setGender] = useGlobalState("gender");
+  const [, setGlasses] = useGlobalState("glasses");
+  const [, setPartyHat] = useGlobalState("partyHat");
+  const [, setShirtColor] = useGlobalState("shirtColor");
+  const [, setSkinTone] = useGlobalState("skinTone");
+  const [, setGamesCompleted] = useGlobalState("gamesCompleted");
   const myHeaderHeight = useHeaderHeight();
 
   const login = async () => {
@@ -38,8 +45,21 @@ const Login = ({ navigation }) => {
 
     setLoading(true);
     try {
-      await auth.signInWithEmailAndPassword(trimmedEmail, password);
+      const userCred = await auth.signInWithEmailAndPassword(trimmedEmail, password);
       isRegistered(true);
+      db.collection("userdata").get().then((snap) => {
+        snap.forEach((doc) => {
+          if (doc.data().id === userCred.user.uid) {
+            setGender(doc.data().gender ?? 0);
+            setGlasses(doc.data().glasses ?? false);
+            setPartyHat(doc.data().partyHat ?? false);
+            setShirtColor(doc.data().shirtColor ?? "green");
+            setSkinTone(doc.data().skinTone ?? "mediumDark");
+            setGamesCompleted(doc.data().gamesCompleted ?? 0);
+            setProfileLoaded(true);
+          }
+        });
+      });
       navigation.navigate("Home");
     } catch (e) {
       isRegistered(false);

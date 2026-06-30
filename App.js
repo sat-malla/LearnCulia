@@ -4,7 +4,7 @@ import { Text } from "@rneui/base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState, useRef, useCallback, useContext, useMemo } from "react";
-import { AntDesign, Feather } from "@expo/vector-icons";
+import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { ThemeProvider, useTheme } from "./DarkTheme/ThemeProvider"
 import { SettingsContext } from "./SettingsContext";
@@ -250,6 +250,7 @@ function AppInner() {
                   activeOpacity={0.7}
                 >
                   <View style={[styles.headerPreview, { backgroundColor: hex }]}>
+                    <Ionicons name="ios-person-circle-outline" size={14} color="black" />
                     <Text style={styles.headerPreviewText}>LearnCulia</Text>
                     <Feather name="settings" size={13} color="black" />
                   </View>
@@ -683,11 +684,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    width: 100,
+    width: 120,
     height: 28,
     borderRadius: 6,
     paddingHorizontal: 7,
     overflow: "hidden",
+    gap: 5,
   },
   headerPreviewText: {
     fontSize: 11,

@@ -15,6 +15,7 @@ import { Text } from "@rneui/base";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { useGlobalState } from "../RewardSystem.js";
+import { auth, incrementGamesCompleted } from "../../firebase.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
@@ -71,10 +72,13 @@ const GameScreenChallenge1 = ({ navigation }) => {
   const [finishModal, setFinishModal] = useState(false);
   const [image, setImage] = useState(null);
   const [userFruit] = useGlobalState("game1Fruit");
+  const [, setGlobalGamesCompleted] = useGlobalState("gamesCompleted");
   const pool = useRef([]);
 
   const finishGame = () => {
     setFinishModal(false);
+    incrementGamesCompleted(auth.currentUser.uid);
+    setGlobalGamesCompleted((c) => c + 1);
     navigation.navigate("SinglePlayer");
   };
 
