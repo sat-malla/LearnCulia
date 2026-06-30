@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { Animated } from "react-native";
 import Svg, {
   Circle,
   Ellipse,
@@ -9,6 +10,8 @@ import Svg, {
   Defs,
   Text as SvgText,
 } from "react-native-svg";
+
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const SHIRT_COLORS = {
   green: "#6bffc6",
@@ -50,6 +53,101 @@ function starPath(cx, cy, r, points = 5) {
     d += (i === 0 ? "M" : "L") + ` ${x.toFixed(2)} ${y.toFixed(2)} `;
   }
   return d + "Z";
+}
+
+const RIBBON = ["#d32f2f", "#b71c1c"];
+
+const BADGE_TIERS = [
+  { min: 1, max: 2,  outer: "#8B5A2B", inner: "#cd7f32", star: "#5a2e00", ribbon: RIBBON, label: "bronze"   },
+  { min: 3, max: 4,  outer: "#909090", inner: "#C0C0C0", star: "#505050", ribbon: RIBBON, label: "silver"   },
+  { min: 5, max: 5,  outer: "#e8a800", inner: "#f4c430", star: "#c8680a", ribbon: RIBBON, label: "gold"     },
+  { min: 6, max: 99, outer: "#b0c4de", inner: "#e8f0fe", star: "#8899bb", ribbon: RIBBON, label: "platinum" },
+];
+
+function getBadgeTier(n) {
+  return BADGE_TIERS.find((t) => n >= t.min && n <= t.max) || BADGE_TIERS[0];
+}
+
+function Badge({ gamesCompleted }) {
+  const BX = 248;
+  const BY = 320;
+  const BR = 27;
+  const RW = 20;
+  const RH = 22;
+  const RNotch = 7;
+
+  const tier = getBadgeTier(gamesCompleted);
+  const isPlatinum = tier.label === "platinum";
+
+  // Sparkle pulse animation for platinum
+  const sparkle = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    if (!isPlatinum) return;
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(sparkle, { toValue: 1, duration: 900, useNativeDriver: false }),
+        Animated.timing(sparkle, { toValue: 0, duration: 900, useNativeDriver: false }),
+      ])
+    ).start();
+  }, [isPlatinum]);
+
+  const sparkleOpacity = sparkle.interpolate({ inputRange: [0, 1], outputRange: [0.2, 1] });
+  const sparkleR      = sparkle.interpolate({ inputRange: [0, 1], outputRange: [3, 6] });
+
+  // Sparkle positions around the badge
+  const sparkles = [
+    { x: BX - BR - 8, y: BY - 10 },
+    { x: BX + BR + 8, y: BY - 10 },
+    { x: BX,          y: BY - BR - 10 },
+    { x: BX - BR - 4, y: BY + BR - 4 },
+    { x: BX + BR + 4, y: BY + BR - 4 },
+  ];
+
+  return (
+    <G>
+      {/* Drop shadow */}
+      <Circle cx={BX} cy={BY + 2} r={BR + 5} fill="rgba(0,0,0,0.18)" />
+      {/* Outer ring */}
+      <Circle cx={BX} cy={BY} r={BR + 5} fill={tier.outer} />
+      {/* Inner badge */}
+      <Circle cx={BX} cy={BY} r={BR} fill={tier.inner} />
+      {/* Shine arc */}
+      <Path
+        d={`M ${BX - BR * 0.6} ${BY - BR * 0.55} Q ${BX} ${BY - BR * 0.85} ${BX + BR * 0.6} ${BY - BR * 0.55}`}
+        stroke="white" strokeWidth="3" strokeLinecap="round" fill="none" opacity="0.5"
+      />
+      {/* Star — smaller so number has room */}
+      <Path d={starPath(BX, BY - 9, 13, 5)} fill={tier.star} />
+      {/* Number — bigger and bolder, with margin from star */}
+      <SvgText x={BX} y={BY + 18} fontSize="20" fontWeight="bold" fill="white" textAnchor="middle">
+        {gamesCompleted}
+      </SvgText>
+      {/* Ribbon left tail */}
+      <Path
+        d={`M ${BX - RW} ${BY + BR + 2} L ${BX - RW} ${BY + BR + RH} L ${BX} ${BY + BR + RH - RNotch} L ${BX} ${BY + BR + 2} Z`}
+        fill={tier.ribbon[0]}
+      />
+      {/* Ribbon right tail */}
+      <Path
+        d={`M ${BX} ${BY + BR + 2} L ${BX} ${BY + BR + RH - RNotch} L ${BX + RW} ${BY + BR + RH} L ${BX + RW} ${BY + BR + 2} Z`}
+        fill={tier.ribbon[1]}
+      />
+      {/* Ribbon center knot */}
+      <Ellipse cx={BX} cy={BY + BR + 4} rx={RW} ry={7} fill={tier.ribbon[0]} />
+
+      {/* Platinum sparkles */}
+      {isPlatinum && sparkles.map((s, i) => (
+        <AnimatedCircle
+          key={i}
+          cx={s.x}
+          cy={s.y}
+          r={sparkleR}
+          fill="#ffffff"
+          opacity={sparkleOpacity}
+        />
+      ))}
+    </G>
+  );
 }
 
 export default function AvatarSVG({
@@ -192,31 +290,8 @@ export default function AvatarSVG({
       {/* Circle border on top */}
       <Circle cx={CX} cy={CY} r={CR} fill="none" stroke={CIRCLE_STROKE} strokeWidth="2" />
 
-      {/* ── GAMES BADGE (avatar's top-left = screen's top-right of circle) ── */}
-      {gamesCompleted > 0 && (
-        <G>
-          {/* Outer ring */}
-          <Circle cx={CX + CR - 22} cy={CY - CR + 22} r={28} fill="white" />
-          {/* Filled badge */}
-          <Circle cx={CX + CR - 22} cy={CY - CR + 22} r={23} fill="#f4c430" />
-          {/* Star icon — 5-point star drawn as a path */}
-          <Path
-            d={starPath(CX + CR - 22, CY - CR + 22, 11, 5)}
-            fill="#c8860a"
-          />
-          {/* Number */}
-          <SvgText
-            x={CX + CR - 22}
-            y={CY - CR + 22 + 5}
-            fontSize="14"
-            fontWeight="bold"
-            fill="white"
-            textAnchor="middle"
-          >
-            {gamesCompleted}
-          </SvgText>
-        </G>
-      )}
+      {/* ── GAMES BADGE — pinned to right chest on shirt ── */}
+      {gamesCompleted > 0 && <Badge gamesCompleted={gamesCompleted} />}
     </Svg>
   );
 }
