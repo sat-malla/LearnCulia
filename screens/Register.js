@@ -33,19 +33,34 @@ const Register = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [, isRegistered] = useGlobalState("registered");
   const [, setUserId] = useGlobalState("userId");
+  const [, setProfileLoaded] = useGlobalState("profileLoaded");
+  const [, setGender] = useGlobalState("gender");
+  const [, setGlasses] = useGlobalState("glasses");
+  const [, setPartyHat] = useGlobalState("partyHat");
+  const [, setShirtColor] = useGlobalState("shirtColor");
+  const [, setSkinTone] = useGlobalState("skinTone");
+  const [, setGamesCompleted] = useGlobalState("gamesCompleted");
   useGlobalState("docUserId");
   const myHeaderHeight = useHeaderHeight();
 
   const addUserData = async () => {
-    await db
-      .collection("userdata")
-      .add({
-        email: auth.currentUser.email,
-        gender: 0,
-        glasses: false,
-        partyHat: false,
-        id: auth.currentUser.uid,
-      });
+    await db.collection("userdata").add({
+      email: auth.currentUser.email,
+      id: auth.currentUser.uid,
+      gender: 0,
+      glasses: false,
+      partyHat: false,
+      shirtColor: "green",
+      skinTone: "mediumDark",
+      gamesCompleted: 0,
+    });
+    setGender(0);
+    setGlasses(false);
+    setPartyHat(false);
+    setShirtColor("green");
+    setSkinTone("mediumDark");
+    setGamesCompleted(0);
+    setProfileLoaded(true);
   };
 
   const register = async () => {

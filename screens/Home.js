@@ -7,7 +7,8 @@ import {
   Dimensions,
 } from "react-native";
 import { Text } from "@rneui/base";
-import React, { useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useGlobalState } from "./RewardSystem.js";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
@@ -70,8 +71,19 @@ const ParallelogramCard = ({ title, desc, onPress, gradientColors }) => {
 
 const Home = ({ navigation }) => {
   const { colors } = useTheme();
-  const [heyThere, setHeyThere] = useState(false);
+  const [heyThereDismissed, setHeyThereDismissed] = useState(true); // true until loaded to avoid flash
   const [registered] = useGlobalState("registered");
+
+  useEffect(() => {
+    AsyncStorage.getItem("heyThere_dismissed").then((val) => {
+      setHeyThereDismissed(val === "true");
+    });
+  }, []);
+
+  const dismissHeyThere = () => {
+    setHeyThereDismissed(true);
+    AsyncStorage.setItem("heyThere_dismissed", "true");
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -98,10 +110,7 @@ const Home = ({ navigation }) => {
       }}
       scrollIndicatorInsets={{ right: 1 }}
     >
-      {registered ? (
-        heyThere ? (
-          <Text> </Text>
-        ) : (
+      {registered && !heyThereDismissed && (
           <View
             style={{
               backgroundColor: colors.loginBanner,
@@ -114,7 +123,7 @@ const Home = ({ navigation }) => {
             }}
           >
             <TouchableOpacity
-              onPress={() => setHeyThere(true)}
+              onPress={dismissHeyThere}
               style={{ position: "absolute", top: 10, right: 12, zIndex: 1, padding: 4 }}
               hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
             >
@@ -161,8 +170,7 @@ const Home = ({ navigation }) => {
               </Text>
             </View>
           </View>
-        )
-      ) : null}
+      )}
       <Text
         style={{
           fontSize: 30,
