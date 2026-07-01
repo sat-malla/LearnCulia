@@ -124,7 +124,7 @@ const Suggest = ({ navigation }) => {
         email: email.trim(),
         message: message.trim(),
       });
-      const res = await fetch("https://formspree.io/f/mkolvakp", {
+      const res = await fetch("https://formspree.io/f/xeeblybv", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
