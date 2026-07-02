@@ -23,12 +23,23 @@ const ForgotPass = ({ navigation }) => {
   const forgotPass = async () => {
     setLoading(true);
     try {
-      await auth.sendPasswordResetEmail(email.trim());
+      const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": process.env.BREVO_API_KEY,
+        },
+        body: JSON.stringify({
+          to: [{ email: email.trim() }],
+          templateId: 3,
+        }),
+      });
+      if (!res.ok) throw new Error("Brevo error");
       Alert.alert("Success!", "Password reset email sent.", [
         { text: "OK", onPress: () => navigation.navigate("Login") },
       ]);
     } catch (error) {
-      Alert.alert("Error", error.message);
+      Alert.alert("Error", "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
     }
