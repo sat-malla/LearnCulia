@@ -124,6 +124,11 @@ const Suggest = ({ navigation }) => {
         email: email.trim(),
         message: message.trim(),
       });
+      await fetch("https://formspree.io/f/xeeblybv", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
+      });
       const res = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
@@ -143,6 +148,9 @@ const Suggest = ({ navigation }) => {
       if (!res.ok) throw new Error("Brevo error");
       await AsyncStorage.removeItem(DRAFT_KEY);
       await AsyncStorage.removeItem(BACKGROUND_TS_KEY);
+      setName("");
+      setEmail("");
+      setMessage("");
       setModalVisible(true);
     } catch (error) {
       Alert.alert("Failed to send", "Something went wrong. Please try again.");
