@@ -27,6 +27,7 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "scheme": "learnculia",
     "extra": {
       "eas": {
         "projectId": "d290ead9-39b1-43cb-b5e2-69ce05a1f904"

@@ -63,6 +63,22 @@ const Register = ({ navigation }) => {
     setProfileLoaded(true);
   };
 
+  const sendWelcomeEmail = async (toEmail) => {
+    try {
+      await fetch("https://api.brevo.com/v3/smtp/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": process.env.BREVO_API_KEY,
+        },
+        body: JSON.stringify({
+          to: [{ email: toEmail }],
+          templateId: 1,
+        }),
+      });
+    } catch (_) {}
+  };
+
   const register = async () => {
     const trimmedEmail = email.trim();
     if (!trimmedEmail || !password) return;
@@ -77,6 +93,7 @@ const Register = ({ navigation }) => {
       await auth.createUserWithEmailAndPassword(trimmedEmail, password);
       setUserId(auth.currentUser.uid);
       await addUserData();
+      sendWelcomeEmail(trimmedEmail);
       isRegistered(true);
       navigation.navigate("Home");
     } catch (e) {

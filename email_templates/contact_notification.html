@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body style="margin:0; padding:0; background-color:#f0f0f0; font-family: Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f0f0f0;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:12px; overflow:hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width:600px; width:100%;">
+
+          <!-- Header -->
+          <tr>
+            <td align="center" style="background-color:#6bffc6; padding:32px 40px;">
+              <h1 style="margin:0; font-size:32px; color:#000000; font-weight:900; letter-spacing:-0.5px;">LearnCulia</h1>
+              <p style="margin:8px 0 0; font-size:15px; color:#1a1a1a;">New Contact Message</p>
+            </td>
+          </tr>
+
+          <!-- Intro -->
+          <tr>
+            <td style="padding: 40px 40px 20px;">
+              <h2 style="margin:0 0 8px; font-size:22px; color:#1a1a1a;">You've got a new message 📬</h2>
+              <p style="margin:0; font-size:15px; color:#666666;">Someone reached out via the LearnCulia app. Here are the details:</p>
+            </td>
+          </tr>
+
+          <!-- Details -->
+          <tr>
+            <td style="padding: 0 40px 40px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="background-color:#f7f7f7; border-radius:10px; padding:24px;">
+
+                    <p style="margin:0 0 4px; font-size:12px; font-weight:700; color:#999999; text-transform:uppercase; letter-spacing:0.5px;">Name</p>
+                    <p style="margin:0 0 20px; font-size:16px; color:#1a1a1a;">{{params.name}}</p>
+
+                    <p style="margin:0 0 4px; font-size:12px; font-weight:700; color:#999999; text-transform:uppercase; letter-spacing:0.5px;">Email</p>
+                    <p style="margin:0 0 20px; font-size:16px; color:#1a1a1a;">
+                      <a href="mailto:{{params.email}}" style="color:#1a1a1a;">{{params.email}}</a>
+                    </p>
+
+                    <p style="margin:0 0 4px; font-size:12px; font-weight:700; color:#999999; text-transform:uppercase; letter-spacing:0.5px;">Message</p>
+                    <p style="margin:0; font-size:16px; color:#1a1a1a; line-height:1.6;">{{params.message}}</p>
+
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="background-color:#f7f7f7; padding:24px 40px; border-top:1px solid #eeeeee;">
+              <p style="margin:0; font-size:12px; color:#999999;">© 2026 LearnCulia™. All rights reserved.</p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

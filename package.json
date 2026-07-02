@@ -43,7 +43,9 @@
     "react-nice-avatar": "^1.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.4",
+    "dotenv": "^17.4.2"
   },
   "private": true
 }

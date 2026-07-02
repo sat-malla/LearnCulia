@@ -124,12 +124,23 @@ const Suggest = ({ navigation }) => {
         email: email.trim(),
         message: message.trim(),
       });
-      const res = await fetch("https://formspree.io/f/xeeblybv", {
+      const res = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), message: message.trim() }),
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": process.env.BREVO_API_KEY,
+        },
+        body: JSON.stringify({
+          to: [{ email: email.trim() }],
+          templateId: 2,
+          params: {
+            name: name.trim(),
+            email: email.trim(),
+            message: message.trim(),
+          },
+        }),
       });
-      if (!res.ok) throw new Error("Formspree error");
+      if (!res.ok) throw new Error("Brevo error");
       await AsyncStorage.removeItem(DRAFT_KEY);
       await AsyncStorage.removeItem(BACKGROUND_TS_KEY);
       setModalVisible(true);
