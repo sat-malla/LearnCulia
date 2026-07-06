@@ -1,0 +1,119 @@
+LearnCulia Games - Tips, Tricks, and Strategies
+
+=== BEFORE PLAYING ANY GAME ===
+- Find a quiet place with no distractions so you can focus on the numbers.
+- Take a deep breath before starting. There is no time pressure — go at your own pace.
+- If you are feeling frustrated, take a short break and come back. Math is a skill that improves with practice, not speed.
+- Make sure your screen brightness is comfortable. You can also switch to dark mode in the app settings if bright screens bother you.
+- Start with Normal mode before attempting Challenge mode. Build your confidence first.
+
+=== AFTER COMPLETING ANY GAME ===
+- Check your profile to see if you earned a new badge. Badges are awarded for completing games.
+- Celebrate small wins. Finishing even one game is progress worth acknowledging.
+- If you made mistakes, try playing the same game again. Repetition is one of the best ways to build number confidence.
+- Challenge yourself gradually — once Normal mode feels easy, try Challenge mode.
+- Track your progress over time. The more games you complete, the more your mathematical maturity grows.
+
+=== GAME 1: COUNTING GAME ===
+What it covers: Basic counting and number recognition (1-10).
+
+Normal Mode:
+- A hand is shown on screen holding up some fingers. Your job is to choose how many fingers are being held up.
+- Tip: Count each finger one by one out loud or in your head. Don't try to guess — count carefully.
+- Tip: If you lose count, start over from the thumb and go finger by finger.
+- Tip: Numbers 1-5 are on one hand. Numbers 6-10 use both hands mentally — practice visualizing two hands.
+
+Challenge Mode:
+- Fruits are shown on screen instead of fingers. Choose how many fruits there are.
+- Tip: Use your actual fingers to count the fruits on screen. Point to each fruit as you count it to avoid counting the same one twice.
+- Tip: Group the fruits into pairs if there are many. Counting in groups of 2 is easier than counting one by one.
+- Tip: If you lose track, start from the left side of the screen and move right systematically.
+
+=== GAME 2: ADDITION & SUBTRACTION ===
+What it covers: Basic arithmetic using addition and subtraction.
+
+Normal Mode:
+- Simple addition and subtraction problems with ticker counters to help you visualize the numbers.
+- Tip: Use the ticker counters — they are there to help you. Don't feel like you need to do it in your head.
+- Tip: For addition, start with the bigger number and count up. For example, for 3+5, start at 5 and count up 3 more.
+- Tip: For subtraction, think of it as "how many do I take away?" Use the ticker to count down.
+- Tip: Say the equation out loud as you solve it. Hearing the numbers helps your brain process them.
+
+Challenge Mode:
+- Same mechanic but with two-digit numbers, making the problems harder.
+- Tip: Break two-digit numbers into tens and ones. For example, 23+14 = (20+10) + (3+4) = 30+7 = 37.
+- Tip: Still use the tickers even for bigger numbers — take your time.
+- Tip: Write the problem down on paper if it helps you keep track of the digits.
+- Tip: Double-check your answer before submitting. With bigger numbers it is easy to make small errors.
+
+=== GAME 3: MULTIPLICATION ===
+What it covers: Multiplication with numbers from 1-12.
+
+Normal Mode:
+- Multiplication problems with a multiplication table available on screen to reference.
+- Tip: Use the multiplication table freely — it is there for a reason. There is no shame in looking things up while you are learning.
+- Tip: Look for patterns in the table. For example, multiplying by 2 is always doubling, and multiplying by 5 always ends in 0 or 5.
+- Tip: Start by memorizing the easier times tables first: 1x, 2x, 5x, and 10x. These are the building blocks.
+- Tip: Multiplying by 10 is easy — just add a zero to the end of the number.
+
+Challenge Mode:
+- Same multiplication problems but WITHOUT the multiplication table. You must rely on memory.
+- Tip: Before attempting Challenge mode, spend time in Normal mode until you feel confident without looking at the table.
+- Tip: Use skip counting to figure out answers. For 6x4, count up in 6s: 6, 12, 18, 24.
+- Tip: If you forget a fact, try to derive it. For 7x8, think: 7x7=49, so 7x8=49+7=56.
+- Tip: Tricky ones to memorize: 6x7=42, 6x8=48, 7x8=56, 8x8=64. Practice these specifically.
+
+=== GAME 4: REVERSING MATH EQUATIONS ===
+What it covers: Understanding that equations work in both directions (commutative property).
+
+Normal Mode:
+- Given an equation like 3+1=?, rearrange it to ?=3+1.
+- Tip: Think of the equals sign as a balance. Both sides must be equal — you are just flipping which side the answer is on.
+- Tip: The numbers don't change, only their position in the equation does.
+- Tip: Read the equation out loud first, then rewrite it starting from the other side.
+
+Challenge Mode:
+- Given ?=3+1, rearrange it to 3+1=?. The reverse of Normal mode.
+- Tip: Same concept — just think of moving the question mark to the right side.
+- Tip: This game builds a really important skill: understanding that math equations are flexible and reversible.
+- Tip: Take your time reading each equation carefully before answering.
+
+=== GAME 5: COMPARISONS ===
+What it covers: Comparing numbers using greater than (>), less than (<), equal to (=), greater than or equal to (>=), and less than or equal to (<=) symbols.
+
+Normal Mode:
+- Compare two numbers and choose the correct symbol (>, <, =). Ticker counters are provided.
+- Tip: Use the tickers to visualize which number is bigger. The bigger pile is the greater number.
+- Tip: A simple trick: the symbol always points to the smaller number. Think of it as an arrow pointing at the "loser."
+- Tip: If both numbers are the same, the answer is always equal (=).
+
+Challenge Mode:
+- Given a comparison between two numbers (with tickers), decide if the comparison shown is TRUE or FALSE.
+- Tip: First work out the correct comparison yourself using the tickers, then check if it matches what is shown.
+- Tip: Pay close attention to the >= and <= symbols. >= means the left number is bigger OR equal — both count as true.
+- Tip: Don't rush. Read the full comparison carefully before deciding true or false.
+- Tip: If you see >=, ask yourself: is the left number greater than the right? If yes, it's true. If they're equal? Also true.
+
+=== GAME 6: ARRANGING NUMBERS ===
+What it covers: Ordering numbers from smallest to largest (ascending order).
+
+Normal Mode:
+- Arrange whole numbers from 1-99 in ascending order (smallest to largest).
+- Tip: Start by finding the smallest number first and placing it at the beginning.
+- Tip: Then find the next smallest from what remains. Repeat until all numbers are placed.
+- Tip: Compare the tens digit first. 23 is smaller than 45 because 2 tens is less than 4 tens.
+- Tip: If the tens digits are the same, compare the ones digit. 23 is smaller than 27 because 3 < 7.
+
+Challenge Mode:
+- Same concept but with decimal numbers instead of whole numbers.
+- Tip: Compare the whole number part first. 3.7 is always smaller than 4.2 regardless of the decimal.
+- Tip: If the whole number parts are the same, compare the decimal part. 3.2 is smaller than 3.8.
+- Tip: A common mistake: thinking 3.9 is smaller than 3.10 because 9 < 10. But 3.9 = 3.90, so they are actually equal in the tenths place — think of it digit by digit after the decimal point.
+- Tip: If it helps, write the numbers in a column lined up at the decimal point to compare them visually.
+
+=== GENERAL DYSCALCULIA TIPS FOR LEARNCULIA ===
+- Use fingers, tickers, and any visual aids available in the app. These are tools, not crutches.
+- Repetition is key. Playing a game multiple times builds number sense naturally.
+- Don't compare your progress to others. Dyscalculia affects everyone differently and improvement looks different for everyone.
+- Short sessions work better than long ones. 10-15 minutes of focused play is more effective than an hour of frustrated practice.
+- Celebrate completing games and earning badges. Positive reinforcement helps your brain associate math with achievement rather than stress.

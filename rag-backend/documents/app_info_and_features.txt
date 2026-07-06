@@ -1,0 +1,83 @@
+================================================================================
+LEARNCULIA SYSTEM DOCUMENTATION AND KNOWLEDGE BASE
+================================================================================
+
+--- DOCUMENT SCOPE ---
+This document serves as the master knowledge base for the LearnCulia application. It contains comprehensive technical configurations, feature listings, platform availability, game breakdowns, user onboarding architectures, and application customization metrics. It is structured explicitly for vector ingestion, semantic indexing, and chunk-level context retention within a Retrieval-Augmented Generation (RAG) system.
+
+--- 1. APPLICATION OVERVIEW AND TARGET AUDIENCE ---
+* Application Title: LearnCulia
+* Core Definition: LearnCulia is an educational, math-focused learning application engineered specifically to assist individuals with dyscalculia in managing and improving their mathematical reasoning, processing speed, and numerical comprehension.
+* Mission and Strategy: The platform translates traditional cognitive and therapeutic arithmetic remediation techniques into highly engaging, gamified environments, digital challenges, and specialized interactive mini-games.
+* General Platform Accessibility: LearnCulia is multi-platform, offering native mobile distribution alongside web-standard cloud rendering.
+
+--- 2. DETAILED MINI-GAMES AND CHALLENGES PORTFOLIO ---
+The LearnCulia application contains six distinct educational mini-games. Every individual game features two difficulty frameworks: "Normal Mode" and "Challenge Mode", allowing for structural scaling based on the user's current cognitive thresholds.
+
+* GAME 1: COUNTING GAME
+  - Educational Target: Subitizing, quantity recognition, and basic counting-sequence mechanics.
+  - Normal Mode Mechanics: The user is presented with a graphic of a hand and must count the specific number of fingers extended on screen.
+  - Challenge Mode Mechanics: The user must accurately tally a varied, non-linear assortment of fruits scattered across the display.
+
+* GAME 2: ADDITION & SUBTRACTION
+  - Educational Target: Operational arithmetic fluency, sequential manipulation, and place-value navigation.
+  - Normal Mode Mechanics: Users execute low-digit addition and subtraction equations facilitated by interactive digital ticker counters.
+  - Challenge Mode Mechanics: Users perform mental and manual addition and subtraction computations involving complex two-digit numbers.
+
+* GAME 3: MULTIPLICATION
+  - Educational Target: Mathematical fact retrieval and multiplication table mapping.
+  - Normal Mode Mechanics: Users solve standard multiplication math facts ranging from factors 1 to 12 with the continuous assistance of an onscreen visual reference multiplication table.
+  - Challenge Mode Mechanics: Users calculate multiplication facts from 1 to 12 independently, with the reference table completely hidden.
+
+* GAME 4: REVERSING MATH EQUATIONS
+  - Educational Target: Mathematical flexibility, inverse operations, and algebraic relational logic.
+  - Gameplay Mechanics: Users practice spatial and conceptual transposition by rearranging given equations from one mathematical format into another. The structural mechanics of Normal Mode and Challenge Mode are exact structural inverses (vice versa) of one another to test multi-directional problem solving.
+
+* GAME 5: COMPARISONS
+  - Educational Target: Understanding magnitude, numerical scale, and inequality operators.
+  - Normal Mode Mechanics: Users evaluate two sets of numbers and manually assign the correct mathematical comparison operator—Greater Than (>), Less Than (<), or Equal To (=)—using interactive ticker interfaces.
+  - Challenge Mode Mechanics: The app generates a static, completed comparison statement, and the user must analyze the entire math equation to declare whether the stated comparison is "True" or "False".
+
+* GAME 6: ARRANGING NUMBERS
+  - Educational Target: Linear sequencing, scale organization, and decimal-place orientation.
+  - Normal Mode Mechanics: Users must sort a randomized set of whole numbers within the scale of 1 to 99 into proper ascending order.
+  - Challenge Mode Mechanics: Users sort a randomized sequence of decimal numbers chronologically and by structural value.
+
+--- 3. USER GAMIFICATION, PROFILES, AND AVATARS ---
+LearnCulia uses a built-in gamification architecture to boost retention and minimize math anxiety.
+* Profile Creation: Upon registering an account, every user receives a unique digital profile complete with a modular, fully customizable avatar.
+* Avatar Customization Parameters: Users can personalize their avatar identity by adjusting visual configurations including gender expression, skin tone, eyewear (glasses), novelty hats (party hat), and apparel/shirt color.
+* Gamified Progress Tracking: LearnCulia tracks game completions via an automated Badge System. Completing specified games and challenge tiers unlocks distinct digital badges.
+* Profile Interface: The dedicated user profile screen serves as a central hub, cleanly displaying the user's customized avatar alongside a gallery of all earned badges.
+
+--- 4. ACCOUNT AUTHENTICATION, DATA ARCHITECTURE, & EMAILS ---
+* Profile Authentication: Users register a personal secure account using a unique email address and password string. Existing accounts log in via standard authenticated credentials.
+* Password Recovery Workflow: If a user triggers the "Forgot Password" protocol, they enter their registered email address. The system initiates a secure recovery routing that transmits a branded LearnCulia transactional email to the user. This email contains an authenticated hyperlink routing directly to: `https://learnculia.com/forgot-password` where the credential reset is performed.
+* Email Infrastructure: All automated transactional and promotional emails dispatched by LearnCulia are driven via the Brevo service infrastructure. This includes a automated Welcome Email triggered and sent instantly upon new account registration.
+
+--- 5. IN-APP SUPPORT AND FEEDBACK SYSTEMS ---
+* Feedback Channel: LearnCulia hosts a native, accessible "Contact/Suggest" screen within the UI.
+* User Input Metrics: The contact form requires users to provide their name, verified contact email address, and their specific text message or feedback suggestion.
+* System Operations: Submitting a form triggers an asynchronous workflow that sends a formal confirmation receipt to the user's email address while simultaneously transmitting an internal notification dispatch directly to the LearnCulia administrative team.
+
+--- 6. BUILT-IN AI CHATBOT ASSISTANT SPECIFICATIONS ---
+* Chatbot Architecture: LearnCulia features an integrated, real-time conversational AI chatbot assistant accessible directly within the application interface.
+* Technical Stack: The AI chatbot utilizes Google Gemini as its primary large language model engine, combined with a specialized RAG (Retrieval-Augmented Generation) knowledge base pipeline.
+* Conversational Scope: The chatbot provides supportive, clinical, and operational guidance. It answers inquiries regarding the definition and symptoms of dyscalculia, delivers actionable tips, tricks, and strategies for solving all 6 mini-games (and their respective Normal/Challenge modes), details app features, and provides psychological encouragement to reduce math-induced stress.
+
+--- 7. UI ERGONOMICS, APPEARANCE, AND THEMES ---
+* Visual Modes: To support sensory processing needs, the user interface features native toggles for both Light Mode and Dark Mode layouts.
+* Color Accent Branding: Users can tailor the primary color accents of the interface across three select palettes: Green, Red, and Blue.
+* Design Philosophy: The user interface (UI) uses a minimal, flat, distraction-free aesthetic. It minimizes cognitive load, emphasizes high-contrast legibility, and ensures navigation paths are straightforward for neurodivergent individuals.
+
+--- 8. PLATFORM DEPLOYMENT AND DISTRIBUTION ENDPOINTS ---
+The LearnCulia application environment is actively maintained across two primary distribution networks:
+* Native iOS Mobile Application: Available for download on the Apple App Store via the official platform URL: https://apps.apple.com/tt/app/learnculia/id6467522608
+* Production Web Application: Globally accessible on any standard modern desktop or mobile web browser via the core address: https://learnculia.com
+
+--- 9. LEGAL ---
+Terms & Conditions: The Terms & Conditions page is listed in the Settings panel, which details app information and legality. Users, when logging in, must agree to the Terms & Conditions before signing up. Even when not logged in, users can still view the terms & conditions for their own information. 
+Privacy Policy: The Privacy Policy link provided in the Settings panel is crucial for users to read and understand, especially when they want to sign up for a LearnCulia account. Users should note that LearnCulia will not see, modify, or delete any user's proprietary data including passwords and other personal information. 
+We will only keep records of username, email, and app information. Once the account has been deleted, in no way shape or form can LearnCulia retrieve that information again. 
+
+================================================================================

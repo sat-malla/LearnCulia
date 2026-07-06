@@ -1,0 +1,2572 @@
+M E D I C I N E
+Clinical Practice Guideline
+The Diagnosis and Treatment of 
+ Dyscalculia
+Stefan Haberstroh, Gerd Schulte-Körne
+T
+hree to seven percent of all children, adolescents, 
+and adults suffer from dyscalculia. This figure cor-
+responds to some 84 000 to 195 750 primary-school 
+pupils in Germany (1–3). The significance of dyscalculia 
+is still underappreciated. Poor mathematical ability places 
+a major burden on society and on the affected individual 
+(4). A large-scale cohort study in England revealed that 
+poor mathematical ability is associated with major psy-
+chosocial and economic risks: 70–90% of the affected 
+persons ended their schooling prematurely at age 16; at 
+age 30, very few of them were employed full-time. Their 
+probability of being unemployed and of developing de-
+pressive symptoms was twice as high as that of persons 
+without dyscalculia (5). The costs arising from severe im-
+pairment of mathematical ability in Great Britain have 
+been estimated at £2.4 billion per year (6).
+Persons with dyscalculia have marked, persistent 
+problems in applying the basic methods of arithmetic 
+Summary
+Background: 3–7% of all children, adolescents, and adults suffer from dyscalculia. Severe, persistent difficulty performing 
+ arithmetical calculations leads to marked impairment in school, at work, and in everyday life and elevates the risk of comorbid 
+mental disorders. The state of the evidence underlying various methods of diagnosing and treating this condition is unclear. 
+Methods: Systematic literature searches were carried out from April 2015 to June 2016 in the PsycInfo, PSYNDEX, MEDLINE, 
+ProQuest, ERIC, Cochrane Library, ICTRP, and MathEduc databases. The main search terms on dyscalculia were the German 
+terms “Rechenstörung,” “Rechenschwäche,” and “Dyskalkulie” and the English terms “dyscalculia,” “math disorder, and “math 
+disability.” The data from the retrieved studies were evaluated in a meta-analysis, and corresponding recommendations on the 
+diagnosis and treatment of dyscalculia were jointly issued by the 20 societies and associations that participated in the creation 
+of this guideline. 
+Results: The diagnosis of dyscalculia should only be made if the person in question displays below-average mathematical 
+ performance when seen in the context of relevant information from the individual history, test findings, clinical examination, and 
+further psychosocial assessment. The treatment should be directed toward the individual mathematical problem areas. The 
+mean effect size found across all intervention trials was 0.52 (95% confidence interval [0.42; 0.62]). Treatment should be 
+ initiated early on in the primary-school years and carried out by trained specialists in an individual setting; comorbid symptoms 
+and disorders should also receive attention. Persons with dyscalculia are at elevated risk of having dyslexia as well (odds ratio 
+[OR]: 12.25); the same holds for attention deficit/hyperactivity disorder and for other mental disorders, both internalizing (such 
+as anxiety and depression) and externalizing (e.g., disorders characterized by aggression and rule-breaking). 
+Conclusion: Symptom-specific interventions involving the training of specific mathematical content yield the best results. There 
+is still a need for high-quality intervention trials and for suitable tests and learning programs for older adolescents and adults. 
+Cite this as:
+Haberstroh S, Schulte-Körne G: Clinical practice guideline: The diagnosis and treatment of dyscalculia.  
+Dtsch Arztebl Int 2019; 116: 107–14.  DOI: 10.3238/arztebl.2019.0107
+Department of Child 
+and Adolescent 
+ Psychiatry, Psycho-
+somatics and 
+ Psychotherapy, 
+ University Hospital, 
+LMU Munich: Mag. 
+rer. nat. Stefan 
+ Haberstroh,  
+Prof. Dr. med. Gerd 
+Schulte-Körne
+and in knowledge of math facts (the multiplication 
+table); according to the ICD-10 definition of the 
+ disorder (code F81.2), these problems are not merely 
+due to low intelligence or inadequate schooling. 
+These problems are often associated with impaired 
+basic processing of numbers and quantities (7–10) 
+(Box). The sex ratio of sufferers is approximately 
+even, with a trend toward a higher prevalence among 
+girls (11). 
+When dyscalculia is not recognized as such (as 
+often happens), negative school experiences and re-
+peated lack of success in mathematical tasks generate 
+fears of failure as well as diminished self-esteem. The 
+affected children and adolescents develop diverse 
+mental symptoms and disorders (12). Symptoms are 
+common (ca. 10–40%), both of the externalizing type 
+(such as aggressiveness and agitation) and of the in-
+ternalizing type (such as anxiety and depressed mood) 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 
+107
+M E D I C I N E
+(13–15). Dyscalculia also displays high comorbidity 
+with reading and/or spelling disorder (dyslexia; ca. 
+30–40%) as well as with attention deficit/hyperactiv-
+ity disorder (ADHD; ca. 10–20%) (1, 2, 16, 17). 
+Without specific intervention, dyscalculia often leads 
+to scholastic failure and school absenteeism (12, 18).
+The past two decades have seen markedly 
+ increased interest in dyscalculia, both among 
+specialists studying the problem and among the 
+ general public (11, 19). Nonetheless, the new 
+ knowledge gained during this time has not been sys-
+tematically integrated into medical, psychological, 
+learning-therapeutic, and educational practice. A 
+variety of procedures, criteria, and tests are used in 
+the diagnostic evaluation of dyscalculia (7). Al-
+though a broad spectrum of therapeutic and learning 
+programs is available, their effectiveness has gen-
+erally not been studied or else remains unclear (20). 
+Moreover, the classification of dyscalculia in the 
+ICD-10, which is based exclusively on deficits in 
+carrying out basic arithmetical tasks, must be ques-
+tioned on the basis of recently acquired scientific 
+knowledge.
+The above considerations indicate the need for a 
+guideline in which the current state of research in the 
+field is systematically assessed and the participating 
+scientific and professional organizations, working in 
+collaboration, jointly issue clear and empirically well-
+grounded recommendations for the uniform and valid 
+diagnostic evaluation and effective treatment of this 
+condition. Twenty societies and associations under 
+the leadership of the German Society of Child and 
+Adolescent Psychiatry, Psychosomatics and Psycho-
+therapy (eBox 1) have now created the world’s first 
+evidence- and consensus-based S3 guideline on the 
+diagnosis and treatment of dyscalculia (guideline No. 
+028-046 of the Association of the Scientific Medical 
+Societies in Germany, Arbeitsgemeinschaft der Wis-
+senschaftlichen Medizinischen Fachgesellschaften 
+[AWMF]).
+Methods 
+This guideline is divided into four sections concerning, 
+respectively, the symptoms, diagnosis, treatment, and 
+comorbidities of dyscalculia. The current state of 
+ research in the field was evaluated by systematic litera-
+ture searches in multiple scientific databases (PsycIN-
+FO, Medline, ProQuest, ERIC, Cochrane, ICTRP, 
+PSYNDEX, MathEduc). With regard to tests and 
+ learning programs, further searches were carried out for 
+materials issued by relevant specialized publishers. The 
+retrieved publications were selected on the basis of 
+multiple inclusion criteria for each of the four sections 
+of the guideline (eBox 2). The overall procedure and 
+flow charts for the literature search in each of the four 
+areas are shown in eFigures 1 and 2.
+The methodological assessment of study quality 
+was performed with the aid of checklists for each 
+ relevant study type (e.g., randomized controlled trial, 
+non-randomized controlled trial) (21, 22). On this 
+BOX
+Typical features of dyscalculia
+●Difficulties in processing numbers and quantities, starting in the preschool years
+– The connection between a number (e.g., 2) and the quantity it represents (e.g., 2 apples) is made only with difficulty. 
+– The relation between numbers and quantities (two apples and one apple = 2 + 1) is inadequately understood.
+– Ensuing difficulties in counting, comparing two numbers or quantities, rapid assessment and naming of small quan-
+tities of dots, determining the position of a number on the number line, understanding the place-value system, and 
+transcoding. 
+●Difficulties with basic arithmetic operations and with further mathematical tasks 
+– Computation rules are not understood because the underlying comprehension of numbers and quantities is lacking or 
+insufficiently developed (17 + 14 = 1 + 1 and 7 + 4 = 13 or 211).
+– Deficits in retrieval of math facts (e.g., the multiplication table) with which the answers to simple calculation problems 
+can be recalled directly from memory, rather than needing to be calculated anew each time.
+– Lack of transition from computation by counting (8 + 4 = 9, 10, 11, 12 = 12) to non-counting strategies (8 + 4 = 8 + 2 and 
+2 = 12).
+– These difficulties become worse with increasing mathematical complexity (larger number range, written computations, 
+multiple calculating operations, word problems). 
+●Important:
+– Finger-counting per se is not a sign of dyscalculia, but rather a normal aid to the memorization of math facts and the 
+learning of efficient calculating strategies. Persistent finger-counting, particularly for frequently repeated, easy calcu-
+lating tasks, does indeed indicate a problem in calculation. 
+Not the mere presence of calculating errors, but rather their variety, persistence, and frequency are determinative.
+108 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14
+M E D I C I N E
+basis, each study was assigned an evidence grade, 
+ according to the scheme of the Oxford Center for Evi-
+dence-Based Medicine (OCEBM) (23). The datasets 
+for each of the four areas were meta-analytically 
+evaluated.
+The methodological quality of diagnostic tests was 
+evaluated with the aid of a specially developed 
+ rank-ordering procedure. For all tests, a rank order 
+was determined on the basis of how well each test ful-
+filled a set of quality criteria in comparison to the 
+other tests. 
+Learning programs were only considered if they had 
+been evaluated in at least one trial involving a control 
+group, an intervention group, and a pre–post design. 
+These programs were assessed with respect to the 
+quality of the evaluative trials providing evidence for 
+their efficacy. The main criterion was whether the 
+evaluative trials had been subjected to peer review and 
+displayed a correspondingly high scientific quality, 
+and/or whether they were carried out in persons with 
+dyscalculia and were therefore valid for the purposes of 
+this guideline.
+TABLE 1
+Meta-analysis: persons with vs. persons without dyscalculia
+(the analysis shows positive effect sizes favoring persons without dyscalculia)
+*1 Number of solved problems, or number of errors; *2 time needed for problem-solving 
+ES, effect size, in Hedges’ g; SE, standard error
+Parameter
+Mathematics
+Numerical and quantitative 
+processing
+Basic arithmetic operations
+Word problems
+Working memory
+Phonological loop
+Visuospatial sketchpad
+Central executive function
+Executive functions
+Inhibition
+Updating
+Attention
+Processing speed
+Reading and writing
+Phonological processing
+Reading and writing
+Intelligence
+Description and examples
+Understanding of numbers and magnitudes (e.g. 
+symbolic/non-symbolic comparisons, number 
+line)
+Math facts fluency (e.g. multiplication table)
+Mathematical deductions from a text
+Short-term storage of linguistic information 
+(e.g., forward letter span)
+Short-term storage of visuospatial information
+(e.g., matrix/block span)
+Short-term storage and (further) processing of 
+ information (e.g., backward letter span)
+Suppression of distracting stimuli while perform-
+ing a task (e.g., the Stroop effect)
+Use of new information 
+while performing a task
+Assessment of attention performance
+by onself or others 
+Processing of simple cognitive tasks 
+(e.g., judging whether two symbols are identical)
+Rapid naming (RAN) of letters, numbers, 
+ objects; phonological awareness (e.g., breaking 
+down words into constituent syllables and 
+ phonemes)
+Rapid, correct reading of words and non- or 
+pseudowords; questions on the comprehension 
+of a text; correct writing of words
+Logical deductions (reasoning) 
+(e.g., matrix tasks)
+Accuracy *1
+ES (SE)
+0.66 (0.13)
+0.45 (0.17)
+0.74 (0.16)
+0.97 (0.28)
+0.52 (0.07)
+0.37 (0.09)
+0.84 (0.07)
+0.65 (0.08)
+0.36 (0.16)
+0.27 (0.07)
+0.61 (0.33)
+0.73 (0.30)
+0.68 (0.16)
+0.21 (0.12)
+0.21 (0.20)
+0.34 (0.13)
+0.85 (0.19)
+References
+e1–e18
+e1, e3, e5, e7, e9, 
+e13, e15, e17, e18
+e2, e6, e8, e11–13, 
+e18
+e10. e14–16
+e2, e6, e11, e13–e18, 
+e20–e28
+e6, e11, e13, e15, 
+e17, e18, e21, 
+e23–e25, e27, e28
+e11, e13, e17, e21, 
+e25, e28
+e2, e11, e13–e17, 
+e20–e22, e24–e28
+e2, e14–e16, e24,  
+e26, e29
+e2, e15, e26, e29
+e14, e16, e24
+e18, e26, e33
+e17, e20
+e2, e6, e11, e18,  
+e27, e29
+e2, e6, e18, e27,  
+e29
+e11, e18
+e20, e34
+Response time  *2
+ES (SE)
+0.84 (0.21)
+0.64 (0.16)
+0.84 (0.15)
+0.59 (0.18)
+0.50 (0.11)
+0.28 (0.27)
+0.30 (0.22)
+0.33 (0.14)
+References
+e3–e6, e8, e9, e12, 
+e18, e19
+e3, e5, e6, e9, e18, 
+e19
+e6, e8, e12, e18
+e2, e6, e24,  
+e30–e32
+e2, e6, e24,  
+e30–e32
+e17, e18, e31
+e2, e6, e15, e18, 
+e22, e23, e31
+e2, e6, e15, e22, 
+e23, e31
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 
+109
+M E D I C I N E
+On the basis of the findings of the literature search 
+and evaluation, all of the participating organizations 
+developed and agreed upon the recommendations of 
+the guideline in a consensus conference under the 
+neutral moderation of the AWMF. For each recom-
+mendation, the degree of consensus was rated as a 
+strong consensus (>95%), a consensus (76–95%), or 
+majority approval (51–75%).
+Findings
+All recommendations emerging from the consensus 
+conference were strong (i.e., recommendation grade A) 
+and supported by a broad consensus (i.e., at least 76% 
+approval). Moreover, the findings of further studies 
+published after the end of the literature search period 
+and the publication of the guideline were still consistent 
+with the guideline’s recommendations (eBox 3).
+Manifestations and diagnosis
+Persons with dyscalculia have major difficulties in 
+all areas of arithmetic (basic arithmetic operations, 
+fact retrieval, word problems) (Table 1) and in the 
+processing of numbers and quantities. They need 
+much more time than persons without dyscalculia to 
+solve problems. In addition to these mathematics-
+specific deficits, they have markedly impaired 
+ performance in visuospatial working memory (e.g., 
+remembering the position of dots in a matrix) and 
+in the suppression of distracting stimuli (in-
+hibition). 
+The diagnosis of dyscalculia involves not only obli-
+gatory psychometric (arithmetical) testing, but also a 
+clinical examination, thorough history-taking, and 
+further psychosocial assessment. The medical diag-
+nostic algorithm is shown in the Figure.
+FIGURE
+Algorithm for the diagnosis of dyscalculia
+ADHD, attention deficit/hyperactivity disorder; ICD, International Classification of Diseases;  
+PR, percentile rank
+no
+yes
+yes
+ no
+no
+yes
+no
+no
+yes
+yes
+no
+yes
+The differential diagnosis of dyscalculia (difficulties in mathematics mainly due to other causes)
+− Brain damage or disease ( e.g., infantile cerebral palsy, epilepsy) 
+− Certain neurogenetic disorders ( e.g., fragile X syndrome, 22q11 deletion syndrome) 
+− Premature birth and/or low birth weight
+− Undetected impairment of sight or hearing
+− Low intelligence (i.e., IQ <70) 
+− Inadequate schooling (e.g., frequent change of teachers or lessons being cancelled) 
+− Insufficient learning and support opportunities ( e.g., familial conflicts, poverty) 
+− Prolonged absence from school ( e.g., due to illness) 
+− Comorbid disorders ( e.g., anxiety disturbance, school phobia)
+Clear evidence of dyscalculia
+− In the preschool years, difficulty developing the concepts of number and quantity (e.g., problems in naming 
+numbers or the size of quantities, in counting, or in comparing numbers and quantities) 
+− Persistent difficulty with school mathematics ( e.g., problems with the place-value system, transcoding, under-
+standing arithmetical operations, knowledge and rapid recall of the multiplication table) 
+− Familial clustering of dyscalculia
+Comorbid disorders present?
+− Other scholastic developmental disorder (dyslexia)
+− Symptoms from the AD(H)D spectrum 
+− Symptoms from the internalizing disorder spectrum 
+(mainly math anxiety, test anxiety, school phobia) 
+− Symptoms from the externalizing disorder spectrum
+Below-average mathematical ability,  
+strict criterion (PR ≤ 7 or T value ≤ 35)
+Below-average mathematical ability,  
+relaxed criterion (PR ≤ 16 or T value ≤ 40)
+Dyscalculia 
+F81.2 (ICD-10)
+Other scholastic develop-
+mental disorder (dyslexia)
+Mixed disorder of 
+ scholastic skills 
+F81.3 (ICD-10)
+No dyscalculia
+110 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14
+M E D I C I N E
+Clinical examination
+The clinical diagnostic evaluation consists of a 
+ physical examination (including a neurological 
+ examination with testing of vision and hearing) and a 
+standardized intelligence test. The diagnostic criteria 
+for dyscalculia specify that impaired performance on 
+mathematical tasks must not be attributable to low in-
+telligence as defined by the ICD-10 (IQ <70), brain 
+damage, brain disease (e.g., infantile cerebral palsy, 
+epilepsy), or a previously undetected impairment of 
+sight or hearing (24). The effects of neurogenetic 
+ disorders (e.g., fragile-X syndrome, 22q11 deletion 
+syndrome) and other factors that can impair perfor -
+mance on mathematical tasks (e.g., premature birth, 
+low birth weight) should also be taken into account in 
+the differential diagnosis (25–27).
+History and further psychosocial assessment
+The person’s biographical course of development and 
+his or her familial and scholastic situation should be 
+documented systematically, as should the effects of the 
+performance deficits on mental and social develop-
+ment, school integration, and social participation 
+ (psychosocial integration). 
+In the differential diagnosis, other potential 
+causes of difficulty in performing mathematical 
+tasks must be ruled out, e.g.: inadequate schooling 
+(frequent change of teachers or lessons being can-
+celled), insufficient learning and support opportun-
+ities (family conflicts, learning disorders in the 
+family, poverty), prolonged absence from school, or 
+the effects of other disorders on mathematical per-
+formance ability, such as anxiety disorders (school 
+phobia).
+To assure a correct diagnosis, supportive criteria 
+for the diagnosis of dyscalculia should be applied, in-
+cluding family clustering of dyscalculia (28, 29) or 
+difficulty in developing the concepts of number and 
+quantity in the preschool years (10, 30).
+Consideration of multiple risk factors sometimes 
+enables prediction of the course and stability of dys-
+calculia: comorbid mental disorders, psychosocial 
+stress factors (e.g., unsuccessful integration in 
+school), and low family socioeconomic status should 
+be taken into account, as these can affect the course of 
+the disorder and the efficacy of interventions (16).
+Psychometric testing
+Psychometric tests (of mathematical performance) 
+should be used to document, as completely as possible, 
+the overall picture of the deficits. All tests were evalu-
+ated for methodological quality and assigned a rank 
+order in a list (eTable 1). The tests at the top of the list 
+are recommended; those in the top half of the list are 
+considered to be of better quality than those in the 
+ bottom half. If no test from the top half of the list is 
+suitable for measuring the particular deficits of the per-
+son to be tested, a test from the next (i.e., third) quarter 
+of the list can be chosen. This would be the case, for 
+example, if the subject is in the sixth grade and none of 
+the tests in the top half of the list is normed for this 
+level, but one from the third quarter of the list is so 
+normed. The tests in the lowest quarter of the list 
+should not be used. An abbreviated listing of the best 
+tests is given in Table 2.
+Establishment of the diagnosis
+The diagnosis is established on the basis of information 
+from all three sources (testing, clinical examination, 
+and history, including further psychosocial assessment) 
+(Figure). Whatever test is used for mathematical per-
+formance, below-average performance (≤ 16th percen-
+tile) in mathematics must be documented, particularly 
+in basic arithmetic operations and numerical and 
+quantitative processing. The threshold value on the test 
+that should be used as a criterion for the diagnosis de -
+pends on the degree to which the clinical examination, 
+the history, and the psychosocial assessment support 
+the suspected diagnosis of dyscalculia. If they do not do 
+so, then a strict (low) threshold of 1.5 standard devi-
+ations below the age- or grade-appropriate mean is to 
+be used (i.e., ≤ 7th percentile or T-value ≤ 35). On the 
+other hand, if there is already evidence to support the 
+diagnosis of dyscalculia (e.g., preschool difficulties 
+with the concepts of number and quantity), the thresh-
+old test value need not be so strict and can be set at 1 
+standard deviation below the age- or grade-appropriate 
+mean (i.e., ≤ 16th percentile or T-value ≤ 40).
+The treatment of dyscalculia
+All proposed interventional methods for dyscalculia 
+must be scientifically evaluated with respect to their 
+content and the conceptions of support and treatment 
+that they embody. This is the only way to ensure that 
+any positive effects are independent of other factors 
+(e.g., the therapist–patient relationship). Evidence-
+based treatments are not yet available for all age 
+groups, and there may thus be deviations in the treat-
+ment plan. The areas of mathematical performance 
+that the diagnostic evaluation has shown to be 
+ problematic are the main targets of the therapeutic 
+intervention. A meta-analysis on this topic has 
+shown that symptom-specific interventions, in which 
+persons with dyscalculia are mainly given math-
+ematical tasks to practice, yields markedly better im-
+provement in all areas of mathematical performance 
+than no intervention at all or non–symptom-specific 
+interventions that mainly train other skills (e.g., 
+working memory). The mean effect size (Hedges’ g) 
+in all intervention trials was 0.52 (95% confidence 
+interval [0.42; 0.62]) (e14, e35–e59). Performance in 
+numerical and quantitative processing improved by 
+0.30 [0.08; 0.52], in basic arithmetic operations by 
+0.44 [0.14; 0.58], and in word problems by 0.47 
+[0.14; 0.61]. Other clinically relevant symptoms and 
+disorders 
+that 
+might 
+affect 
+mathematical 
+ performance should also be taken into account in 
+choosing suitable interventions. If such symptoms/
+disorders are present, it is important to differentiate 
+whether they are functionally linked to dyscalculia 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 
+111
+M E D I C I N E
+(e.g., math anxiety) or not (e.g., ADHD). In all cases, 
+any comorbid mental disorder must be considered in 
+the design of a suitable treatment plan. 
+In persons with dyscalculia, mathematical abil-
+ities should be reinforced through the application of 
+standardized, disorder-specific interventions whose 
+efficacy has been scientifically demonstrated (eTable 
+2). These, however, should only be applied if they 
+are appropriate in the context of the individual 
+ treatment plan. If the patient, for example, simul -
+taneously suffers from an attention deficit that 
+makes it impossible for him or her to follow a 
+ standardized program, then that program cannot be 
+used. 
+Treatment should be provided only by specialized 
+personnel 
+who 
+have 
+received 
+appropriate 
+ pedagogical-therapeutic training in the development 
+of mathematical ability and its disorders, according to 
+the standards established by the relevant specialty 
+ associations (the German Dyslexia and Dyscalculia 
+Association 
+[BVL] 
+and 
+the 
+Association 
+for 
+ Integrative Learning Therapy [FiL]), or who have 
+undertaken a course of university study centering on 
+learning therapy. 
+Treatment should be provided in individual 
+sessions of at least 45 minutes’ duration. Treatment 
+was found to have a weaker effect if provided in 
+a group setting (−0.19 [−0.37; −0.01]) or in 
+sessions lasting less than 45 minutes (−0.49 [−1.02; 
+0.04]).
+Preschool children who are held to be at risk for 
+developing dyscalculia should receive supportive 
+treatment as early as possible, as this has been 
+found to have a beneficial effect on the later devel-
+opment of mathematical competence and on schol-
+astic  performance (31, 32). The decision when to 
+end treatment depends on the course of the 
+ response and on changing individual factors (e.g., 
+the severity of comorbid symptoms). Treatment 
+should thus be continued as long as it is appropriate 
+and necessary in the judgment of the interdisciplinary 
+team caring for the child (e.g., therapist, teacher, 
+and physician). The indication for continued 
+ treatment should be reevaluated at least once a 
+year, with disorder- specific follow-up examinations 
+carried out by  independent specialists (i.e. not the 
+person conducting therapy) who have the relevant 
+expertise. 
+TABLE 2
+Recommended psychometric tests of mathematical performance (in alphabetical order)*
+A, basic arithmetic operations; P, numerical and quantitative processing; PC, testing on a PC or tablet; PP, paper-and-pencil test; S, optional scoring program 
+ available for paper-based test (applicability and duration according to test manual); W, word problems
+* abbreviated representation, for a detailed listing of these tests and their rankings, cf. eTable 1
+Test
+BADYS 1–4+ (R) (e83)
+BADYS 5–8+ (e92)
+BIRTE 2 (e95)
+CODY-M 2–4 (e81)
+DEMAT 1+ (e86)
+DEMAT 2+ (e90)
+DEMAT 3+ (e93)
+DEMAT 4 (e84)
+DEMAT 5+ (e88)
+DEMAT 6+ (e87)
+DIRG (e99)
+ERT 1+ (e96)
+ERT 2+ (e89)
+ERT 3+ (e85)
+ERT 4+ (e91)
+HRT 1–4 (e94)
+KEKS (e98)
+MARKO-D1+ (e100)
+MBK 1+ (e82)
+Areas assessed
+P
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+A
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+W
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+Range of applicability
+From 
+1st grade (end)
+5th grade (end)
+2nd grade (beginning)
+2nd grade (beginning)
+1st grade (end)
+2nd grade (end)
+3rd grade (end)
+4th grade (middle)
+5th grade (end)
+6th grade (end)
+1st grade (end)
+1st grade (end)
+2nd grade (end)
+3rd grade (end)
+4th grade (end)
+1st grade (end)
+1st grade (beginning)
+1st grade (middle)
+1st grade (beginning)
+To
+5th grade (middle)
+9th grade (middle)
+2nd grade (end)
+4th grade (end)
+2nd grade (beginning)
+3rd grade (beginning)
+4th grade (middle)
+4th grade (end)
+6th grade (middle)
+7th grade (middle)
+4th grade (end)
+2nd grade (middle)
+3rd grade (middle)
+4th grade (middle)
+5th grade (middle)
+4th grade (end)
+4th grade (end)
+2nd grade (beginning)
+4th grade (end)
+Administration & 
+scoring
+PP (S)
+PP (S)
+PC
+PC
+PP
+PP
+PP
+PP
+PP
+PP
+PP
+PP
+PP
+PP
+PP
+PP
+PP (S)
+PP
+PP
+Time (min)
+From 
+60
+45
+45
+30
+45
+45
+45
+45
+35
+35
+16
+14
+14
+30
+20
+40
+45
+30
+45
+To
+75
+90
+60
+45
+45
+45
+45
+45
+35
+35
+30
+70
+70
+90
+85
+60
+45
+40
+60
+112 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14
+M E D I C I N E
+Comorbid disorders in persons with dyscalculia
+Dyscalculia has high comorbidity with other disorders 
+and symptoms. The prevalences, odds ratios, and 
+relative frequencies were determined in a meta-analysis 
+(eTable 3). The most common comorbidities were 
+found to be dyslexia, symptoms from the ADHD spec-
+trum (mainly attention deficits), and symptoms of 
+either the internalizing type (mainly math anxiety, test 
+anxiety, and school phobia) or the externalizing type 
+(e.g., aggressive behavior). Any individual who is 
+given a diagnosis of dyscalculia should, therefore, 
+undergo diagnostic screening for these potentially 
+ comorbid disorders. If a screening test yields the 
+ suspicion of a comorbid disorder, then a corresponding 
+diagnostic work-up should be performed, preferably as 
+specified in the relevant guideline (33–37).
+The need for action and further research
+There is currently a lack of high-quality standardized 
+tests and evidence-based learning programs for 
+children and adolescents with dyscalculia from the 
+fifth grade and up, and also, in particular, for adults. 
+There is likewise a lack, for all age groups, of 
+ high-quality 
+randomized 
+controlled 
+trials 
+with 
+multiple follow-up examinations that could inform us 
+about the intermediate- and long-term effects of treat-
+ment. Research is also needed on the long-term course 
+of dyscalculia onward into adulthood and on the de-
+velopment of comorbid disorders that interact with 
+dyscalculia (above all, math anxiety and school pho-
+bia), which can be major impediments to scholastic 
+achievement and to the success of treatment.
+Action is needed, in particular, on the level of 
+ social policy, because dyscalculia persists through 
+all 
+age 
+categories, 
+with 
+manifold 
+negative 
+ consequences for its sufferers. At present, across 
+Germany, pupils with dyscalculia are not given 
+equal treatment to pupils with dyslexia. For 
+example, supportive measures (e.g., deficit compen-
+sation) are available only at the primary-school 
+level, or not at all. Moreover, if learning therapy is 
+needed outside of school, the costs are not borne by 
+the health-insurance carriers; this places a major 
+ financial burden on the affected families that can go 
+on for years, often leading to inadequate support and 
+treatment of the affected children and adolescents. 
+Social policy in the areas of education and health 
+thus faces the task of making evidence-based 
+ scholastic supportive treatment available to all who 
+need it, and of providing financial support for the 
+costs of treatment. These two aspects are explicitly 
+stressed in the preamble to the guideline, reflecting 
+the consensus of the groups that participated in its 
+creation. 
+The practical application of the S3 guideline
+With the issuance of this guideline on the diagnosis 
+and 
+treatment 
+of 
+dyscalculia, 
+evidence- 
+and 
+ consensus-based S3 guidelines are now available that 
+cover the entire area of specific developmental dis-
+orders of scholastic skills (ICD F81). This guideline 
+contains relevant information for children, adoles-
+cents, and adults suffering from dyscalculia and 
+should be implemented in all areas of its diagnosis 
+and treatment. To enable better implementation of the 
+recommendations, the guideline also includes addi-
+tional information on their application in school, in 
+learning therapy, and in the treatment of adults with 
+dyscalculia. It also includes case illustrations exem -
+plifying the diagnostic process. Fact sheets on each 
+test that indicate its parameters and the included sub-
+tests, as well as lecture slides detailing the contents of 
+the guideline, are available for downloading on the 
+AWMF website. 
+Conflict of interest statement 
+The authors state that they have no conflict of interest.
+Manuscript submitted on 29 November 2018, revised version accepted on 
+4 December 2018.
+Translated from the original German by Ethan Taub, M.D.
+References
+1. Fischbach A, Schuchardt K, Brandenburg J, et al.: Prävalenz von 
+Lernschwächen und Lernstörungen: Zur Bedeutung der Diagnose-
+kriterien. Lern Lernstörungen 2013; 2: 65–76.
+2. Moll K, Kunze S, Neuhoff N, Bruder J, Schulte-Körne G: Specific 
+learn ing disorder: prevalence and gender differences. PLoS One 
+2014; 9: 1–8.
+3. Statistisches Bundesamt (Destatis): Allgemeinbildende und berufliche 
+Schulen: Schüler/innen nach Schularten. www.destatis.de/DE/Zahlen
+Fakten/GesellschaftStaat/BildungForschungKultur/Schulen/Tabellen/
+AllgemeinBildendeBeruflicheSchulenSchulartenSchueler.html (last 
+ accessed on 30 October 2018).
+4. Ritchie SJ, Bates TC: Enduring links from childhood mathematics and 
+reading achievement to adult socioeconomic status. Psychol Sci 2013; 
+24: 1301–8.
+5. Parsons S, Bynner J: Does numeracy matter more? London: National 
+Research and Development Centre for Adult Literacy and Numeracy 
+2005.
+Key messages
+●Persons with dyscalculia perform poorly in all areas of mathematics, particularly in 
+the processing of numbers and quantities, in basic arithmetic operations, and in the 
+solving of word problems. 
+●The diagnosis of dyscalculia requires mathematical performance as assessed by a 
+standardized test to be at least one standard deviation below the age- or grade-
+ appropriate mean. In addition, the history and the findings from clinical examination 
+and further psychosocial assessment should clearly support the diagnosis.
+●The treatment should be disorder-specific, should be initiated as early as possible, 
+and should be provided by an appropriately trained expert in an individual setting. 
+●Comorbid symptoms and disorders must be kept in mind during the diagnosis and 
+treatment of dyscalculia, particularly comorbid dyslexia, attention deficit/hyperactiv-
+ity disorder, and disorders of either the internalizing type (anxiety, depression) or the 
+externalizing type (characterized by aggression or rule-breaking). 
+●Health-insurance carriers should assume the costs for the treatment of dyscalculia. 
+Analogously to dyslexia, dyscalculia should be officially recognized in education law, 
+and supportive treatment measures should be made available in the schools to all 
+who need them. 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 
+113
+M E D I C I N E
+6. Gross J, Hudson C, Price D: The long term costs of numeracy difficul-
+ties. London: Every Child a Chance Trust 2009.
+7. Kaufmann L, von Aster M: The diagnosis and management of dyscal-
+culia. Dtsch Arztebl Int 2012; 109: 767–78.
+8. Butterworth B, Varm S, Laurillard D: Dyscalculia: from brain to edu-
+cation. Science 2011; 332: 1049–53.
+9. Desoete A, Ceulemans A, de Weerdt F, Pieters S: Can we predict 
+ mathematical learning disabilities from symbolic and non-symbolic 
+comparison tasks in kindergarten? Findings from a longitudinal study. 
+Br J Educ Psychol 2012; 82: 64–81.
+10. Geary DC, Hoard MK, Nugent L, Bailey DH: Mathematical cognition 
+deficits in children with learning disabilities and persistent low achieve -
+ment: a five-year prospective study. J Educ Psychol 2012; 104: 
+206–23.
+11. Lewis KE, Fisher MB: Taking stock of 40 years of research on 
+ mathematical learning disability: methodological issues and future 
+ directions. J Res Math Educ 2016; 47: 338–71.
+12. Schulte-Körne G: Mental health problems in a school setting in 
+children and adolescents. Dtsch Arztebl Int 2016; 113: 183–90.
+13. Kohn J, Wyschkon A, Esser G: Psychische Auffälligkeiten bei Um -
+schriebenen Entwicklungsstörungen: Gibt es Unterschiede zwischen 
+Lese-Rechtschreib- und Rechenstörungen? Lern Lernstörungen 2013; 
+2: 7–20.
+14. Willcutt EG, Petrill SA, Wu S, et al.: Comorbidity between reading 
+ disability and math disability: concurrent psychopathology, functional 
+impairment, and neuropsychological functioning. J Learn Disabil 2013; 
+46: 500–16.
+15. Fischbach A, Schuchardt K, Mähler C, Hasselhorn M: Zeigen Kinder 
+mit schulischen Minderleistungen sozio-emotionale Auffälligkeiten? Z 
+Entwickl Padagogis 2010; 42: 201–10.
+16. Gross-Tsur V, Manor O, Shalev RS: Developmental dyscalculia: 
+ prev alence and demographic features. Dev Med Child Neurol 1996; 
+38: 25–33.
+17. Schuchardt K, Fischbach A, Balke-Melcher C, Mähler C: Die Komor-
+bidität von Lernschwierigkeiten mit ADHS-Symptomen im Grundschul-
+alter. Z Kinder Jug-Psych 2015; 43: 185–93.
+18. Sälzer C, Heine JH: Students’ skipping behavior on truancy items and 
+(school) subjects and its relation to test performance in PISA 2012. Int 
+J Educ Dev 2016; 46: 103–13.
+19. Kuhn JT: Developmental dyscalculia: neurobiological, cognitive, and 
+developmental perspectives. Z Psychol 2015; 223: 69–82.
+20. Ise E, Schulte-Körne G: Symptomatik, Diagnostik und Behandlung der 
+Rechenstörung. Z Kinder Jug-Psych 2013; 41: 271–82.
+21. Scottish Intercollegiate Guidelines Network: Critical appraisal notes 
+and checklists. www.sign.ac.uk/checklists-and-notes.html (last 
+ accessed on 13 June 2018).
+22. Downes M, Brennan M, Williams H, Dean RS: Development of a 
+ critical appraisal tool to assess the quality of cross-sectional studies 
+(AXIS). BMJ Open 2016; 6: 1–7.
+23. OCEBM Levels of Evidence Working Group: The Oxford 2011 levels 
+of evidence. www.cebm.net/index.aspx?o=5653 (last accessed on 13 
+June 2018).
+24. van Iterson L, de Jong PF, Zijlstra BJH: Pediatric epilepsy and comor-
+bid reading disorders, math disorders, or autism spectrum disorders: 
+impact of epilepsy on cognitive patterns. Epilepsy Behav 2015; 44: 
+159–68.
+25. Murphy MM: A review of mathematical disabilities in children with 
+ fragile X snydrome. Dev Disabil Res Rev 2009; 15: 21–7.
+26. de Smedt B, Swillen A, Verschaffel L, Ghesquiere P: Mathematical 
+learning disabilities in children with 22q11.2 deletion syndrome: a 
+ review. Dev Disabil Res Rev 2009; 15: 4–10.
+27. Taylor HG, Espy KA, Anderson PJ: Mathematics deficiencies in 
+children with very low birth weight or very preterm birth. Dev Disabil 
+Res Rev 2009; 15: 52–9.
+28. Shalev RS, Manor O, Kerem B, et al.: Developmental dyscalculia is a 
+familial learning disability. J Learn Disabil 2001; 34: 59–65.
+29. Landerl K, Moll K: Comorbidity of learning disorders: prevalence and 
+familial transmission. J Child Psychol Psychiatry 2010; 51: 287–94.
+30. Stock P, Desoete A, Roeyers H: Detecting children with arithmetic dis-
+abilities from kindergarten: evidence from a 3-year longitudinal study 
+on the role of preparatory arithmetic abilities. J Learn Disabil 2010; 43: 
+250–68.
+31. Sella F, Tressoldi P, Lucangeli D, Zorzi M: Training numerical skills 
+with the adaptive videogame “The Number Race”: a randomized con-
+trolled trial on preschoolers. Trends Neurosci Educ 2016; 5: 20–9.
+32. Ennemoser M, Sinner D, Krajewski K: Kurz- und langfristige Effekte 
+einer entwicklungsorientierten Mathematikförderung bei Erstklässlern 
+mit drohender Rechenschwäche. Lern Lernstörungen 2015; 4: 43–59.
+33. Galuschka K, Schulte-Körne G: Diagnostik und Förderung von Kin-
+dern und Jugendlichen mit Lese- und/oder Rechtschreibstörung. 
+Dtsch Arztebl Int 2016; 113: 279–86.
+34. DGKJP: Behandlung von depressiven Störungen bei Kindern und 
+ Jugendlichen. www.awmf.org/uploads/tx_szleitlinien/028-043l_S3_De
+pressive_Störungen_bei_Kindern_Jugendlichen_2013-07-abge-
+laufen.pdf (last accessed on 13 June 2018).
+35. DGKJP: Behandlung von Angststörungen bei Kindern und Jugend-
+lichen. www.awmf.org/leitlinien/detail/anmeldung/1/ll/028-022.html 
+(last accessed on 13 June 2018).
+36. DGKJP, DGPPN, DGSPJ: ADHS im Kinder-, Jugend- und Erwachse-
+nenalter. www.awmf.org/uploads/tx_szleitlinien/028-045l_S3_ADHS_ 
+2018-06.pdf (last accessed on 13 June 2018).
+37. Schulte-Körne G: The prevention, diagnosis, and treatment of dys -
+lexia. Dtsch Arztebl Int 2010; 107: 718–27.
+Corresponding author
+ Prof. Dr. med. Gerd Schulte-Körne
+Klinik und Poliklinik für Kinder- und Jugendpsychiatrie, 
+Psychosomatik und Psychotherapie 
+Klinikum der Universität München
+Nussbaumstr. 5a 
+D-80336 Munich, Germany 
+Gerd.Schulte-Koerne@med.uni-muenchen.de
+Supplementary material  
+eReferences: 
+www.aerzteblatt-international.de/ref0719
+eTables, eFigures and eBoxes: 
+www.aerzteblatt-international.de/19m0107
+114 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+I
+Supplementary material to:
+The Diagnosis and Treatment of Dyscalculia
+by Stefan Haberstroh and Gerd Schulte-Körne
+Dtsch Arztebl Int 2019; 116: 107–14. DOI: 10.3238/arztebl.2019.0107
+e20.
+ Compton DL, Fuchs LS, Fuchs D, Lambert W, Hamlett C: The 
+cog nitive and academic profiles of reading and mathematics 
+learning disabilities. J Learn Disabil 2012; 45: 79–95.
+e21.
+ De Weerdt F, Desoete A, Roeyers H: Working memory in children 
+with reading disabilities and/or mathematical disabilities. J Learn 
+Disabil 2013; 46: 461–72.
+e22.
+ Geary DC, Hoard MK, Hamson CO: Numerical and arithmetical 
+cog nition: patterns of functions and deficits in children at risk for a 
+ mathematical disability. J Exp Child Psychol 1999; 74: 213–39.
+e23.
+ Koontz KL, Berch DB: Identifying simple numerical stimuli: pro-
+cessing inefficiencies exhibited by arithmetic learning disabled 
+children. Math Cognit 1996; 2: 1–23.
+e24.
+ Peng P, Congying S, Beilei L, Sha T: Phonological storage and 
+executive function deficits in children with mathematics difficulties. 
+J Exp Child Psychol 2012; 112: 452–66.
+e25.
+ Schuchardt K, Mähler C, Hasselhorn M: Working memory deficits 
+in children with specific learning disorders. J Learn Disabil 2008; 
+41: 514–23.
+e26.
+ Swanson HL: Cognitive profile of adolescents with math disabil-
+ities: are the profiles different from those with reading disabilities? 
+Child Neuropsychol 2012; 18: 125–43.
+e27.
+ van Daal V, van der Leij A, Adèr H: Specificity and overlap in skills 
+underpinning reading and arithmetical fluency. Read Writ 2013; 
+26: 1009–30.
+e28.
+ van der Sluis S, de Jong PF, van der Leij A: Working memory in 
+Dutch children with reading- and arithmetic-related LD. J Learn 
+Disabil 2005; 38: 207–21.
+e29.
+ Willburger E, Fussenegger B, Moll K, Wood G, Landerl K: Naming 
+speed in dyslexia and dyscalculia. Learn Individ Differ 2008; 18: 
+224–36.
+e30.
+ Gold AB, Ewing-Cobbs L, Cirino PT, Fuchs LS, Stuebing KK, 
+ Fletcher JM: cognitive and behavioral attention in children with 
+math difficulties. Child Neuropsychol 2013; 19: 420–37.
+e31.
+ van der Sluis S, de Jong PF, van der Leij A: Inhibition and shifting 
+in children with learning deficits in arithmetic and reading. J Exp 
+Child Psychol 2004; 87: 239–66.
+e32.
+ Wang LC, Tasi HJ, Yang HM: Cognitive inhibition in students with 
+and without dyslexia and dyscalculia. Res Dev Disabil 2012; 33: 
+1453–61.
+e33.
+ Endlich D, Dummert F, Schneider W, Schwenck C: Verhalten-
+sprobleme bei Kindern mit umschriebener und kombinierter 
+ schulischer Minderleistung. Kindh Entwickl 2014; 23: 61–9.
+e34.
+ Morsanyi K, Devine A, Nobes A, Szucs D: The link between logic, 
+mathematics and imagination: evidence from children with devel-
+opmental dyscalculia and mathematically gifted children. Dev 
+2013; 16: 542–53.
+e35.
+ Bottge BA, Cho SJ: Effects of enhanced anchored instruction on 
+skills aligned to common core math standards. Learn Disabil 
+2013; 19: 73–83.
+e36.
+ Burns MK, Kanive R, DeGrande M: Effect of a computer-delivered 
+math fact intervention as a supplemental intervention for math in 
+third and fourth grades. Rem Spec Educ 2012; 33: 184–91.
+e37.
+ Ennemoser M, Krajewski K: Effekte der Förderung des Teil-
+Ganzes-Verständnisses bei Erstklässlern mit schwachen Math-
+ematikleistungen. Vierteljahresschr Heilpadag Nachbargeb 2007; 
+76: 228–40.
+e38.
+ Ennemoser M, Sinner D, Krajewski K: Kurz- und langfristige Ef-
+fekte einer entwicklungsorientierten Mathematikförderung bei Er-
+stklässlern mit drohender Rechenschwäche. Lern Lernstörungen 
+2015; 4: 43–59.
+e39.
+ Fuchs LS, Compton DL, Fuchs D, Paulsen K, Bryant JD, Hamlett 
+CL: The prevention, identification, and cognitive determinants of 
+math difficulty. J Educ Psychol 2005; 97: 493–513.
+e40.
+ Fuchs LS, Fuchs D, Hamlett CL, Appleton AC: Explicitly teaching 
+for transfer: effects on the mathematical problem-solving per -
+formance of students with mathematics disabilities. Learn Disabil 
+Res Pr 2002; 17: 90–106.
+eReferences
+e1.
+ Ashkenazi S, Mark-Zigdon N, Henik A: Do subitizing deficits in 
+ de velopmental dyscalculia involve pattern recognition weakness? 
+Dev Sci 2013; 16: 35–46.
+e2.
+ Censabella S, Noel MP: The inhibition capacities of children with 
+mathematical disabilities. Child Neuropsychol 2008; 14: 1–20.
+e3.
+ Ceulemans A, Titeca D, Loeys T, Hoppenbrouwers K, Rousseau 
+S, Desoete A: Enumeration of small and large numerosities in 
+adolescents with mathematical learning disorders. Res Dev 
+ Disabil 2014; 35: 27–35.
+e4.
+ Ghesquiere P, Torbeyns J, Verschaffel L: Strategy development in 
+children with mathematical disabilities: insights from the choice/
+no-choice method and the chronological-age/ability-level-match 
+design. J Learn Disabil 2004; 37: 119–31.
+e5.
+ Heine A, Wissmann J, Tamm S, et al.: An electrophysiological 
+ investigation of non-symbolic magnitude processing: numerical 
+distance effects in children with and without mathematical learning 
+disabilities. Cortex 2013; 49: 2162–77.
+e6.
+ Landerl K, Bevan A, Butterworth B: Developmental dyscalculia 
+and basic numerical capacities: a study of 8–9-year-old students. 
+Cognition 2004; 93: 99–125.
+e7.
+ Mejias S, Mussolin C, Rousselle L, Gregoire J, Noel MP: Numeri-
+cal and nonnumerical estimation in children with and without 
+mathemat ical learning disabilities. Child Neuropsychol 2012; 18: 
+550–75.
+e8.
+ Micallef S, Prior M: Arithmetic learning difficulties in children. Educ 
+Psychol 2004; 24: 175–200.
+e9.
+ Mussolin C, Mejias S, Noel MP: Symbolic and nonsymbolic 
+number comparison in children with and without dyscalculia. 
+ Cognition 2010; 115: 10–25.
+e10.
+ Powell SR, Fuchs LS, Fuchs D, Cirino PT, Fletcher JM: Do word-
+problem features differentially affect problem difficulty as a func-
+tion of students’ mathematics difficulty with and without reading 
+difficulty? J Learn Disabil 2009; 42: 99–110.
+e11.
+ Rosenberg-Lee M, Ashkenazi S, Chen T, Young CB, Geary DC, 
+Menon V: Brain hyper-connectivity and operation-specific deficits 
+dur ing arithmetic problem solving in children with developmental 
+dyscalculia. Dev 2014; 18: 351–72.
+e12.
+ Rousselle L, Noel MP: Mental arithmetic in children with 
+mathemat ics learning disabilities: the adaptive use of approximate 
+calculation in an addition verification task. J Learn Disabil 2008; 
+41: 498–513.
+e13.
+ Schuchardt K, Mähler C: Do subgroups of children with math-
+ematical disabilities differ in their working memory, basic arithmeti-
+cal knowledge, and numeric competences? Z Entwickl Padagogis 
+2010; 42: 217–25.
+e14.
+ Swanson HL: Does cognitive strategy training on word problems 
+compensate for working memory capacity in children with math 
+difficulties? J Educ Psychol 2014; 106: 831–48.
+e15.
+ Swanson HL, Lussier CM, Orosco M: Effects of cognitive strategy 
+interventions and cognitive moderators on word problem solving in 
+children at risk for problem solving difficulties. Learn Disabil Res 
+Pr 2013; 28: 170–83.
+e16.
+ Swanson HL, Lussier CM, Orosco MJ: Cognitive strategies, work-
+ing memory, and growth in word problem solving in children with 
+math difficulties. J Learn Disabil 2013; 48: 339–58.
+e17.
+ Szucs D, Devine A, Soltesz F, Nobes A, Gabriel F: Developmental 
+dyscalculia is related to visuo-spatial memory and inhibition im-
+pairment. Cortex 2013; 49: 2674–88.
+e18.
+ Wilson AJ, Andrewes SG, Struthers H, Rowe VM, Bogdanovic R, 
+Waldie KE: Dyscalculia and dyslexia in adults: cognitive bases of 
+comorbidity. Learn Individ Differ 2015; 37: 118–32.
+e19.
+ Schleifer P, Landerl K: Subitizing and counting in typical and atypi-
+cal development. Dev 2011; 14: 280–91.
+M E D I C I N E
+II 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material
+e41.
+ Fuchs LS, Powell SR, Hamlett CL, Fuchs D, Cirino PT, Fletcher 
+JM: Remediating computational deficits at third grade: a rando-
+mized field trial. J Res Educ Eff 2008; 1: 2–32.
+e42.
+ Fuchs LS, Powell SR, Seethaler PM, et al.: The effects of stra-
+tegic counting instruction, with and without deliberate practice, on 
+number combination skill among students with mathematics diffi-
+culties.  Learn Individ Differ 2010; 20: 89–100.
+e43.
+ Fuchs LS, Powell SR, Seethaler PM, et al.: Remediating number 
+combination and word problem deficits among students with 
+mathematics difficulties: a randomized control trial. J Educ 
+ Psychol 2009; 101: 561–76.
+e44.
+ Hutchinson NL: Effects of cognitive strategy instruction on algebra 
+problem solving of adolescents with learning disabilities. Learn 
+Disability Q 1993; 16: 34–63.
+e45.
+ Jitendra AK, Dupuis DN, Rodriguez MC, et al.: A randomized 
+ controlled trial of the impact of schema-based instruction on 
+ mathematical outcomes for third-grade students with mathematics 
+difficulties. Elem School J 2013; 114: 252–76.
+e46.
+ Kroesbergen EH, van Luit JEH: Teaching multiplication to low 
+math performers: guided versus structured instruction. Instr Sci 
+2002; 30: 361–78.
+e47.
+ Lambert K, Spinath B: Do we need a special intervention program 
+for children with mathematical learning disabilities or is private 
+tutor ing sufficient? J Educ Res Online 2014; 6: 68–93.
+e48.
+ Moran AS, Swanson HL, Gerber MM, Fung W: The effects of 
+paraphrasing interventions on problem-solving accuracy for 
+children at risk for math disabilities. Learn Disabil Res Pr 2014; 
+29: 97–105.
+e49.
+ Powell SR, Driver MK, Julian TE: The effect of tutoring with non-
+standard equations for students with mathematics difficulty. J 
+Learn Disabil 2015; 48: 523–34.
+e50.
+ Powell SR, Fuchs LS: Contribution of equal-sign instruction 
+beyond word-problem tutoring for third-grade students with mathe-
+matics difficulty. J Educ Psychol 2010; 102: 381–94.
+e51.
+ Powell SR, Fuchs LS, Fuchs D, Cirino PT, Fletcher JM: Effects of 
+fact retrieval tutoring on third-grade students with math difficulties 
+with and without reading difficulties. Learn Disabil Res Pr 2009; 
+24: 1–11.
+e52.
+ Re AM, Pedron M, Tressoldi PE, Lucangeli D: Response to 
+ specific training for students with different levels of mathematical 
+difficulties. Except Children 2014; 80: 337–52.
+e53.
+ Sinner D, Kuhl J: Förderung mathematischer Basiskompetenzen 
+in der Grundstufe der Schule für Lernhilfe. Z Entwickl Padagogis 
+2010; 42: 241–51.
+e54.
+ Swanson HL: Cognitive strategy interventions improve word prob -
+lem solving and working memory in children with math disabilities. 
+Front Psychol 2015; 6: 1–13.
+e55.
+ Swanson HL, Moran AS, Lussier C, Fung W: The effect of explicit 
+and direct generative strategy training and working memory on 
+word problem-solving accuracy in children at risk for math difficul-
+ties.  Learn Disability Q 2014; 37: 111–22.
+e56.
+ Tournaki N: The differential effects of teaching addition through 
+strat egy instruction versus drill and practice to students with and 
+ without learning disabilities. J Learn Disabil 2003; 36: 449–58.
+e57.
+ van Luit JEH, Schopman EAM: Improving early numeracy of 
+young children with special educational needs. Rem Spec Educ 
+2000; 21: 27–40.
+e58.
+ Wißmann J, Heine A, Handl P, Jacobs AM: Förderung von Kindern 
+mit isolierter Rechenschwäche und kombinierter Rechen- und Le-
+seschwäche: Evaluation eines numerischen Förderprogramms für 
+Grundschüler. Lern Lernstörungen 2013; 2: 91–109.
+e59.
+ Kuhn JT: Meister CODY: Computerbasiertes Trainingsprogramm 
+für Grundschulkinder mit Rechenschwierigkeiten. Beitrag auf dem 
+6. Frankfurter Forum 2016. Frankfurt am Main 2016.
+e60.
+ Fortes IS, Paula CS, Oliveira MC, Bordin IA, de Jesus Mari J, 
+Rohde LA: A cross-sectional study to assess the prevalence of 
+DSM-5 specific learning disorders in representative school 
+samples from the second to sixth grade in Brazil. Eur Child Adoles 
+Psy 2016; 25: 195–207.
+e61.
+ Gross-Tsur V, Manor O, Shalev RS: Developmental dyscalculia: 
+ prevalence and demographic features. Dev Med Child Neurol 
+1996; 38: 25–33.
+e62.
+ Schuchardt K, Fischbach A, Balke-Melcher C, Mähler C: Die Ko-
+morbidität von Lernschwierigkeiten mit ADHS-Symptomen im 
+Grundschulalter. Z Kinder Jug-Psych 2015; 43: 185–93.
+e63.
+ Willcutt EG, Petrill SA, Wu S, et al.: Comorbidity between reading 
+disability and math disability: concurrent psychopathology, func-
+tional impairment, and neuropsychological functioning. J Learn 
+Disabil 2013; 46: 500–16.
+e64.
+ Shalev RS, Auerbach J, Manor O, Gross-Tsur V: Developmental 
+dyscalculia: prevalence and prognosis. Eur Child Adolesc Psy-
+chiatry 2000; 9: 58–64.
+e65.
+ Fischbach A, Schuchardt K, Mähler C, Hasselhorn M: Zeigen 
+Kinder mit schulischen Minderleistungen sozio-emotionale Auffäl-
+ligkeiten? Z Entwickl Padagogis 2010; 42: 201–10.
+e66.
+ Barbaresi WJ, Katusic SK, Colligan RC, Weaver AL, Jacobsen SJ: 
+Math learning disorder: incidence in a population-based birth co-
+hort, 1976–82, Rochester, Minn. Ambul Pediatr 2005; 5: 281–9.
+e67.
+ Daseking M, Petermann F, Simon K, Waldmann HC: Vorhersage 
+von schulischen Lernstörungen durch SOPESS. Gesundheits-
+wesen 2011; 73: 650–9.
+e68.
+ Fischbach A, Schuchardt K, Brandenburg J, et al.: Prävalenz von 
+Lernschwächen und Lernstörungen: Zur Bedeutung der Diag-
+nosekriterien. Lern Lernstörungen 2013; 2: 65–76.
+e69.
+ Landerl K, Moll K: Comorbidity of learning disorders: prevalence 
+and familial transmission. J Child Psychol Psyc 2010; 51: 287–94.
+e70.
+ Moll K, Kunze S, Neuhoff N, Bruder J, Schulte-Körne G: Specific 
+learning disorder: prevalence and gender differences. PLoS One 
+2014; 9: 1–8.
+e71.
+ Ramaa S, Gowramma IP: A systematic procedure for identifying 
+and classifying children with dyscalculia among primary school 
+children in India. Dyslexia (Chichester, England) 2002; 8: 67–85.
+e72.
+ Shalev RS, Manor O, Auerbach J, Gross-Tsur V: Persistence of 
+developmental dyscalculia: what counts? Results from a 3-year 
+prospective follow-up study. J Pediatr 1998; 133: 358–62.
+e73.
+ Badian NA: Persistent arithmetic, reading, or arithmetic and 
+ reading disability. Ann Dyslexia 1999; 49: 45–70.
+e74.
+ Cirino PT, Fuchs LS, Elias JT, Powell SR, Schumacher RF: 
+ Cogni tive and mathematical profiles for different forms of learning 
+difficulties. J Learn Disabil 2015; 48: 156–75.
+e75.
+ Dirks E, Spyer G, van Lieshout ECDM, de Sonneville L: Preva-
+lence of combined reading and arithmetic disabilities. J Learn 
+ Disabil 2008; 41: 460–73.
+e76.
+ Jitendra AK, Dupuis DN, Star JR, Rodriguez MC: The effects of 
+schema-based instruction on the proportional thinking of students 
+with mathematics difficulties with and without reading difficulties. J 
+Learn Disabil 2016; 49: 354–67.
+e77.
+ Lewis C, Hitch GJ, Walker P: The prevalence of specific arithmetic 
+difficulties and specific reading difficulties in 9– to 10-year old 
+boys and girls. J Child Psychol Psyc 1994; 35: 283–92.
+e78.
+ Peake C, Jiménez JE, Rodríguez C, Bisschop E, Villarroel R: Syn-
+tactic awareness and arithmetic word problem solving in children 
+with and without learning disabilities. J Learn Disabil 2015; 48: 
+593–601.
+e79.
+ Shalev RS, Manor O, Gross-Tsur V: Developmental dyscalculia: a 
+prospective six-year follow-up. Dev Med Child Neurol 2005; 47: 
+121–25.
+e80.
+ von Aster M, Schweiter M, Weinhold Zulauf M: Rechenstörungen 
+bei Kindern. Vorläufer, Prävalenz und psychische Symptome. Z 
+Entwickl Padagogis 2007; 39: 85–96.
+e81.
+ Kuhn JT, Schwenk C, Raddatz J, Dobel C, Holling H: CODY-
+Mathetest: Mathematiktest für die 2.-4. Klasse (CODY-M 2–4). 
+Düsseldorf: Kaasa health 2017.
+e82.
+ Ennemoser M, Krajewski K, Sinner D: Test mathematischer Basis-
+kompetenzen ab Schuleintritt (MBK 1+). Göttingen: Hogrefe 2017.
+e83.
+ Merdian G, Merdian F, Schardt K: Bamberger Dyskalkuliediagnos-
+tik 1–4+ (R) (BADYS 1–4+). Bamberg: PaePsy 2015.
+e84.
+ Gölitz D, Roick T, Hasselhorn M: Deutscher Mathematiktest für 
+vierte Klassen (DEMAT 4). Göttingen: Hogrefe 2006.
+e85.
+ Holzer N, Schaupp H, Lenart F: Eggenberger Rechentest 3+ (ERT 
+3+). Göttingen: Hogrefe 2010.
+e86.
+ Krajewski K, Küspert P, Schneider W: Deutscher Mathematiktest 
+für erste Klassen (DEMAT 1+). Göttingen: Hogrefe 2002.
+e87.
+ Götz L, Lingel K, Schneider W: Deutscher Mathematiktest für 
+sechste Klassen (DEMAT 6+). Göttingen: Hogrefe 2013.
+e88.
+ Götz L, Lingel K, Schneider W: Deutscher Mathematiktest für 
+fünfte Klassen (DEMAT 5+). Göttingen: Hogrefe 2013.
+e89.
+ Lenart F, Holzer N, Schaupp H: Eggenberger Rechentest 2+ (ERT 
+2+). Göttingen: Hogrefe 2003.
+e90.
+ Krajewski K, Liehm S, Schneider W: Deutscher Mathematiktest für 
+zweite Klassen (DEMAT 2+). Göttingen: Hogrefe 2004.
+e91.
+ Schaupp H, Lenart F, Holzer N: Eggenberger Rechentest 4+ (ERT 
+4+). Göttingen: Hogrefe 2010.
+e92.
+ Merdian G, Merdian F, Schardt K: Bamberger Dyskalkuliediagnos-
+tik 5–8+ (BADYS 5–8+). Bamberg: PaePsy 2012.
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+III
+e93.
+ Roick T, Gölitz D, Hasselhorn M: Deutscher Mathematiktest für 
+dritte Klassen (DEMAT 3+). Göttingen: Hogrefe 2004.
+e94.
+ Haffner J, Baro K, Parzer P, Resch F: Heidelberger Rechentest 
+(HRT 1–4). Göttingen: Hogrefe 2005.
+e95.
+ Schipper W, Wartha S, von Schroeders N: Bielefelder Rechentest 
+für das zweite Schuljahr (BIRTE 2). Braunschweig: Schroedel 
+2011.
+e96.
+ Schaupp H, Holzer N, Lenart F: Eggenberger Rechentest 1+ (ERT 
+1+). Göttingen: Hogrefe 2003.
+e97.
+ Kaufmann L, Nuerk HC, Graf M, Krinzinger H, Delazer M, Willmes 
+K: Test zur Erfassung numerisch-rechnerischer Fertigkeiten vom 
+Kindergarten bis zur 3. Klasse (TEDI-MATH). Bern: Hogrefe 2009.
+e98.
+ May P, Bennöhr J: Kompetenzerfassung in Kindergarten und 
+Schule (KEKS). Berlin: Cornelsen 2013.
+e99.
+ Grube D, Weberschock U, Blum M, Hasselhorn M: Diagnos-
+tisches Inventar zu Rechenfertigkeiten im Grundschulalter (DIRG). 
+Göttingen: Hogrefe 2010.
+e100. Fritz A, Ehlert A, Ricken G, Balzer L: Mathematik- und Rechen-
+konzepte bei Kindern der erste Klassenstufe – Diagnose 
+(MARKO-D1+). Göttingen: Hogrefe 2017.
+e101. von Aster M, Weinhold-Zulauf M, Horn R: Neuropsychologische 
+Testbatterie für Zahlenverarbeitung und Rechnen bei Kindern (ZA-
+REKI-R). Frankfurt am Main: Pearson Assessment & Information 
+2006.
+e102. Schroeders U, Schneider W: Test zur Diagnose von Dyskalkulie 
+(TeDDy-PC). Göttingen: Hogrefe 2008.
+e103. Schmidt S, Ennemoser M, Krajewski K: Deutscher Mathematiktest 
+für neunte Klassen (DEMAT 9). Göttingen: Hogrefe 2013.
+e104. Strathmann AM, Klauer KJ: Lernverlaufsdiagnostik – Mathematik 
+für zweite bis vierte Klassen (LVD-M 2–4). Göttingen: Hogrefe 
+2012.
+e105. Jacobs C, Petermann F: Rechenfertigkeiten- und Zahlenverarbei-
+tungs-Diagnostikum für die 2. bis 6. Klasse (RZD 2–6). Göttingen: 
+Hogrefe 2005.
+e106. Lenhard W, Hasselhorn M, Schneider W: Kombiniertes Leistung-
+sinventar zur allgemeinen Schulleistung und für Schullauf-
+bahnempfehlungen in der vierten Klasse (KLASSE 4). Göttingen: 
+Hogrefe 2011.
+e107. Holzer N, Lenart F, Schaupp H: Eggenberger Rechentest für 
+ Jugendliche und Erwachsene (ERT JE). Bern: Hogrefe 2017.
+e108. Moog W, Schulz A: Zahlen begreifen: Diagnose und Förderung 
+bei Kindern mit Rechenschwäche. Weihheim und Basel: Beltz 2005.
+e109. Dybuster AG: Dybuster Calcularis. Zürich: Dybuster AG 2007.
+e110. Gerlach M, Fritz A, Leutner D: MARKO-T. Göttingen: Hogrefe 
+2013.
+e111. Kaasa health: Meister Cody – Talasia. Düsseldorf: Kaasa health 
+2013.
+e112. Krajewski K, Nieding G, Schneider W: Mengen, zählen, Zahlen. 
+Göttingen: Hogrefe 2013.
+e113. Lenhard W, Lenhard A: Rechenspiele mit Elfe und Mathis I. 
+ Göttingen: Hogrefe 2009.
+e114. Schlotmann A: Warum Kinder an Mathe scheitern. Hirschberg an 
+der Bergstraße: Supperverlag 2007.
+e115. Flierl U, Francich W, Wagenhäuser R: ALFONS Lernwelt 
+ Mathematik 1. Braunschweig: Schroedel 2009.
+e116. Flierl U, Francich W, Wagenhäuser R: ALFONS Lernwelt 
+ Mathematik 2. Braunschweig: Schroedel 2009.
+e117. Wittmann EC, Müller GN: Das Zahlenbuch 1. Stuttgart, Leipzig: 
+Klett 2012.
+e118. Rademacher J, Lehmann W, Quaiser-Pohl C, Günther A, Traute-
+wig N: Mathematik im Vorschulalter. Göttingen: Vandenhoeck & 
+Ruprecht 2009.
+e119. Schoppek W: Merlins Rechenmühle. Bayreuth: Universität 
+ Bayreuth 2010.
+e120. Fritz A, Gerlach M: Mina und der Maulwurf. Berlin: Cornelsen 
+2011.
+e121. Mammarella IC, Hill F, Devine A, Caviola S, Szűcs D: Math 
+anxiety and developmental dyscalculia: a study on working 
+ memory processes. J Clin Exp Neuropsyc 2015; 37: 878–87.
+e122. Moll K, Göbel SM, Snowling MJ: Basic number processing in 
+children with specific learning disorders: comorbidity of reading 
+and  mathematics disorders. Child Neuropsychol 2015; 21: 
+399–417.
+e123. Donker M, Kroesbergen EH, Slot E, van Viersen S, de Bree E: Al-
+phanumeric and non-alphanumeric rapid automatized naming in 
+children with reading and/or spelling difficulties and mathematical 
+difficulties. Learn Individ Differ 2016; 47: 80–7.
+e124. Maehler C, Schuchardt K: Working memory in children with spe-
+cific learning disorders and/or attention deficits. Learn Individ 
+Differ 2016; 49: 341–7.
+e125. Raddatz J, Kuhn JT, Holling H, Moll K, Dobel C: Comorbidity of 
+arithmetic and reading disorder. J Learn Disabil 2017; 50: 
+298–308.
+e126. Karakonstantaki ES, Simos PG, Michalis V, Micheloyannis S: As-
+sessment and conceptual remediation of basic calculation skills in 
+elementary school students. Brit J Dev Psychol 2018; 36: 78–97.
+e127. Lambert K, Spinath B: Conservation abilities, visuospatial skills, 
+and numerosity processing speed: association with math achieve -
+ment and math difficulties in elementary school children. J Learn 
+Disabil 2018; 51: 223–35.
+e128. Mammarella IC, Caviola S, Giofrè D, Szűcs D: The underlying 
+structure of visuospatial working memory in children with 
+ mathematical learning disability. Brit J Dev Psychol 2018; 36: 
+220–35.
+e129. McDonald PA, Berg DH: Identifying the nature of impairments in 
+executive functioning and working memory of children with severe 
+difficulties in arithmetic. Child Neuropsychol 2018; 24: 1047–62.
+e130. Morsanyi K, van Bers BMCW, O‘Connor PA, McCormack T: 
+ Devel opmental dyscalculia is characterized by order processing 
+deficits: evidence from numerical and non-numerical ordering 
+tasks. Dev Neuropsychol 2018; 43: 595–621.
+e131. Koponen TK, Sorvo R, Dowker A, et al.: Does multi-component 
+ strategy training improve calculation fluency among poor per -
+forming elementary school children? Front Psychol 2018; 9: 1–14.
+e132. Kohn J, Rauscher L, Käser T, et al.: Effekte des „Calcularis“-
+ Trainings. Teil 1: Domänen-spezifische Veränderungen. Lern 
+Lernstörungen 2017; 6: 51–63.
+e133. Morsanyi K, van Bers BMCW, McCormack T, McGourty J: The 
+prev alence of specific learning disorder in mathematics and 
+ comorbidity with other developmental disorders in primary 
+ school-age children. Brit J Psychol 2018; 109: 917–40.
+e134. Devine A, Hill F, Carey E, Szűcs D: Cognitive and emotional 
+math problems largely dissociate: prevalence of developmental 
+dyscalculia and mathematics anxiety. J Educ Psychol 2018; 110: 
+431–44.
+e135. Moll K, Landerl K, Snowling MJ, Schulte-Körne G: Understanding 
+comorbidity of learning disorders: task-dependent estimates  of 
+prev alence. J Child Psychol Psychiatry 2018; doi: 
+10.1111/jcpp.12965 (Epub ahead of print).
+M E D I C I N E
+IV 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material
+eBOX 1
+Participating organizations (voting representant*)
+●Coordinating specialty society
+– German Society of Child and Adolescent Psychiatry, Psychosomatics and Psychotherapy (Deutsche Gesellschaft für Kinder- und Jugend-
+psychiatrie, Psychosomatik und Psychotherapie e. V.) (DGKJP) (Prof. Dr. med. Gerd Schulte-Körne*)
+●Participating specialty societies and associations (listed alphabetically by German name) and experts 
+– Professional Association of Special Education (Berufsverband der Heilpädagoginnen und Heilpädagogen Fachverband für Heilpädagogik 
+e. V.) (BHP) (Dr. phil. Miriam Stiehler*)
+– Professional Association of Pediatricians (Berufsverband der Kinder- und Jugendärzte e. V.) (BVKJ) (Dr. med. Harald Tegtmeyer-Metzdorf*)
+– Professional Association of Child and Adolescent Psychotherapists (Berufsverband der Kinder- und Jugendlichenpsychotherapeutinnen und 
+Kinder- und Jugendlichenpsychotherapeuten e. V.) (bkj) (Christina Jung*)
+– Professional Association of Child and Adolescent Psychiatrists, Psychosomatic Therapists and Psychotherapists in Germany (Berufsver-
+band für Kinder- und Jugendpsychiatrie, Psychosomatik und Psychotherapie in Deutschland e. V.) (BKJPP) (Dr. med. Gisela Schimansky*)
+– Board of Department Heads in Child and Adolescent Psychiatry, Psychosomatics and Psychotherapy (Bundesarbeitsgemeinschaft der 
+ Leitenden Klinikärzte für Kinder- und Jugendpsychiatrie, Psychosomatik und Psychotherapie e. V.) (BAG) (Dr. med. Astrid Passavant*)
+– Federal Chamber of Psychotherapists (BPtK) (Wolfgang Schreck*, Peter Lehndorfer, Dr. phil. Johannes Klein-Heßling)
+– German Dyslexia and Dyscalculia Association (Bundesverband Legasthenie & Dyskalkulie e. V.) (BVL) (Christine Sczygiel*)
+– German Educational Research Association (Deutsche Gesellschaft für Erziehungswissenschaft e. V.) (DGfE) (Prof. Dr. phil. Frank 
+ Hellmich*)
+– German Society of Pediatrics and Adolescent Medicine (Deutsche Gesellschaft für Kinder- und Jugendmedizin e. V.) (DGKJ) (Dr. med. 
+Burkhard Lawrenz*)
+– German Society of Phoniatrics and Pediatric Audiology (Deutsche Gesellschaft für Phoniatrie und Pädaudiologie e. V.) (DGPP) (Prof. Dr. 
+med. Rudolf Reiter*)
+– German Association for Psychiatry, Psychotherapy and Psychosomatics  (Deutsche Gesellschaft für Psychiatrie und Psychotherapie, 
+ Psychosomatik und Nervenheilkunde e.V.) (DGPPN) (Prof. Dr. med. Ludger Tebartz van Elst*)
+– German Psychological Society (Deutsche Gesellschaft für Psychologie e. V.) (DGPs) (Prof. Dr. phil. Wolfgang Schneider*)
+– German Society of Social Pediatrics and Adolescent Medicine (Deutsche Gesellschaft für Sozialpädiatrie und Jugendmedizin e. V.) 
+(DGSPJ) (Manfred Mickley*)
+– German Teachers’ Association (Deutscher Lehrerverband e. V.) (DL) (Florian Borges*)
+– German Association of Occupational Therapists (Deutscher Verband der Ergotherapeuten e. V.) (DVE) (Christine Priß*, Kerstin Hamm)
+– Association for Integrative Learning Therapy (Fachverband integrative Lerntherapie e. V.) (FiL) (Marlis Lipka*)
+– Society of Didactics of Mathematics (Gesellschaft für Didaktik der Mathematik e. V.) (GDM) (Prof. Dr. Jens-Holger Lorenz*)
+– Society for Neuropsychology (Gesellschaft für Neuropsychologie e. V.) (GNP) (Prof. Dr. rer. nat. Klaus Willmes-von Hinckeldey*)
+– Special Education Association (Verband Sonderpädagogik e. V.) (vds) (Stephan Prändl*)
+– Prof. Dr. Jörg-Tobias Kuhn (expert)
+– Prof. Dr. Michael von Aster (expert)
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+V
+eBOX 2
+Inclusion criteria for studies, tests, and learning programs
+●Symptoms of dyscalculia
+    Studies:
+– Comparison of groups with and without dyscalculia with respect to performance-related outcomes (e.g., working memory) 
+– Groups are age- and sex-matched
+– Exclusion of major reading deficit by reading ability above the 16th percentile and exclusion of low intelligence by IQ ≥ 70, or else by the 
+non-fulfillment of the ICD-10 or DSM-IV/-5 criteria for dyslexia or low intelligence 
+– The diagnosis of dyscalculia has been made from mathematical ability at or below the 25th percentile or fulfillment of the ICD-10 or DSM-
+IV/-5 criteria for dyscalculia.
+●Diagnosis of dyscalculia
+    Studies:
+– Comparison of groups with dyscalculia whose diagnoses are based on: the simple IQ discrepancy criterion (i.e., the difference between the 
+IQ and mathematical ability is greater than a given threshold amount, e.g., 1.5 standard deviations); the double discrepancy criterion (i.e., 
+the difference between the IQ and mathematical ability is greater than a given threshold amount and, at the same time, mathematical ability 
+is at or below a given percentile rank, e.g., the 16th percentile); and/or the age/grade norm discrepancy (i.e., mathematical ability is lower 
+than a given percentile rank for the subject’s age or grade) 
+– The diagnosis of dyscalculia has been made from mathematical ability at or below the 25th percentile or from the fulfillment of the ICD-10 or 
+DSM-IV/-5 criteria for dyscalculia (except for persons diagnosed by the IQ discrepancy criterion)
+    Tests:
+– Tests in the German language assessing mathematical ability with at least two different subtests (e.g., number comparisons, basic arith-
+metic operations) that were designed for the diagnosis of dyscalculia in subjects from the end of the 1st grade onward
+– Use of up-to-date grade- and/or age-based norms (defined from the year 2000 onward) 
+●Treatment of dyscalculia
+    Studies:
+– Comparison of groups with dyscalculia with respect to the improvement of mathematical performance after either an intervention intended 
+to improve such performance or a control intervention (i.e., a nonspecific intervention or none at all); pre-post design with a test group and a 
+control group 
+– The groups are age- and sex-matched
+– The diagnosis of dyscalculia has been made from mathematical ability at or below the 25th percentile or from the fulfillment of the ICD-10 or 
+DSM-IV/-5 criteria for dyscalculia 
+    Supportive treatment programs:
+– Learning programs for which evaluation studies are available
+– Pre-post design with a treatment group and a control group
+●Comorbidity of dyscalculia
+    Studies:
+– Studies with epidemiological and selected samples for the estimation of the prevalence and/or relative frequency and/or odds ratios of other 
+disorders or clinically relevant symptoms in association with dyscalculia 
+– Diagnosis of other disorders, or documentation of clinically relevant symptoms, with standardized tests and according to the diagnostic 
+criteria of the ICD-10 or the DSM-IV/-5 for the disorder in question
+– The diagnosis of dyscalculia has been made from mathematical ability at or below the 25th percentile or from the fulfillment of the ICD-10 or 
+DSM-IV/-5 criteria for dyscalculia 
+DSM, Diagnostic and Statistical Manual of Mental Disorders; ICD, International Classification of Diseases 
+M E D I C I N E
+VI 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material
+eBOX 3
+Studies published since the end of the literature search period
+●Remark
+The studies mentioned here are only those meeting the inclusion criteria of the literature searches described in the guideline report. The study 
+findings are, in general, consistent with the recommendations of the guidelines, with only a few exceptions. 
+●The symptoms of dyscalculia
+As for the symptom profile of dyscalculia, a number of studies appeared after the end of the literature search period in which groups with and 
+without dyscalculia were compared with respect to various outcomes. Only the outcomes of the group comparisons (rather than the specific 
+questions investigated in each study) are of interest for the purposes of this guideline; these are, therefore, briefly described here. 
+– Mammarella et al. (e121): Children with dyscalculia (n = 24, 6th to 8th grade) performed significantly worse than children without dyscalculia 
+(n = 23, 6th to 8th grade) on visual, but not verbal, working-memory tasks.
+– Moll et al. (e122): Children with dyscalculia (n = 17, age range: 6–12 years) performed significantly worse than children without dyscalculia 
+(n = 32, age range: 7–11 years) on all numerical processing tasks (counting, transcoding, symbolic comparison), quantitative processing 
+tasks (number line, non-symbolic comparison), and arithmetical tasks (addition, subtraction). No significant differences were found in tests 
+of phonological awareness, rapid naming of numbers and letters (RAN), or processing speed. 
+– Donker et al. (e123): Children with dyscalculia (n = 31, 2nd to 4th grade) performed significantly worse than children without dyscalculia 
+(n = 34, 2nd to 4th grade) on the rapid naming of pictures and colors (RAN), fact retrieval, and word problems. No significant differences were 
+found in the rapid naming of numbers and letters or in any outcome having to do with reading and spelling performance.
+– Maehler et al. (e124): Children with dyscalculia (n = 18, 2nd to 4th grade) performed significantly worse than children without dyscalculia 
+(n = 31, 2nd to 4th grade) on visuospatial sketchpad tasks. No significant differences were found in phonological loop or central executive 
+tasks.
+– Raddatz et al. (e125): Children with dyscalculia (n = 20, 2nd to 4th grade) performed significantly worse than children without dyscalculia 
+(n = 40, 2nd to 4th grade) in counting, symbolic comparison, and symbolic/non-symbolic comparison. No significant differences were found in 
+non-symbolic comparison, number line, transcoding, and visuospatial sketchpad tasks. 
+– Karakonstantaki et al. (e126): Children with dyscalculia (n = 13, 5th to 6th grade) performed significantly worse than children without dyscal-
+culia (n = 26, 5th to 6th grade) in addition, subtraction, and multiplication.
+– Lambert et al. (e127): Children with dyscalculia (n = 27, 3rd to 4th grade) performed significantly worse than children without dyscalculia 
+(n = 60, 3rd to 4th grade) in quantitative processing and spatial imagery. 
+– Mammarella et al. (e128): Children with dyscalculia (n = 24, 4th to 5th grade) performed significantly worse than children without dyscalculia 
+(n = 24, 4th to 5th grade) on visuospatial working memory tasks.
+– McDonald et al. (e129): Children with dyscalculia (n = 20, 2nd to 5th grade) performed significantly worse than children without dyscalculia 
+(n = 20, 2nd to 5th grade) in the inhibition of quantities or numbers (e.g., with the number 444, they named the number of characters [three] 
+rather than the value of the numeral [four]), in shifting between tasks, and on visuospatial working memory tasks. No significant differences 
+were found in verbal working memory or in the inhibition of colors or color words (e.g., the word “red” in blue ink being expressed out loud 
+as “blue,” rather than “red”). 
+– Morsanyi et al. (e130): Children with dyscalculia (n = 20, 5th to 7th grade) performed significantly worse than children without dyscalculia 
+(n = 20, 5th to 7th grade) on tests of verbal and visuospatial working memory, counting, non-symbolic comparison, and number line. No 
+ significant differences were found in symbolic comparison or in inhibition. 
+●The treatment of dyscalculia
+– Koponen et al. (e131): A non-randomized controlled study comparing two groups (an intervention group and a waiting-list control group), 
+each consisting of 62 Finnish children with dyscalculia, in the 2nd to 4th grades, to test the efficacy of rule and strategy training for to promote 
+rapid recall of math facts. The intervention was in a small-group setting and consisted of two weekly sessions of 45 minutes each for a total 
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+VII
+of 12 weeks. The intervention group performed significantly better in recalling facts relating to addition tasks, as well as on a test of fact 
+knowledge in the basic arithmetic operations. The improvement of performance on subtraction tasks was not significant. Within the interven-
+tion group, a switch was observed from counting strategies to breakdown strategies and direct fact retrieval. 
+– Kohn et al. (e132): A non-randomized controlled study comparing three groups (an intervention group, a control training group, and a 
+ waiting-list control group), each consisting of 22 or 23 German children with dyscalculia, in the 2nd to 5th grades, to test the efficacy of 
+ computer-based training of numerical and quantitative processing, and of arithmetic. The intervention consisted of five practice sessions 
+per week lasting 20 minutes each for a total of 6–8 weeks. The control training group received computer-based training in spelling. The 
+ intervention group performed significantly better than the other two groups on subtraction and number line tasks. The improvement of 
+ performance on addition tasks was not significant. 
+●Comorbid disorders of dyscalculia
+– Morsanyi et al. (e133): A prevalence study among 2421 2nd- to 5th-graders in Northern Ireland. The combined prevalence of dyscalculia and 
+dyslexia was 2.64%. 46.04% of children with dyscalculia also had dyslexia. 
+– Devine et al. (e134): A prevalence study among 1757 3rd-, 6th-, and 7th graders in England. The combined prevalence of dyscalculia and 
+math anxiety was 2.62%. 19.25% of children with dyscalculia also had math anxiety.
+– Moll et al. (e135): A prevalence study among 1454 3rd-graders in Germany (Bavaria). The combined prevalence of dyscalculia and dyslexia 
+was 5.98%. 45.31% of children with dyscalculia also had dyslexia. 
+M E D I C I N E
+VIII 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material
+eFIGURE 1
+The employed search terms and databases
+Search Terms
+R
+h
+ö
+* OR D
+k lk l* OR R
+h
+h ä h * OR Z hl
+bli dh i OR A i h
+h
+i
+Rechenstörung* OR Dyskalkul* OR Rechenschwäche* OR Zahlenblindheit OR Arithmasthenie 
+OR “Schwierigkeit* im Rechnen” OR “Problem* im Rechnen” OR “Schwierigkeit* beim 
+Rechnen” OR “Problem* beim Rechnen” OR Rechenschwierigkeit* OR Rechenproblem* OR 
+“des Rechnens” OR dyscalculi* OR “math* disorder*” OR “math* disabilit*” OR “math*difficult*” 
+OR “math* learning disorder*” OR “math* learning disabilit*” OR “math* learning difficult*” OR 
+“arithmetic* disorder*” OR “arithmetic* disab*” OR “arithmetic* difficult*” OR “arithmetic* 
+ learning disorder*” OR “arithmetic* learning disabilit*” OR “arithmetic* learning difficult*” OR 
+“impairment* in math*” OR “development acalculia” OR “disorder* of arithmetic* skill*” OR “low 
+math* achievement*” OR “low arithmetic* achievement*” OR “disorder* in math*” OR “difficul* 
+in math*” OR “disabilit* in math*” OR “disorder* in arithmetic*” OR “difficul* in arithmetic*” OR 
+“disabilit* in arithmetic*” OR “math* LD”
+Symptom
+Studies: Unterschied* OR unterscheid* OR Differenz* OR Diskrepan* OR trennt OR 
+vergleich* OR Versuchsgruppe* OR Kontrollgruppe* OR Experimentalgruppe* OR differ 
+OR differs OR differed OR difference* OR disting* OR discrim* OR contrast* OR gap* OR 
+compar* OR “experimental group*” OR “control group*” OR “typical* achiev*” OR “normal* 
+achiev*” OR “typical* develop*” OR “normal develop*”
+Diagnosis
+Studies: Diskrepanz* OR Regression* OR “Cut off*” OR “Cutoff*” OR Differenzwert* OR 
+Schwelle* OR Altersnorm* OR Klassennorm* OR norm* OR Kriterium* OR Kriterien* OR 
+Altersabweichung* OR Diagnos* OR Klassifi* OR Unterscheidung* OR Identifi* OR 
+discrepan*OR “normreferenc*” OR “criterionreferenc*” OR “difference score*” OR 
+“difference value*” OR “Cut off*” OR “Cutoff*” OR “regressionbased*” OR “regression 
+criteri*” OR “achievement criteri*” OR “threshold*” OR criteri* OR “IQachievement*” OR 
+identify OR identification* OR diagnos* OR assessment* OR classifi*  
+Tests: rechen* OR rechne* OR dysk* OR mathe* OR numeri* OR Zahl* OR zähl* OR arith* 
+OR vorläufer* OR Basisf* OR Basisk*
+Treatment
+Studies: Traini* OR Förder* OR Therapie* OR Therapeu* OR Behand* OR Interven* OR
+Übung* OR üben OR übte* OR Prävention* OR Vorbeug* OR Vorsorge* OR Didak* OR 
+p
+p
+Programm* OR remediation OR interven* OR treat* OR therap* OR train* OR practi* OR 
+prevent* OR precaution* OR provision* OR teach* OR program* OR instruct* OR tutor* 
+OR evaluat* 
+Learning programs: *Programm* OR *Software*
+Comorbidity
+Studies: Häufigkeit* OR Auftreten* OR Prävalen* OR Inzidenz* OR Epidemiolog* OR 
+Komorb* OR prevalen* OR occurrence* OR incidence* OR frequen* OR rate* OR 
+epidemiologic* OR comorbidit*
+Databases
+PsycInfo, PSYNDEX, MEDLINE, ProQuest,
+ERIC, Cochrane, ICTRP, MathEduc
+PsycInfo, PSYNDEX, MEDLINE, ProQuest,
+ERIC, Cochrane, ICTRP, MathEduc
+PSYNDEX, specialized publishers
+PsycInfo, PSYNDEX, MEDLINE, ProQuest,
+ERIC, Cochrane, ICTRP, MathEduc
+PsycInfo, PSYNDEX, specialized publishers
+PsycInfo, PSYNDEX, MEDLINE, ProQuest,
+ERIC, Cochrane, ICTRP, MathEduc
+Search parameter: AND
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+IX
+Studies
+(08.10.15)
+Test procedures
+(25.02.18)
+Studies 
+(09.12.15)
+1325
+1329
+1717
+21
+Diagnosis:
+32
+145
+CS: 2
+CSS: 4
+RCT: 17
+CT: 9
+Sections of 
+the guideline
+Type  
+(
+)
+(search date)
+Symptoms
+Studies
+(24.04.15)
+Diagnosis
+Treatment
+Learning prog.
+(02.05.16)
+Flow chart of the literature search
+CS: cohort or longitudinal study; CSS: cross-sectional study; CT: controlled trial; Diagnosis: standardized tests (from the end of the 1st grade onward);
+RCT: randomized controlled trial; Learning prog.: learning programs 
+Comorbidity
+Studies 
+(17.06.16)
+1150
+243
+RCT: 3 
+CS: 1 
+CSS: 31
+47
+12
+963
+1637
+CS: 6
+CSS: 17
+Non-duplicate 
+hits
+Hits after title & 
+abstract 
+screening
+Hits after full-
+text screening
+eFIGURE 2
+M E D I C I N E
+X 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material
+eTABLE 1
+Tests for the diagnosis of dyscalculia (from the end of the first grade onward)
+Overall Test 
+Recommended diagnostic tests
+CODY-M 2–4:
+CODY math test: mathematics test 
+for the 2nd–4th grades
+MBK 1+:
+test of basic mathematical compet-
+ences at the beginning of schooling
+BADYS 1–4+ (R):
+Bamberg Dyscalculia Diagnostic 
+Test 1–4+ (R)
+DEMAT 4:
+German mathematics test for the 
+4th grade
+BADYS 1–4+ (R):
+Bamberg Dyscalculia Diagnostic 
+Test 1–4+ (R)
+ERT 3+:
+Eggenberg Calculation Test 3+
+BADYS 1–4+ (R):
+Bamberg Dyscalculia Diagnostic 
+Test 1–4+ (R)
+DEMAT 1+:
+German mathematics test for the 
+1st grade
+DEMAT 6+:
+German mathematics test for the 
+6th grade
+DEMAT 5+:
+German mathematics test for the 
+5th grade
+ERT 2+:
+Eggenberg Calculation Test 2+
+DEMAT 2+:
+German mathematics test for the 
+2nd grade
+ERT 4+:
+Eggenberg Calculation Test 4+
+BADYS 5–8+:
+Bamberg Dyscalculia Diagnostic 
+Test 5–8+
+DEMAT 3+:
+German mathematics test for the 
+3rd grade
+BADYS 5–8+:
+Bamberg Dyscalculia Diagnostic 
+Test 5–8+
+HRT 1–4:
+Heidelberg ArithmeticTest
+BADYS 5–8+: Bamberg Dyscalcu-
+lia Diagnostic Test 5–8+
+BIRTE 2: Bielefeld Arithmetic Test 
+for the 2nd grade
+BADYS 5–8+: Bamberg Dyscalcu-
+lia Diagnostic Test 5–8+
+ERT 1+:
+Eggenberg Calculation Test 1+
+Subtest
+1st grade,  
+3rd-4th quartile
+BADYS 2+ (R)
+BADYS 4+ (R)
+BADYS 3+ (R)
+BADYS 5+
+BADYS 7+
+HRT 2 (end) –4
+BADYS 6+
+BADYS 8+
+Areas Assessed
+P
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+B
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+W
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+Range of Applicability
+From 
+2nd grade 
+ (beginning)
+1st grade (middle)
+2nd grade (end)
+4th grade (middle)
+4th grade (end)
+3rd grade (end)
+3rd grade (end)
+1st grade (end)
+6th grade (end)
+5th grade (end)
+2nd grade (end)
+2nd grade (end)
+4th grade (end)
+5th grade (end)
+3rd grade (end)
+7th grade (middle)
+2nd grade (end)
+6th grade (middle)
+2nd grade  
+(beginning)
+8th grade (middle)
+1st grade (end)
+To
+4th grade (end)
+1st grade (end)
+3rd grade (middle)
+4th grade (end)
+5th grade (middle)
+4th grade (middle)
+4th grade (middle)
+2nd grade 
+ (beginning)
+7th grade (middle)
+6th grade (middle)
+3rd grade (middle)
+3rd grade 
+ (beginning)
+5th grade (middle)
+6th grade (middle)
+4th grade (middle)
+8th grade (middle)
+4th grade (end)
+7th grade (middle)
+2nd grade (end)
+9th grade (middle)
+2nd grade (middle)
+Time (min)
+From 
+30
+45
+60
+45
+60
+30
+60
+45
+35
+35
+14
+45
+20
+45
+45
+45
+40
+45
+45
+45
+14
+To
+45
+60
+75
+45
+75
+90
+75
+45
+35
+35
+70
+45
+85
+90
+45
+90
+60
+90
+60
+90
+70
+Rank
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+Reference
+(e81)
+(e82)
+(e83)
+(e84)
+(e83)
+(e85)
+(e83)
+(e86)
+(e87)
+(e88)
+(e89)
+(e90)
+(e91)
+(e92)
+(e93)
+(e92)
+(e94)
+(e92)
+(e95)
+(e92)
+(e96)
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+XI
+Overall Test 
+TEDI-MATH:
+Test of numerical calculating skills 
+from kindergaten to the 3rd grade
+KEKS:
+Competence Assessment in 
+ Kindergarten and School
+BADYS 1–4+ (R): Bamberg Dyscal-
+culia Diagnostic Test 1–4+ (R)
+KEKS:
+Competence Assessment in 
+ Kindergarten and School
+KEKS:
+Competence Assessment in 
+ Kindergarten and School
+DIRG:
+Diagnostic Inventory for Arithmetic 
+Skills in Primary School
+KEKS:
+Competence Assessment in 
+ Kindergarten and School
+MARKO-D1+:
+Mathematical and Arithmetical Con-
+cepts in First-Graders—Diagnosis
+Optionally recommended diagnostic tests
+(only in case none of the tests recommended above is suitable)
+ZAREKI-R:
+Neuropsychological Test Battery for 
+Numerical Processing and Arith-
+metic in Children
+TEDI-MATH:
+Test of numerical calculating skills 
+from kindergarten to the 3rd grade
+TeDDy-PC: Test for the Diagnosis 
+of Dyscalculia
+HRT 1–4:
+Heidelberg ArithmeticTest
+DEMAT 9:
+German mathematics test for the 
+9th grade
+LVD-M 2–4:
+Longitudinal Learning Diagnosis— 
+Mathe matics for 2nd–4th graders 
+TeDDy-PC: Test for the Diagnosis 
+of Dyscalculia
+TEDI-MATH:
+Test of numerical calculating skills 
+from kindergarten to the 3rd grade
+RZD 2–6:
+Diagnostic Instrument for Arithmeti-
+cal Skills and Number Processing 
+in the 2nd to 6th Grades
+KLASSE 4:
+Combined Performance Inventory 
+for General Scholastic Perform-
+ance and School Achievement 
+Recommendations in the 4th Grade
+RZD 2–6:
+Diagnostic Instrument for Arithmeti-
+cal Skills and Number Processing 
+in the 2nd to 6th Grades
+Subtest
+core battery, 
+2_1
+KEKS 3: 
+mathematics
+BADYS 1+ (R)
+KEKS 4: 
+mathematics
+KEKS 4 
+ transition: 
+mathematics
+BASIS
+KEKS 2: 
+mathematics
+core battery, 
+3_1
+TeDDy-PC 2+
+HRT 1–2  
+(middle)
+LVD-M 4
+TeDDy-PC 3+
+core battery, 
+1_2
+RZD 6
+mathematics
+RZD 3–4
+Areas Assessed
+P
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+B
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+W
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+X
+Range of Applicability
+From 
+2nd grade 
+ (beginning)
+3rd grade 
+ (beginning)
+1st grade (end)
+4th grade 
+ (beginning)
+4th grade (end)
+1st grade (end)
+2nd grade (middle)
+3rd grade (middle)
+4th grade (middle)
+2nd grade 
+ (beginning)
+1st grade (middle)
+1st grade (middle)
+2nd grade (middle)
+3rd grade (middle)
+4th grade (middle)
+3rd grade (middle)
+2nd grade (end)
+1st grade (end)
+9th grade (end)
+4th grade 
+ (beginning)
+3rd grade (end)
+1st grade (middle)
+6th grade 
+ (beginning)
+4th grade (middle)
+3rd grade (end)
+To
+2nd grade (middle)
+3rd grade (middle)
+2nd grade (middle)
+4th grade (middle)
+4th grade (end)
+1st grade (end)
+2nd grade (end)
+3rd grade (end)
+4th grade (end)
+2nd grade (middle)
+2nd grade 
+ (beginning)
+1st grade (middle)
+2nd grade (middle)
+3rd grade (middle)
+4th grade (middle)
+3rd grade (end)
+3rd grade 
+ (beginning)
+2nd grade (middle)
+9th grade (end)
+4th grade (end)
+4th grade 
+ (beginning)
+1st grade (end)
+6th grade (middle)
+4th grade (middle)
+4th grade (middle)
+Time (min)
+From 
+45
+45
+60
+45
+45
+16
+45
+30
+35
+45
+25
+40
+35
+15
+25
+45
+44
+20
+34
+To
+45
+45
+75
+45
+45
+30
+45
+40
+35
+45
+30
+60
+35
+15
+30
+45
+44
+20
+34
+Rank
+22
+23
+24
+25.5
+25.5
+27.5
+27.5
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+Reference
+(e97)
+(e98)
+(e83)
+(e98)
+(e98)
+(e99)
+(e98)
+(e100)
+(e101)
+(e97)
+(e102)
+(e94)
+(e103)
+(e104)
+(e102)
+(e97)
+(e105)
+(e106)
+(e105)
+M E D I C I N E
+XII 
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material
+P, numerical and quantitaive processing; B, basic arithmetic operations W, word problems; area of application, and duration, according to the corresponding test manuals
+Overall Test 
+TeDDy-PC: Test for the Diagnosis 
+of Dyscalculia
+ERT JE:
+Eggenberg Calculation Test for 
+adolescents and adults
+RZD 2–6:
+Diagnostic Instrument for Arithmeti-
+cal Skills and Number Processing 
+in the 2nd to 6th Grades
+Subtest
+TeDDy-PC 1+
+RZD 4–5
+Areas Assessed
+P
+X
+X
+X
+B
+X
+X
+X
+W
+X
+X
+X
+Range of Applicability
+From 
+1st grade (end)
+7th grade 
+ (beginning)
+4th grade (end)
+To
+2nd grade 
+ (beginning)
+8th grade (end)
+5th grade (middle)
+Time (min)
+From 
+25
+20
+42
+To
+30
+100
+42
+Rank
+41
+42
+43
+Reference
+(e102)
+(e107)
+(e105)
+eTABLE 2
+Evaluated learning programs in German (names not translated)
+Programs listed in alphabetical order by German name; applicability according to the relevant manuals
+Program
+recommended
+(peer-reviewed or evaluated for individuals with dyscalculia)
+Dortmunder Zahlbegriffstraining
+Dybuster Calcularis 
+MARKO-T
+Meister Cody – Talasia
+Mengen, Zählen, Zahlen
+Rechenspiele mit Elfe und Mathis I 
+Wasserglasmethode
+optionally recommended
+(not peer-reviewed or evaluated for individuals with dyscalculia)
+ALFONS Lernwelt Mathematik  
+1 und 2 
+Das Zahlenbuch 1
+Mathematik im Vorschulalter
+Merlins Rechenmühle
+Mina und der Maulwurf
+Applicability
+1st to 4th grade
+1st to 5th grade
+Kindergarten to 4th grade
+1st to 4th grade
+Kindergarten to 1st grade
+Kindergarten to 3rd grade
+Kindergarten to primary school
+1st to 2nd grade
+1st grade
+Kindergarten
+1st to 5th grade
+Kindergarten to 2nd grade
+Reference
+(e108)
+(e109)
+(e110)
+(e111)
+(e112)
+(e113)
+(e114)
+(e115, e116)
+(e117)
+(e118)
+(e119)
+(e120)
+M E D I C I N E
+Deutsches Ärzteblatt International | Dtsch Arztebl Int 2019; 116: 107–14 | Supplementary material 
+XIII
+eTABLE 3
+Comorbidity of dyscalculia
+OR, odds ratio; PREV, prevalence—the frequency of the combined occurrence of dyscalculia together with another disorder or symptom(s) in the overall population; 
+REF, relative freqeuncy—the frequency with which another disorder or symptom(s) arise(s) among persons with dyscalculia
+Dyscalculia and:
+Attention deficit/hyperactivity disorder
+Attention deficit/
+hyperactivity disorder
+ Attention disorder
+Hyperactivity disorder
+Attention problems
+Dyslexia (reading and/or spelling disorder)
+Reading and spelling
+disorder
+Reading disorder
+Spelling disorder
+Internalizing spectrum of disorders
+Affective disorder
+Generalized anxiety disorder
+Anxious-depressive 
+symptoms
+Internalizing symptoms
+Physical symptoms
+Major depression
+Symptoms of withdrawnness
+Externalizing spectrum of disorders
+Aggressive behavior
+Social conduct disorder
+Rule-breaking behavior
+Externalizing symptoms
+Oppositional-defiant disorder
+PREV
+%
+1.19
+5.81
+2.18
+0.41
+1.97
+4.70
+3.55
+0.12
+5.43
+0.39
+0.52
+0.29
+4.56
+0.41
+0.19
+1.37
+0.22
+0.37
+6.40
+REF
+%
+11.08
+21.74
+8.93
+33.04
+33.78
+40.28
+42.67
+2.06
+15.09
+10.69
+28.98
+10.73
+12.67
+15.14
+6.92
+6.50
+8.51
+19.44
+17.79
+OR
+Risk
+1.11
+1.34
+1.59
+12.25
+6.71
+5.49
+References
+PREV: e60–e63 / REF: e60–e 63 / OR: e62
+PREV: e62, e63 / REF: e62, e63 / OR: e62
+PREV: e62 / REF: e62, e63 / OR: e62
+PREV: e64 / REF: e64, e65
+PREV: e61, e62, e66–e72 / REF: e61, e62, e66–e72 /  
+OR: e62, e67–e70
+PREV: e61–e63, e66–e70, e72–e80 / REF: e61–e63, e66–e70, 
+e72–e75, e77–e80 / OR: e62, e67–e70, e73–e75, e77, e78, e80
+PREV: e62, e67–e72, e75, e79 / REF: e62, e67–e72, e75, e79 /  
+OR: e62, e67–e70, e75
+PREV: e60 / REF: e60
+PREV: e63 / REF: e63
+PREV: e60, e64 / REF: e60, e64
+PREV: e64 / REF: e64, e65
+PREV: e64 / REF: e64
+PREV: e63 / REF: e63
+PREV: e64 / REF: e64
+PREV: e64 / REF: e64
+PREV: e60, e63 / REF: e60, e63
+PREV: e64 / REF: e64
+PREV: e64 / REF: e64, e65
+PREV: e63 / REF: e63
