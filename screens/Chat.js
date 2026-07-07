@@ -19,7 +19,7 @@ import { Feather } from "@expo/vector-icons";
 import Markdown from "react-native-markdown-display";
 import { useGlobalState } from "./GlobalState.js";
 
-const BACKEND_URL = "http://localhost:3000";
+const BACKEND_URL = "https://learnculia.onrender.com";
 
 const INITIAL_MESSAGE = { id: "0", role: "assistant", text: "Hey there! I'm Culiabot, your LearnCulia assistant. Ask me anything about dyscalculia, the games, app features,or how to improve your math skills!" };
 
