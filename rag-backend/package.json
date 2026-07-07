@@ -11,6 +11,9 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "pdfjs-dist": "^6.1.200"
+    "cohere-ai": "^8.0.0",
+    "node-fetch": "^3.3.2",
+    "pdfjs-dist": "^6.1.200",
+    "undici": "^8.7.0"
   }
 }

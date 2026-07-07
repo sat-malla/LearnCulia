@@ -1,6 +1,7 @@
 const express = require("express");
 const supabase = require("../supabase");
-const { getEmbedding, chat } = require("../gemini");
+const { getEmbedding } = require("../cohere");
+const { chat } = require("../gemini");
 
 const router = express.Router();
 
