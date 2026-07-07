@@ -30,6 +30,7 @@ const Login = ({ navigation }) => {
   const [revealPass, setRevealPass] = useState(false);
   const [loading, setLoading] = useState(false);
   const [, isRegistered] = useGlobalState("registered");
+  const [, setUserId] = useGlobalState("userId");
   const [, setProfileLoaded] = useGlobalState("profileLoaded");
   const [, setGender] = useGlobalState("gender");
   const [, setGlasses] = useGlobalState("glasses");
@@ -47,6 +48,7 @@ const Login = ({ navigation }) => {
     try {
       const userCred = await auth.signInWithEmailAndPassword(trimmedEmail, password);
       isRegistered(true);
+      setUserId(userCred.user.uid);
       db.collection("userdata").get().then((snap) => {
         snap.forEach((doc) => {
           if (doc.data().id === userCred.user.uid) {

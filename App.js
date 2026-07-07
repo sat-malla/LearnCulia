@@ -22,6 +22,7 @@ import ForgotPass from "./screens/ForgotPass";
 import TermsAndCo from "./screens/TermsAndCo";
 import Profile from "./screens/Profile";
 import SinglePlayer from "./screens/SinglePlayer";
+import Chat from "./screens/Chat";
 
 // Importing Single Player Game 1 Screens
 import StartScreen1 from "./screens/Game1Screens/StartScreen1";
@@ -101,6 +102,10 @@ function ProfileTitle({ navigation }) {
 
 function SPTitle({ navigation }) {
   return <Text style={{ fontSize: 25 }}>Single Player</Text>;
+}
+
+function ChatTitle({ navigation }) {
+  return <Text style={{ fontSize: 25 }}>CuliaBot</Text>;
 }
 
 function Game1Title({ navigation }) {
@@ -362,6 +367,15 @@ function AppInner() {
             options={({ navigation }) => {
               return {
                 headerTitle: () => <SPTitle navigation={navigation} />,
+              };
+            }}
+          />
+          <Stack.Screen
+            name="Chat"
+            component={Chat}
+            options={({ navigation }) => {
+              return {
+                headerTitle: () => <ChatTitle navigation={navigation} />,
               };
             }}
           />

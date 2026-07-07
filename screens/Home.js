@@ -99,6 +99,13 @@ const Home = ({ navigation }) => {
 
   return (
     <>
+    <TouchableOpacity
+      style={[styles.fab, { backgroundColor: colors.accent }]}
+      onPress={() => navigation.navigate("Chat")}
+      activeOpacity={0.85}
+    >
+      <Ionicons name="chatbubble-ellipses" size={26} color="#000" />
+    </TouchableOpacity>
     <ScrollView
       style={{
         height: "100%",
@@ -229,6 +236,22 @@ const Home = ({ navigation }) => {
 export default Home;
 
 const styles = StyleSheet.create({
+  fab: {
+    position: "absolute",
+    bottom: 28,
+    right: 24,
+    width: 58,
+    height: 58,
+    borderRadius: 29,
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 8,
+  },
   cardStack: {
     width: "100%",
     marginTop: 40,
