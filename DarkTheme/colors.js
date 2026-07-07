@@ -74,6 +74,5 @@ export const buildTheme = (dark, appColor = "green") => {
   };
 };
 
-// Keep named exports for any legacy imports
 export const lightTheme = buildTheme(false, "green");
 export const darkTheme = buildTheme(true, "green");

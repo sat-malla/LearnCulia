@@ -268,7 +268,6 @@ const SinglePlayer = ({ navigation }) => {
                 height: 508,
                 width: 378,
                 alignItems: "center",
-                // marginRight: 0.75,
               }}
             >
               <ImageBackground

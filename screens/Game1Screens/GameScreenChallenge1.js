@@ -20,7 +20,6 @@ import { auth, incrementGamesCompleted } from "../../firebase.js";
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);
 
-// Defined outside component so they aren't recreated on every render
 const AppleImages = [
   require("../../Images/AppleImages/oneApple.png"),
   require("../../Images/AppleImages/twoApple.png"),

@@ -43,27 +43,22 @@ const Profile = ({ navigation }) => {
   const [skinTone, setSkinTone] = useGlobalState("skinTone");
   const [gamesCompleted, setGamesCompleted] = useGlobalState("gamesCompleted");
   const [registered, isRegistered] = useGlobalState("registered");
-  //const [starCount, setStarCount] = useGlobalState("starCount");
 
   const loadUserData = () => {
     if (profileLoaded) return;
     db.collection("userdata")
       .get()
       .then(function (querySnapshot) {
-        try {
-          querySnapshot.forEach(function (doc) {
-            if (doc.data().id == auth.currentUser.uid) {
-              setSelectedIndex(doc.data().gender ?? 0);
-              setGlasses(doc.data().glasses ?? false);
-              setPartyHat(doc.data().partyHat ?? false);
-              setShirtColor(doc.data().shirtColor ?? "green");
-              setSkinTone(doc.data().skinTone ?? "mediumDark");
-              setGamesCompleted(doc.data().gamesCompleted ?? 0);
-              setProfileLoaded(true);
-              throw new Error("found");
-            }
-          });
-        } catch (e) {}
+        const doc = querySnapshot.docs.find((d) => d.data().id === auth.currentUser.uid);
+        if (doc) {
+          setSelectedIndex(doc.data().gender ?? 0);
+          setGlasses(doc.data().glasses ?? false);
+          setPartyHat(doc.data().partyHat ?? false);
+          setShirtColor(doc.data().shirtColor ?? "green");
+          setSkinTone(doc.data().skinTone ?? "mediumDark");
+          setGamesCompleted(doc.data().gamesCompleted ?? 0);
+          setProfileLoaded(true);
+        }
       });
   };
 
@@ -71,20 +66,16 @@ const Profile = ({ navigation }) => {
     db.collection("userdata")
       .get()
       .then(function (querySnapshot) {
-        try {
-          querySnapshot.forEach(function (doc) {
-            if (doc.data().id === auth.currentUser.uid) {
-              db.collection("userdata").doc(doc.id).update({
-                gender: selectedIndex,
-                glasses: glasses,
-                partyHat: partyHat,
-                shirtColor: shirtColor,
-                skinTone: skinTone,
-              });
-              throw new Error("updated");
-            }
+        const doc = querySnapshot.docs.find((d) => d.data().id === auth.currentUser.uid);
+        if (doc) {
+          db.collection("userdata").doc(doc.id).update({
+            gender: selectedIndex,
+            glasses: glasses,
+            partyHat: partyHat,
+            shirtColor: shirtColor,
+            skinTone: skinTone,
           });
-        } catch (e) {}
+        }
       });
   };
 
@@ -130,7 +121,6 @@ const Profile = ({ navigation }) => {
 
 
   const buttonOptions = ["Male", "Female"];
-  // Add glasses and party hat profile pictures
 
   return (
     <View
@@ -240,7 +230,6 @@ const Profile = ({ navigation }) => {
                 marginTop: 20,
                 alignSelf: "center",
               }}
-              //  Disable when user hasn't completed 3 games
               onPress={() => setGlasses(!glasses)}
             >
               <Text
@@ -262,7 +251,6 @@ const Profile = ({ navigation }) => {
             </TouchableOpacity>
           ) : (
             <TouchableOpacity
-              // disabled={starCount < 15}
               style={{
                 borderRadius: 8,
                 padding: 10,
@@ -275,7 +263,6 @@ const Profile = ({ navigation }) => {
                 marginTop: 50,
                 alignSelf: "center",
               }}
-              //  Disable when user hasn't completed 3 games
               onPress={() => setGlasses(!glasses)}
             >
               <Ionicons name="glasses" size={35} color={colors.bannerText} />
@@ -330,7 +317,6 @@ const Profile = ({ navigation }) => {
                 marginTop: 20,
                 alignSelf: "center",
               }}
-              //  Disable when user hasn't completed 3 games
               onPress={() => setPartyHat(!partyHat)}
             >
               <Text
@@ -364,7 +350,6 @@ const Profile = ({ navigation }) => {
                 marginTop: 20,
                 alignSelf: "center",
               }}
-              //  Disable when user hasn't completed 3 games
               onPress={() => setPartyHat(!partyHat)}
             >
               <MaterialCommunityIcons
@@ -410,7 +395,6 @@ const Profile = ({ navigation }) => {
               padding: 10,
               elevation: 2,
             }}
-            //  Save changes, GLOBALLY!!!, put this in a const function later
             onPress={saveButton}
           >
             <Text
