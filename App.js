@@ -59,8 +59,6 @@ import GameScreenChallenge6 from "./screens/Game6Screens/GameScreenChallenge6";
 const Stack = createNativeStackNavigator();
 
 const globalScreenOptionsBase = {
-  headerTitleStyle: { color: "black" },
-  headerTintColor: "black",
   headerBackTitleVisible: true,
   headerRight: () => <SettingsButton />,
 };
@@ -143,7 +141,7 @@ function QuitGameButton({ navigation }) {
         onPress={() => setVisible(true)}
         style={{ flexDirection: "row", marginLeft: -10 }}
       >
-        <AntDesign name="arrowleft" size={18} color="black" style={{ marginTop: 2.5 }} />
+        <AntDesign name="arrowleft" size={18} color="#000" style={{ marginTop: 2.5 }} />
         <Text style={{ fontSize: 18, marginLeft: 5 }}>Quit Game</Text>
       </TouchableOpacity>
 
@@ -190,9 +188,10 @@ function QuitGameButton({ navigation }) {
 
 function SettingsButton() {
   const { openSettings } = useContext(SettingsContext);
+  const { colors } = useTheme();
   return (
     <TouchableOpacity onPress={openSettings} activeOpacity={0.5} style={{ marginRight: 10 }}>
-      <Feather name="settings" size={25} color="black" />
+      <Feather name="settings" size={25} color="#000" />
     </TouchableOpacity>
   );
 }
@@ -214,8 +213,13 @@ function AppInner() {
   }, [slideAnim]);
 
   const screenOptions = useMemo(
-    () => ({ ...globalScreenOptionsBase, headerStyle: { backgroundColor: colors.accent } }),
-    [colors.accent]
+    () => ({
+      ...globalScreenOptionsBase,
+      headerStyle: { backgroundColor: colors.accent },
+      headerTitleStyle: { color: "#000" },
+      headerTintColor: "#000",
+    }),
+    [colors.accent, colors.text]
   );
 
   const settingsContextValue = useMemo(() => ({ openSettings, closeSettings }), [openSettings, closeSettings]);

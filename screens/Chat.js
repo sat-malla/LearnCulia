@@ -95,14 +95,14 @@ const Chat = () => {
 
   const renderMessage = ({ item }) => {
     const isUser = item.role === "user";
-    const textColor = isUser ? "#000" : colors.text;
+    const textColor = colors.text;
     return (
       <View style={[styles.bubbleRow, isUser ? styles.bubbleRowUser : styles.bubbleRowAssistant]}>
         <View style={[
           styles.bubble,
           isUser
             ? { backgroundColor: colors.accent }
-            : { backgroundColor: dark ? "#2a2a2a" : "#f0f0f0" },
+            : { backgroundColor: dark ? "#2a2a2a" : "#f0f0f0", borderWidth: 1, borderColor: dark ? "#444" : "#d0d0d0" },
         ]}>
           {isUser ? (
             <Text style={[styles.bubbleText, { color: textColor }]}>{item.text}</Text>
