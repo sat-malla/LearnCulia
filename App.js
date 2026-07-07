@@ -262,11 +262,20 @@ function AppInner() {
               );
             })}
             <View style={[styles.panelDivider, { backgroundColor: colors.text, marginTop: 16 }]} />
+            <Text style={[styles.panelLabel, { color: colors.text, marginTop: 16, marginBottom: 4, fontSize: 14, opacity: 0.5 }]}>LEGAL</Text>
             <TouchableOpacity
               onPress={() => { closeSettings(); navRef.current?.navigate("TermsAndCo"); }}
               style={styles.panelRow}
             >
               <Text style={[styles.panelLabel, { color: "#0099ff" }]}>Terms & Conditions</Text>
+              <Text style={styles.tacLink}>→</Text>
+            </TouchableOpacity>
+            <View style={[styles.panelDivider, { backgroundColor: colors.text }]} />
+            <TouchableOpacity
+              onPress={() => Linking.openURL("https://www.privacypolicies.com/live/8face58a-f75c-41fc-9db5-fd29e92eded6")}
+              style={styles.panelRow}
+            >
+              <Text style={[styles.panelLabel, { color: "#0099ff" }]}>Privacy Policy</Text>
               <Text style={styles.tacLink}>→</Text>
             </TouchableOpacity>
           </View>

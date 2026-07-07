@@ -11,6 +11,7 @@ import {
   ScrollView,
   Alert,
   Dimensions,
+  Linking,
 } from "react-native";
 import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
@@ -180,7 +181,6 @@ const Register = ({ navigation }) => {
                 </TouchableOpacity>
               </View>
             </View>
-
             <View style={styles.termsRow}>
               <CheckBox
                 containerStyle={{
@@ -202,6 +202,13 @@ const Register = ({ navigation }) => {
                 >
                   Terms & Conditions
                 </Link>
+                {" "}and{" "}
+                <Text
+                  style={{ color: colors.buttonColor }}
+                  onPress={() => Linking.openURL("https://www.privacypolicies.com/live/8face58a-f75c-41fc-9db5-fd29e92eded6")}
+                >
+                  Privacy Policy
+                </Text>
               </Text>
             </View>
 

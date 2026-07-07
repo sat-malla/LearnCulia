@@ -79,5 +79,5 @@ The LearnCulia application environment is actively maintained across two primary
 Terms & Conditions: The Terms & Conditions page is listed in the Settings panel, which details app information and legality. Users, when logging in, must agree to the Terms & Conditions before signing up. Even when not logged in, users can still view the terms & conditions for their own information. 
 Privacy Policy: The Privacy Policy link provided in the Settings panel is crucial for users to read and understand, especially when they want to sign up for a LearnCulia account. Users should note that LearnCulia will not see, modify, or delete any user's proprietary data including passwords and other personal information. 
 We will only keep records of username, email, and app information. Once the account has been deleted, in no way shape or form can LearnCulia retrieve that information again. 
-
+Privacy Policy Link: https://www.privacypolicies.com/live/8face58a-f75c-41fc-9db5-fd29e92eded6
 ================================================================================

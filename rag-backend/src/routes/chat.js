@@ -39,6 +39,10 @@ Assistant:`;
     res.json({ response });
   } catch (err) {
     console.error(err);
+    const isQuotaError = err.message?.includes("429") || err.message?.toLowerCase().includes("quota") || err.message?.toLowerCase().includes("resource exhausted");
+    if (isQuotaError) {
+      return res.status(429).json({ error: "The AI assistant is temporarily unavailable due to high demand. Please try again later. Thank you for your patience!" });
+    }
     res.status(500).json({ error: err.message });
   }
 });

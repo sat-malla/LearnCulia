@@ -27,6 +27,7 @@ const TermsAndCo = () => {
       >
         Terms & Conditions
       </Text>
+      <Text style={{ fontSize: 20, marginTop: 20, color: colors.text, textAlign: "center" }}>Last updated: September 23, 2023</Text>
       <Text
         style={{
           fontSize: 20,
