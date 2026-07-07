@@ -1,11 +1,14 @@
+const Groq = require("groq-sdk");
+
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
 const chat = async (prompt) => {
-  const response = await fetch("http://localhost:11434/api/generate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ model: "llama3.2", prompt, stream: false }),
+  const completion = await groq.chat.completions.create({
+    model: "llama-3.3-70b-versatile",
+    messages: [{ role: "user", content: prompt }],
+    max_tokens: 1024,
   });
-  const data = await response.json();
-  return data.response;
+  return completion.choices[0].message.content;
 };
 
 module.exports = { chat };
