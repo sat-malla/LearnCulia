@@ -19,7 +19,7 @@ import { AntDesign } from "@expo/vector-icons";
 import MultiplicationTable from "./MultiplicationTable";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { auth, incrementGamesCompleted } from "../../firebase.js";
-import { useGlobalState } from "../RewardSystem.js";
+import { useGlobalState } from "../GlobalState.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MODAL_WIDTH = SCREEN_WIDTH - 24;

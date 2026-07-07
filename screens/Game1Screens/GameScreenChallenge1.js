@@ -14,7 +14,7 @@ import { useTheme } from "../../DarkTheme/ThemeProvider";
 import { Text } from "@rneui/base";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
-import { useGlobalState } from "../RewardSystem.js";
+import { useGlobalState } from "../GlobalState.js";
 import { auth, incrementGamesCompleted } from "../../firebase.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");

@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import { StyleSheet, TouchableOpacity, Image, Modal, View, Animated, Switch, Dimensions } from "react-native";
+import { StyleSheet, TouchableOpacity, Image, Modal, View, Animated, Switch, Dimensions, Linking } from "react-native";
 import { Text } from "@rneui/base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";

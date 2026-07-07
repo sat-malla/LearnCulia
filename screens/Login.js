@@ -19,7 +19,7 @@ import { useHeaderHeight } from "@react-navigation/elements";
 import { Link } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
 import { auth, db } from "../firebase.js";
-import { useGlobalState } from "./RewardSystem.js";
+import { useGlobalState } from "./GlobalState.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 

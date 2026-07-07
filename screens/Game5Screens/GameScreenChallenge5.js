@@ -14,7 +14,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import DropDownPicker from "react-native-dropdown-picker";
 import { auth, incrementGamesCompleted } from "../../firebase.js";
-import { useGlobalState } from "../RewardSystem.js";
+import { useGlobalState } from "../GlobalState.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const MODAL_WIDTH = Math.min(SCREEN_WIDTH - 40, 360);

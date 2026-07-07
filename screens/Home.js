@@ -10,7 +10,7 @@ import { Text } from "@rneui/base";
 import React, { useLayoutEffect, useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "../DarkTheme/ThemeProvider.js";
-import { useGlobalState } from "./RewardSystem.js";
+import { useGlobalState } from "./GlobalState.js";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import Svg, { Path, Defs, LinearGradient as SvgLinearGradient, Stop } from "react-native-svg";
 

@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Modal,
   ImageBackground,
+  Alert,
 } from "react-native";
 import { Text } from "@rneui/base";
 import React, { useState } from "react";

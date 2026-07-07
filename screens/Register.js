@@ -21,7 +21,7 @@ import { Feather } from "@expo/vector-icons";
 import { CheckBox } from "@rneui/base";
 import { Link } from "@react-navigation/native";
 import { auth, db } from "../firebase.js";
-import { useGlobalState } from "./RewardSystem.js";
+import { useGlobalState } from "./GlobalState.js";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 

@@ -17,7 +17,7 @@ import { useTheme } from "../DarkTheme/ThemeProvider.js";
 import { useHeaderHeight } from "@react-navigation/elements";
 import { Feather } from "@expo/vector-icons";
 import Markdown from "react-native-markdown-display";
-import { useGlobalState } from "./RewardSystem.js";
+import { useGlobalState } from "./GlobalState.js";
 
 const BACKEND_URL = "http://localhost:3000";
 
@@ -217,17 +217,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 16,
-    paddingTop: 12,
+    paddingTop: 16,
     borderTopWidth: 1,
     gap: 12,
   },
   input: {
     flex: 1,
+    alignItems: "center",
     borderWidth: 1.5,
     borderRadius: 24,
     paddingHorizontal: 18,
     paddingVertical: 20,
-    fontSize: 18,
+    fontSize: 20,
   },
   sendBtn: {
     width: 54,

@@ -14,7 +14,7 @@ import {
   Feather,
 } from "@expo/vector-icons";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import { useGlobalState } from "./RewardSystem.js";
+import { useGlobalState } from "./GlobalState.js";
 import { auth, db } from "../firebase.js";
 import AvatarSVG from "../components/AvatarSVG.js";
 
