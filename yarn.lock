@@ -1441,6 +1441,11 @@
     remove-trailing-slash "^0.1.0"
     uuid "^8.3.2"
 
+"@expo/schema-utils@^57.0.1":
+  version "57.0.1"
+  resolved "https://registry.npmjs.org/@expo/schema-utils/-/schema-utils-57.0.1.tgz"
+  integrity sha512-IVdaqtP3+iHFRE/y22mKijQtZanLcB18q1zi2kfN6RINTCryyzM7qHGsWHc5LBJbOuj1G4avCOECs97hOJm0GQ==
+
 "@expo/sdk-runtime-versions@^1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@expo/sdk-runtime-versions/-/sdk-runtime-versions-1.0.0.tgz"
@@ -4182,6 +4187,15 @@ expo-av@>=5.0.2, expo-av@~13.2.1:
   version "13.2.1"
   resolved "https://registry.npmjs.org/expo-av/-/expo-av-13.2.1.tgz"
   integrity sha512-mC0mYSzaOaZgXjzhW2l4Ag325JjH6q5IbptfwD7gkMOFYy7VPOMxEMUnetadbs3DDzmgE6vUWrTjUIUbwq59qg==
+
+expo-build-properties@^57.0.3:
+  version "57.0.3"
+  resolved "https://registry.npmjs.org/expo-build-properties/-/expo-build-properties-57.0.3.tgz"
+  integrity sha512-oiqyD583acVmFVdF5nPSYEI7B/1ulOfIJhmfhr3bT51/64jtwaY0FzgVL8C2o23Z+CvCnEL8gOnhtH0sqcRWiA==
+  dependencies:
+    "@expo/schema-utils" "^57.0.1"
+    resolve-from "^5.0.0"
+    semver "^7.6.0"
 
 expo-constants@~14.2.1:
   version "14.2.1"
@@ -7664,6 +7678,11 @@ semver@^7.3.5:
   integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
   dependencies:
     lru-cache "^6.0.0"
+
+semver@^7.6.0:
+  version "7.8.5"
+  resolved "https://registry.npmjs.org/semver/-/semver-7.8.5.tgz"
+  integrity sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==
 
 semver@7.3.2:
   version "7.3.2"

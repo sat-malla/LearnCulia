@@ -10,14 +10,18 @@
     "preview": {
       "distribution": "internal"
     },
-    "production": {}
+    "production": {
+      "ios": {
+        "image": "latest"
+      }
+    }
   },
   "submit": {
     "production": {
       "ios": {
-        "appleId": "mallasimhachalam@gmail.com",
+        "appleId": "sathvikmalla17@gmail.com",
         "ascAppId": "6467522608",
-        "appleTeamId": "B95RZP5PXL"
+        "appleTeamId": "37N62A9L2A"
       }
     }
   }
