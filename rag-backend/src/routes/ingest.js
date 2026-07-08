@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const supabase = require("../supabase");
-const { getEmbedding } = require("../cohere");
+const { getEmbedding } = require("../hf-client");
 
 const router = express.Router();
 

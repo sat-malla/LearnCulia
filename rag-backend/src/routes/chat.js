@@ -1,6 +1,6 @@
 const express = require("express");
 const supabase = require("../supabase");
-const { getEmbedding } = require("../cohere");
+const { getEmbedding } = require("../hf-client");
 const { chat } = require("../llama");
 
 const router = express.Router();
