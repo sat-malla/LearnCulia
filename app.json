@@ -43,7 +43,9 @@
         {
           "ios": {
             "extraBuildSettings": {
-              "OTHER_CPLUSPLUSFLAGS": "$(inherited) -Wno-deprecated-literal-operator"
+              "OTHER_CPLUSPLUSFLAGS": "$(inherited) -Wno-deprecated-literal-operator",
+              "GCC_PREPROCESSOR_DEFINITIONS": "$(inherited) FMT_USE_CONSTEVAL=0",
+              "CLANG_CXX_LANGUAGE_STANDARD": "c++17"
             }
           }
         }
