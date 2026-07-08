@@ -140,8 +140,7 @@ const SinglePlayer = ({ navigation }) => {
         transparent={true}
         visible={firstGameModal}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!firstGameModal);
+          setFirstGameModal(false);
         }}
       >
         <View
@@ -238,8 +237,7 @@ const SinglePlayer = ({ navigation }) => {
         transparent={true}
         visible={secondGameModal}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!secondGameModal);
+          setSecondGameModal(false);
         }}
       >
         <View
@@ -336,8 +334,7 @@ const SinglePlayer = ({ navigation }) => {
         transparent={true}
         visible={thirdGameModal}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!thirdGameModal);
+          setThirdGameModal(false);
         }}
       >
         <View
@@ -433,8 +430,7 @@ const SinglePlayer = ({ navigation }) => {
         transparent={true}
         visible={fourthGameModal}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!fourthGameModal);
+          setFourthGameModal(false);
         }}
       >
         <View
@@ -531,8 +527,7 @@ const SinglePlayer = ({ navigation }) => {
         transparent={true}
         visible={fifthGameModal}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!fifthGameModal);
+          setFifthGameModal(false);
         }}
       >
         <View
@@ -629,8 +624,7 @@ const SinglePlayer = ({ navigation }) => {
         transparent={true}
         visible={sixthGameModal}
         onRequestClose={() => {
-          Alert.alert("Closed");
-          setModalVisible(!sixthGameModal);
+          setSixthGameModal(false);
         }}
       >
         <View

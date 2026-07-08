@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
       headerLeft: () => (
         <View style={{ flexDirection: "row", marginRight: 22, marginLeft: -5, marginBottom: 2 }}>
           <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-            <Ionicons name="ios-person-circle-outline" size={40} color="black" />
+            <Ionicons name="person-circle-outline" size={40} color="black" />
           </TouchableOpacity>
         </View>
       ),
