@@ -55,7 +55,8 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.4",
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "expo-fmt-consteval-fix": "^1.0.0"
   },
   "private": true
 }

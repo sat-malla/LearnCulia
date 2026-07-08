@@ -50,7 +50,8 @@
           }
         }
       ],
-      "expo-font"
+      "expo-font",
+      "expo-fmt-consteval-fix"
     ]
   }
 }

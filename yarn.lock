@@ -3344,6 +3344,11 @@ expo-file-system@~18.1.11:
   resolved "https://registry.npmjs.org/expo-file-system/-/expo-file-system-18.1.11.tgz"
   integrity sha512-HJw/m0nVOKeqeRjPjGdvm+zBi5/NxcdPf8M8P3G2JFvH5Z8vBWqVDic2O58jnT1OFEy0XXzoH9UqFu7cHg9DTQ==
 
+expo-fmt-consteval-fix@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/expo-fmt-consteval-fix/-/expo-fmt-consteval-fix-1.0.0.tgz#b528f78c43e91e034f9e3a18cfd34020afc36066"
+  integrity sha512-O4mqiOS7QzzmWT1irknAiHoJiw/wcVhwGKZaiEiVjggV9/+k1caQqfQxsZNqtQho+LLDKeFvWw+2ir2fOk+P2A==
+
 expo-font@~13.3.2:
   version "13.3.2"
   resolved "https://registry.npmjs.org/expo-font/-/expo-font-13.3.2.tgz"
