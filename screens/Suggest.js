@@ -24,7 +24,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { db } from "../firebase";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const CONTACT_EMAIL = "learnculia@gmail.com";
+const CONTACT_EMAIL = "learnculiaofficial@gmail.com";
 
 function ClearButton({ onPress }) {
   return (
@@ -92,22 +92,6 @@ const Suggest = ({ navigation }) => {
       AsyncStorage.setItem(DRAFT_KEY, JSON.stringify({ name: n, email: e, message: m })).catch(() => { });
     }, 1000);
   }, []);
-
-  const openMail = async (client) => {
-    const subject = encodeURIComponent("LearnCulia - Contact");
-    const urls = {
-      gmail: `https://mail.google.com/mail/?view=cm&to=${CONTACT_EMAIL}&su=${subject}`,
-      yahoo: `https://compose.mail.yahoo.com/?to=${CONTACT_EMAIL}&subject=${subject}`,
-      apple: `mailto:${CONTACT_EMAIL}?subject=${subject}`,
-    };
-    const url = urls[client];
-    const supported = await Linking.canOpenURL(url);
-    if (supported) {
-      Linking.openURL(url);
-    } else {
-      Alert.alert("Not available", "Could not open this mail app on your device.");
-    }
-  };
 
   const sendMessage = async () => {
     if (!name.trim() || !email.trim() || !message.trim()) return;
@@ -236,7 +220,6 @@ const Suggest = ({ navigation }) => {
               this app!
             </Text>
             <View style={styles.inputCont}>
-              {/* Name */}
               <View style={[styles.inputRow, { borderColor: colors.text, marginTop: 10 }]}>
                 <TextInput
                   placeholder="Name"
@@ -248,7 +231,6 @@ const Suggest = ({ navigation }) => {
                 />
                 {name.length > 0 && <ClearButton onPress={() => { setName(""); saveDraft("", email, message); }} />}
               </View>
-              {/* Email */}
               <View style={[styles.inputRow, { borderColor: colors.text, marginTop: 14 }]}>
                 <TextInput
                   placeholder="Email"
@@ -263,7 +245,6 @@ const Suggest = ({ navigation }) => {
                 />
                 {email.length > 0 && <ClearButton onPress={() => { setEmail(""); saveDraft(name, "", message); }} />}
               </View>
-              {/* Message */}
               <View style={[styles.inputRow, styles.messageRow, { borderColor: colors.text, marginTop: 20 }]}>
                 <TextInput
                   placeholder="Your Message"
@@ -296,33 +277,14 @@ const Suggest = ({ navigation }) => {
             />
 
             <Text style={[styles.orText, { color: colors.text }]}>
-              Or you can contact through the following means...
+              Or you can contact me at
             </Text>
-
-            <View style={styles.mailButtons}>
-              <TouchableOpacity
-                style={[styles.mailBtn, styles.gmailBtn]}
-                onPress={() => openMail("gmail")}
-              >
-                <Text style={styles.mailBtnText}>Gmail</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={[styles.mailBtn, styles.yahooBtn]}
-                onPress={() => openMail("yahoo")}
-              >
-                <Text style={styles.mailBtnText}>Yahoo Mail</Text>
-              </TouchableOpacity>
-
-              {Platform.OS === "ios" && (
-                <TouchableOpacity
-                  style={[styles.mailBtn, styles.appleBtn]}
-                  onPress={() => openMail("apple")}
-                >
-                  <Text style={styles.mailBtnText}>Apple Mail</Text>
-                </TouchableOpacity>
-              )}
-            </View>
+            <Text
+              style={styles.emailLink}
+              onPress={() => Linking.openURL("mailto:learnculiaofficial@gmail.com")}
+            >
+              learnculiaofficial@gmail.com
+            </Text>
           </View>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
@@ -366,36 +328,17 @@ const styles = StyleSheet.create({
   orText: {
     fontWeight: "bold",
     marginTop: 40,
-    marginBottom: 10,
-    fontSize: 16,
+    marginBottom: 8,
+    fontSize: 18,
     textAlign: "center",
   },
-  mailButtons: {
-    flexDirection: "column",
-    alignItems: "center",
-    width: "100%",
-    marginBottom: 60,
-  },
-  mailBtn: {
-    width: "80%",
-    paddingVertical: 18,
-    borderRadius: 12,
-    alignItems: "center",
-    marginTop: 16,
-  },
-  gmailBtn: {
-    backgroundColor: "#EA4335",
-  },
-  yahooBtn: {
-    backgroundColor: "#6001D2",
-  },
-  appleBtn: {
-    backgroundColor: "#1C1C1E",
-  },
-  mailBtnText: {
-    color: "white",
-    fontWeight: "bold",
+  emailLink: {
     fontSize: 18,
+    fontWeight: "bold",
+    color: "#1a8a5a",
+    textDecorationLine: "underline",
+    textAlign: "center",
+    marginBottom: 60,
   },
   clearBtn: {
     width: 20,

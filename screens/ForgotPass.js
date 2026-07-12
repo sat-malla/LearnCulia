@@ -12,7 +12,10 @@ import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
 import { useTheme } from "../DarkTheme/ThemeProvider";
 import { useHeaderHeight } from "@react-navigation/elements";
-import { auth } from "../firebase.js";
+import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
+import { getApp } from "firebase/app";
+
+const firestore = getFirestore(getApp());
 
 const ForgotPass = ({ navigation }) => {
   const { dark, colors } = useTheme();
@@ -23,6 +26,15 @@ const ForgotPass = ({ navigation }) => {
   const forgotPass = async () => {
     setLoading(true);
     try {
+      const code = Math.floor(10000000 + Math.random() * 90000000).toString();
+      const expiresAt = Timestamp.fromMillis(Date.now() + 5 * 60 * 1000);
+
+      await addDoc(collection(firestore, "passwordResetTokens"), {
+        email: email.trim().toLowerCase(),
+        code,
+        expiresAt,
+      });
+
       const res = await fetch("https://api.brevo.com/v3/smtp/email", {
         method: "POST",
         headers: {
@@ -32,10 +44,12 @@ const ForgotPass = ({ navigation }) => {
         body: JSON.stringify({
           to: [{ email: email.trim() }],
           templateId: 3,
+          params: { code },
         }),
       });
       if (!res.ok) throw new Error("Brevo error");
-      Alert.alert("Success!", "Password reset email sent.", [
+
+      Alert.alert("Success!", "Password reset email sent. Check your inbox! The link will expire in 5 minutes.", [
         { text: "OK", onPress: () => navigation.navigate("Login") },
       ]);
     } catch (error) {

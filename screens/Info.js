@@ -69,8 +69,7 @@ const Info = ({ navigation }) => {
         to sharpen mathematical skills for their benefit. I want to make sure
         that everyone can work on what they want to work on, with helpful and
         short tutorial videos to stay successful. I also strive to make this
-        app even better, so if you have any advice or ideas, please contact me
-        below!
+        app even better, so if you have any advice or ideas, please contact me!
       </Text>
       <Text
         style={{
@@ -125,7 +124,7 @@ const Info = ({ navigation }) => {
           textAlign: "center",
         }}
       >
-        Hey there! I am a high school junior residing in California. App
+        Hey there! I am currently an undergraduate college student residing in California. App
         development is one of my passions, and I love to spend my free time
         working on some small app projects for fun. I wanted to build LearnCulia™
         because there aren’t many great tools out there that really support and
