@@ -199,6 +199,7 @@ function SettingsButton() {
 function AppInner() {
   const { colors, dark, setScheme, appColor, setAppColor } = useTheme();
   const [settingsVisible, setSettingsVisible] = useState(false);
+
   const slideAnim = useRef(new Animated.Value(PANEL_WIDTH)).current;
   const navRef = useRef(null);
 

@@ -12,10 +12,8 @@ import React, { useState } from "react";
 import { Text, Button } from "@rneui/base";
 import { useTheme } from "../DarkTheme/ThemeProvider";
 import { useHeaderHeight } from "@react-navigation/elements";
-import { getFirestore, collection, addDoc, Timestamp } from "firebase/firestore";
-import { getApp } from "firebase/app";
-
-const firestore = getFirestore(getApp());
+import { collection, addDoc, getDocs, query, where, Timestamp } from "firebase/firestore";
+import { firestore } from "../firebase";
 
 const ForgotPass = ({ navigation }) => {
   const { dark, colors } = useTheme();
@@ -26,11 +24,27 @@ const ForgotPass = ({ navigation }) => {
   const forgotPass = async () => {
     setLoading(true);
     try {
+      const normalizedEmail = email.trim().toLowerCase();
+      const q = query(collection(firestore, "userdata"), where("email", "==", normalizedEmail));
+      const snap = await getDocs(q);
+      if (snap.empty) {
+        Alert.alert(
+          "Account not found",
+          "No account with that email exists. Please register first.",
+          [
+            { text: "Register", onPress: () => navigation.navigate("Register") },
+            { text: "Cancel", style: "cancel" },
+          ]
+        );
+        setLoading(false);
+        return;
+      }
+
       const code = Math.floor(10000000 + Math.random() * 90000000).toString();
       const expiresAt = Timestamp.fromMillis(Date.now() + 5 * 60 * 1000);
 
       await addDoc(collection(firestore, "passwordResetTokens"), {
-        email: email.trim().toLowerCase(),
+        email: normalizedEmail,
         code,
         expiresAt,
       });
@@ -42,7 +56,7 @@ const ForgotPass = ({ navigation }) => {
           "api-key": process.env.BREVO_API_KEY,
         },
         body: JSON.stringify({
-          to: [{ email: email.trim() }],
+          to: [{ email: normalizedEmail }],
           templateId: 3,
           params: { code },
         }),

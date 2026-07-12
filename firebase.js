@@ -71,4 +71,4 @@ const incrementGamesCompleted = async (uid) => {
   });
 };
 
-export { db, auth, increment, incrementGamesCompleted };
+export { db, auth, increment, incrementGamesCompleted, firestore };
