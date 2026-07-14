@@ -2,6 +2,7 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
+  Pressable,
   Image,
   ScrollView,
   Dimensions,
@@ -63,7 +64,7 @@ const ParallelogramCard = ({ title, desc, onPress, gradientColors }) => {
           <Text style={styles.cardTitle}>{title}</Text>
           <Text style={styles.cardDesc}>{desc}</Text>
         </View>
-        <AntDesign name="arrowright" size={30} color="black" />
+        <AntDesign name="arrow-right" size={30} color="black" />
       </View>
     </TouchableOpacity>
   );
@@ -88,11 +89,12 @@ const Home = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => (
-        <View style={{ flexDirection: "row", marginRight: 22, marginLeft: -5, marginBottom: 2 }}>
-          <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-            <Ionicons name="person-circle-outline" size={40} color="black" />
-          </TouchableOpacity>
-        </View>
+        <Pressable
+          onPress={() => navigation.navigate("Profile")}
+          style={{ justifyContent: "center", alignItems: "center", height: 44, width: 44, marginLeft: -5 }}
+        >
+          <Ionicons name="person-circle-outline" size={40} color="black" />
+        </Pressable>
       ),
     });
   }, [navigation]);

@@ -19,7 +19,8 @@
       "bundleIdentifier": "com.sathvik-malla.learnculia",
       "buildNumber": "7",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "UIDesignRequiresCompatibility": true
       }
     },
     "android": {

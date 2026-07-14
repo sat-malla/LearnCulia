@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
+  deleteUser,
 } from "firebase/auth";
 import {
   getFirestore,
@@ -15,6 +16,7 @@ import {
   getDocs,
   doc,
   updateDoc,
+  deleteDoc,
   increment,
 } from "firebase/firestore";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -48,6 +50,7 @@ const db = {
     get: () => getDocs(collection(firestore, collectionName)),
     doc: (docId) => ({
       update: (data) => updateDoc(doc(firestore, collectionName, docId), data),
+      delete: () => deleteDoc(doc(firestore, collectionName, docId)),
     }),
   }),
 };
@@ -58,6 +61,7 @@ const auth = {
   createUserWithEmailAndPassword: (email, password) => createUserWithEmailAndPassword(_auth, email, password),
   sendPasswordResetEmail: (email) => sendPasswordResetEmail(_auth, email),
   signOut: () => signOut(_auth),
+  deleteUser: () => deleteUser(_auth.currentUser),
 };
 
 const incrementGamesCompleted = async (uid) => {
@@ -71,4 +75,15 @@ const incrementGamesCompleted = async (uid) => {
   });
 };
 
-export { db, auth, increment, incrementGamesCompleted, firestore };
+const deleteUserData = async (uid) => {
+  const snap = await getDocs(collection(firestore, "userdata"));
+  const deletions = [];
+  snap.forEach((d) => {
+    if (d.data().id === uid) {
+      deletions.push(deleteDoc(doc(firestore, "userdata", d.id)));
+    }
+  });
+  await Promise.all(deletions);
+};
+
+export { db, auth, increment, incrementGamesCompleted, deleteUserData, firestore };

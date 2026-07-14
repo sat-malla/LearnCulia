@@ -4,6 +4,8 @@ import {
   View,
   Image,
   TouchableOpacity,
+  Modal,
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { Text, ButtonGroup } from "@rneui/base";
@@ -15,7 +17,7 @@ import {
 } from "@expo/vector-icons";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { useGlobalState } from "./GlobalState.js";
-import { auth, db } from "../firebase.js";
+import { auth, db, deleteUserData } from "../firebase.js";
 import AvatarSVG from "../components/AvatarSVG.js";
 
 const SKIN_OPTIONS = [
@@ -35,6 +37,7 @@ const SHIRT_OPTIONS = [
 
 const Profile = ({ navigation }) => {
   const { colors } = useTheme();
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
   const [profileLoaded, setProfileLoaded] = useGlobalState("profileLoaded");
   const [selectedIndex, setSelectedIndex] = useGlobalState("gender");
   const [glasses, setGlasses] = useGlobalState("glasses");
@@ -113,6 +116,22 @@ const Profile = ({ navigation }) => {
         isRegistered(false);
       })
       .catch((error) => alert(error));
+  };
+
+  const deleteAccount = async () => {
+    try {
+      const uid = auth.currentUser.uid;
+      await deleteUserData(uid);
+      await auth.deleteUser();
+      setProfileLoaded(false);
+      setGamesCompleted(0);
+      isRegistered(false);
+      setDeleteModalVisible(false);
+      navigation.navigate("Home");
+    } catch (error) {
+      setDeleteModalVisible(false);
+      Alert.alert("Error", "Failed to delete account. Please sign out and sign back in, then try again.");
+    }
   };
 
   useEffect(() => {
@@ -415,11 +434,102 @@ const Profile = ({ navigation }) => {
               paddingVertical: 13,
               paddingHorizontal: 40,
               alignItems: "center",
-              marginBottom: 20,
+              marginBottom: 14,
             }}
           >
             <Text style={{ color: "white", fontWeight: "bold", fontSize: 17 }}>Logout</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => setDeleteModalVisible(true)}
+            style={{
+              backgroundColor: "transparent",
+              borderRadius: 10,
+              borderWidth: 1.5,
+              borderColor: "#e53935",
+              paddingVertical: 13,
+              paddingHorizontal: 40,
+              alignItems: "center",
+              marginBottom: 20,
+            }}
+          >
+            <Text style={{ color: "#e53935", fontWeight: "bold", fontSize: 17 }}>Delete Account</Text>
+          </TouchableOpacity>
+          <Modal
+            transparent
+            animationType="fade"
+            visible={deleteModalVisible}
+            onRequestClose={() => setDeleteModalVisible(false)}
+          >
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: "rgba(0,0,0,0.5)",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingHorizontal: 24,
+              }}
+            >
+              <View
+                style={{
+                  backgroundColor: colors.primary,
+                  borderRadius: 14,
+                  padding: 24,
+                  width: "100%",
+                  maxWidth: 360,
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 18,
+                    fontWeight: "bold",
+                    color: colors.text,
+                    marginBottom: 14,
+                    textAlign: "center",
+                  }}
+                >
+                  Delete Account
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 15,
+                    color: colors.text,
+                    marginBottom: 24,
+                    textAlign: "center",
+                    lineHeight: 22,
+                  }}
+                >
+                  This will delete your account from the app, including your saved progress and profile. Press Confirm to continue or Cancel to exit.
+                </Text>
+                <View style={{ flexDirection: "row", justifyContent: "space-between", gap: 12 }}>
+                  <TouchableOpacity
+                    onPress={() => setDeleteModalVisible(false)}
+                    style={{
+                      flex: 1,
+                      borderRadius: 10,
+                      borderWidth: 1.5,
+                      borderColor: colors.text,
+                      paddingVertical: 12,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: colors.text, fontWeight: "bold", fontSize: 16 }}>Cancel</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={deleteAccount}
+                    style={{
+                      flex: 1,
+                      borderRadius: 10,
+                      backgroundColor: "#e53935",
+                      paddingVertical: 12,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ color: "white", fontWeight: "bold", fontSize: 16 }}>Confirm</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal>
           <FlashMessage />
           <View style={{ height: 50 }} />
         </ScrollView>

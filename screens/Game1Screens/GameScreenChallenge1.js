@@ -166,7 +166,7 @@ const GameScreenChallenge1 = ({ navigation }) => {
                   >
                     Finish
                   </Text>
-                  <AntDesign name="arrowright" size={22} color="black" />
+                  <AntDesign name="arrow-right" size={22} color="black" />
                 </Pressable>
               </ImageBackground>
             </LinearGradient>

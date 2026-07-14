@@ -111,7 +111,7 @@ const GameScreenChallenge6 = ({ navigation }) => {
                       </Text>
                       <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={finishScreen}>
                         <Text style={styles.modalBtnText}>Finish</Text>
-                        <AntDesign name="arrowright" size={22} color="black" style={{ marginLeft: 8 }} />
+                        <AntDesign name="arrow-right" size={22} color="black" style={{ marginLeft: 8 }} />
                       </TouchableOpacity>
                     </ImageBackground>
                   </LinearGradient>

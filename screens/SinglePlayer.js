@@ -161,7 +161,7 @@ const SinglePlayer = ({ navigation }) => {
                   </TouchableOpacity>
                   <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame1}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
-                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                    <AntDesign name="arrow-right" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setFirstGameModal(false)}>
@@ -208,7 +208,7 @@ const SinglePlayer = ({ navigation }) => {
                   </TouchableOpacity>
                   <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame2}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
-                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                    <AntDesign name="arrow-right" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setSecondGameModal(false)}>
@@ -254,7 +254,7 @@ const SinglePlayer = ({ navigation }) => {
                   </TouchableOpacity>
                   <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame3}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
-                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                    <AntDesign name="arrow-right" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setThirdGameModal(false)}>
@@ -301,7 +301,7 @@ const SinglePlayer = ({ navigation }) => {
                   </TouchableOpacity>
                   <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame4}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
-                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                    <AntDesign name="arrow-right" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setFourthGameModal(false)}>
@@ -348,7 +348,7 @@ const SinglePlayer = ({ navigation }) => {
                   </TouchableOpacity>
                   <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame5}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
-                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                    <AntDesign name="arrow-right" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setFifthGameModal(false)}>
@@ -395,7 +395,7 @@ const SinglePlayer = ({ navigation }) => {
                   </TouchableOpacity>
                   <TouchableOpacity style={[styles.modalBtn, { backgroundColor: colors.accent }]} onPress={startGame6}>
                     <Text style={styles.modalBtnText}>Start Game</Text>
-                    <AntDesign name="arrowright" size={20} color="black" style={{ marginLeft: 6 }} />
+                    <AntDesign name="arrow-right" size={20} color="black" style={{ marginLeft: 6 }} />
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={[styles.modalBtn, styles.modalBtnClose, { backgroundColor: colors.accent }]} onPress={() => setSixthGameModal(false)}>

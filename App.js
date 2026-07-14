@@ -1,10 +1,15 @@
 import "react-native-gesture-handler";
-import { StyleSheet, TouchableOpacity, Image, Modal, View, Animated, Switch, Dimensions, Linking } from "react-native";
+import { StyleSheet, TouchableOpacity, Pressable, Image, Modal, View, Animated, Switch, Dimensions, Linking } from "react-native";
 import { Text } from "@rneui/base";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useState, useRef, useCallback, useContext, useMemo } from "react";
 import { AntDesign, Feather, Ionicons } from "@expo/vector-icons";
+import { useFonts } from "expo-font";
+import AntDesignFont from "@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/AntDesign.ttf";
+import FeatherFont from "@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Feather.ttf";
+import IoniconsFonts from "@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf";
+import MaterialCommunityFont from "@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf";
 import { LinearGradient } from "expo-linear-gradient";
 import { ThemeProvider, useTheme } from "./DarkTheme/ThemeProvider"
 import { SettingsContext } from "./SettingsContext";
@@ -61,6 +66,9 @@ const Stack = createNativeStackNavigator();
 const globalScreenOptionsBase = {
   headerBackTitleVisible: true,
   headerRight: () => <SettingsButton />,
+  headerTransparent: false,
+  headerBlurEffect: "none",
+  headerShadowVisible: false,
 };
 
 // Screen titles in functions
@@ -141,7 +149,7 @@ function QuitGameButton({ navigation }) {
         onPress={() => setVisible(true)}
         style={{ flexDirection: "row", marginLeft: -10 }}
       >
-        <AntDesign name="arrowleft" size={18} color="#000" style={{ marginTop: 2.5 }} />
+        <AntDesign name="arrow-left" size={18} color="#000" style={{ marginTop: 2.5 }} />
         <Text style={{ fontSize: 18, marginLeft: 5 }}>Quit Game</Text>
       </TouchableOpacity>
 
@@ -190,9 +198,9 @@ function SettingsButton() {
   const { openSettings } = useContext(SettingsContext);
   const { colors } = useTheme();
   return (
-    <TouchableOpacity onPress={openSettings} activeOpacity={0.5} style={{ marginRight: 10 }}>
+    <Pressable onPress={openSettings} style={{ marginRight: 10, justifyContent: "center", alignItems: "center", height: 44, width: 44 }}>
       <Feather name="settings" size={25} color="#000" />
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 
@@ -219,6 +227,9 @@ function AppInner() {
       headerStyle: { backgroundColor: colors.accent },
       headerTitleStyle: { color: "#000" },
       headerTintColor: "#000",
+      headerBackground: () => (
+        <View style={{ flex: 1, backgroundColor: colors.accent }} />
+      ),
     }),
     [colors.accent, colors.text]
   );
@@ -591,6 +602,15 @@ function AppInner() {
 }
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    AntDesign: AntDesignFont,
+    Feather: FeatherFont,
+    Ionicons: IoniconsFonts,
+    MaterialCommunityIcons: MaterialCommunityFont,
+  });
+
+  if (!fontsLoaded) return null;
+
   return (
     <ThemeProvider>
       <AppInner />
